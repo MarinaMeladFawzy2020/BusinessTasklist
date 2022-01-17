@@ -1,0 +1,20 @@
+.searchtable{
+    float: right;
+    margin-top: -9px;
+}
+.actions{
+    padding: 6px 10px ​!important;
+    border-radius: 50% !important;
+    color: white;
+    font-size: 20px;
+    background: #ffc107;
+}
+
+.actions .pi{
+    margin-left: 2px;
+}
+
+.p-paginator-current .ng-star-inserted{
+    width: 100%  !important;
+    
+}

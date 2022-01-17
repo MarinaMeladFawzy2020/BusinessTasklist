@@ -1,0 +1,35 @@
+.partone{
+     /* display: contents;*/
+    margin-left: -13px; 
+}
+
+.parttwo{
+    margin-left: -22px;
+}
+
+.contentInstance{
+    width: 95%;
+    border: 1px solid #d9dce0;
+    padding: 14px;
+    box-shadow: 0 2px 1px -1px #0003, 0 1px 1px #00000024, 0 1px 3px #0000001f;
+    border-radius: 4px 0px 0px 4px;
+    margin-bottom: 10px;
+}
+
+.contentArrow{
+    background: #edf0f5;
+    width: 5%;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 1px -1px #0003, 0 1px 1px #00000024, 0 1px 3px #0000001f;
+    border-radius: 0px 4px 4px 0px;
+    margin-bottom: 10px;
+}
+
+.contentArrow i{
+    margin-top: 135px;
+    display: inline-flex;
+    color: black;
+    font-size: 30px;
+    padding: 0 3px;
+}
+

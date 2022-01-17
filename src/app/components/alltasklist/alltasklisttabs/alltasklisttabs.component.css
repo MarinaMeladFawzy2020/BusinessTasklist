@@ -1,0 +1,10 @@
+.custom-chip{
+    margin-left: 5px;
+    margin-bottom: -12px;
+    margin-top: -10px;
+}
+
+.tabview{
+    width: -webkit-fill-available;
+    margin-top: -22px;
+}

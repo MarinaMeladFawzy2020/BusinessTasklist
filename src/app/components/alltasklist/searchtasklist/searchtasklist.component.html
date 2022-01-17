@@ -1,0 +1,98 @@
+
+<div class="card" style="padding: 12px 10px; background: f0f8ff; width: 100%;" >
+
+    <div class="row" >
+       
+    </div>
+        <input class="hiddenInput" type="text" id="userTask" placeholder="userTask" pInputText name="userTask" [(ngModel)]="userTask" [value]="userTask" style="height: 0 ;"> 
+        <div class="col-12" style="margin-left: -19px; margin-bottom: 5px;">
+            <h6 class="morecomp">Select More Components</h6>
+            <p-multiSelect [options]="moreComponents" [(ngModel)]="selectedmoreComponents" name="selectedmoreComponents" defaultLabel="Select More Components" optionLabel="name"></p-multiSelect>
+        </div>
+    
+    <form #f="ngForm" (ngSubmit)="searchtask(f.value)">
+      
+    <div class="row  search">
+        <div class="col-2"  *ngFor="let oneComponent of selectedmoreComponents">
+            <!-- {{oneComponent.name}} -   {{oneComponent.code}} -->
+    
+            <div *ngIf="oneComponent.code == '1'" >
+                <label >Work Item Id</label>
+                <p-inputNumber   [useGrouping]="false" [min]="0" id="WorkItemId"  name="work_ITEM_ID" [(ngModel)]="WorkItemId"> </p-inputNumber>
+            </div>
+        
+            <div *ngIf="oneComponent.code == '2'" >
+                <label >Process Name</label>
+                <input  type="text" id="ProcessName"  pInputText  name="process_NAME" [(ngModel)]="ProcessName"> 
+            </div>
+        
+            <div *ngIf="oneComponent.code == '3'" >
+                <label >Due Date</label>
+                <p-calendar dateFormat="dd/mm/yy" [(ngModel)]="DueDate" [showButtonBar]="true" [showIcon]="true" id="DueDate" inputId="DueDate"  name="due_DATE" ></p-calendar>
+            </div>
+        
+     
+
+            <div  *ngIf="oneComponent.code == '4'"  >
+                <label >Due Days</label>
+                <input type="text" id="DueDays"  pInputText   name="due_DAYS" [(ngModel)]="DueDays"> 
+            </div>
+        
+            <div  *ngIf="oneComponent.code == '5'"  >
+                <label >Activity Instance Id</label>
+                <input type="text" id="ActivityInstanceId" pInputText   name="activity_INSTANCE_ID" [(ngModel)]="ActivityInstanceId"> 
+            </div>
+        
+            <div   *ngIf="oneComponent.code == '6'"  >
+                <label >Task Status</label> 
+                <p-dropdown inputId="TaskStatus" [options]="TaskStatus" [(ngModel)]="selectedTaskStatus"   name="work_ITEM_STATUS" placeholder="Select Task Status" ></p-dropdown>
+            </div>
+        
+            <div  *ngIf="oneComponent.code == '7'"  >
+                <label >Process Instance Id</label>
+                <input type="text" id="ProcessInstanceId" pInputText   name="process_INSTANCE_ID" [(ngModel)]="ProcessInstanceId"> 
+            </div>
+        
+            <div  *ngIf="oneComponent.code == '8'"  >
+                <label >Work Item Name</label>
+                <input type="text" id="WorkItemName"  name="work_ITEM_NAME" pInputText [(ngModel)]="WorkItemName"> 
+            </div>
+        
+            <div *ngIf="oneComponent.code == '9'"  >
+                <label >Parent Process Inst Id</label>
+                <input type="text" id="ParentProcessInstId" name="parent_PROCESS_INST_ID" pInputText [(ngModel)]="ParentProcessInstId"> 
+            </div>
+        
+            <div  *ngIf="oneComponent.code == '11'"  >
+                <label >Assign Date</label>
+                <p-calendar dateFormat="dd/mm/yy"  [(ngModel)]="AssignDate" [showButtonBar]="true" [showIcon]="true" id="AssignDate" name="assign_DATE" inputId="AssignDate"  ></p-calendar>
+            </div>
+            <div   *ngIf="oneComponent.code == '10'"  >
+                <label >Process Id</label>
+                <input type="text" id="ProcessId"  pInputText [(ngModel)]="ProcessId" name="process_ID"> 
+            </div>
+        
+            
+       </div>
+
+      <div class="actions">
+        <p-button label="Search" type="submit" icon="pi pi-search" styleClass="p-button-success p-search" [disabled]=f.form.invalid ></p-button>
+        <p-button label="Reset"  type="button" (click)="reset(f)" icon="pi pi-refresh" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
+      </div>
+
+    </div>
+
+   
+
+    </form>
+
+</div>
+<br>
+
+     
+        <!-- <div class="col-3">
+            <p-multiSelect [options]="items" [(ngModel)]="selectedItems" defaultLabel="Select items" optionLabel="name"></p-multiSelect>
+        </div>
+    -->
+          
+        

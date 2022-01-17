@@ -1,0 +1,79 @@
+.actions {
+  color: white;
+  border-radius: 50px;
+}
+.p-person {
+  padding: 0;
+  border: 0 none;
+}
+
+.node-header,
+.node-content {
+  padding: 0.5em 0.7rem;
+}
+
+.node-header {
+  background-color: #d9dce0;
+  color: #212222;
+  border: 1px solid #b1b1b1;
+  border-bottom: none;
+  text-align: center;
+  max-width: inherit;
+  width: inherit;
+  padding: 2px;
+}
+
+.node-header .count {
+  position: absolute;
+  top: 2px;
+  left: 46%;
+}
+
+.node-header a {
+  color: black;
+}
+
+.node-content {
+  text-align: center;
+  border: 1px solid #b1b1b1;
+  padding: 5px !important;
+}
+
+.node-content i {
+  border-radius: 50%;
+  background: #e9ecef;
+  padding: 10px 14px;
+  font-size: 2;
+}
+
+.departmentchild {
+  background-color: #7247bc;
+  color: #ffffff;
+}
+
+.department-coo {
+  background-color: #a534b6;
+  color: #ffffff;
+}
+
+.department-cto {
+  background-color: #e9286f;
+  color: #ffffff;
+}
+
+#carouseltask .p-carousel-container {
+  width: 380px !important;
+}
+
+#containerzoom {
+  width: inherit;
+  height: 600px;
+  overflow: scroll;
+  margin-top: 5px;
+}
+#slide {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s;
+}
+

@@ -1,0 +1,39 @@
+.search .col-3 , .search .col-2{
+    margin-bottom: 5px;
+}
+.search .col-3 label , .search .col-2 label{
+    font-weight: 600;
+    color: #64748b; 
+    margin-left: 2px;
+}
+.search .p-inputtext , .search .p-dropdown .p-dropdown-label.p-placeholder {
+    width: -webkit-fill-available !important;
+}
+.actions{
+    float: right;
+    margin-top: -3px;
+    margin-left: 14px;
+    padding: 28px 0px 0px 0px;
+}
+
+.actions .pi{
+    margin-left: 2px;
+}
+
+
+.hiddenInput{
+    height: 0px !important;
+    visibility: hidden;
+    padding: 0px;
+    float: left;
+    margin-top: -10px !important;
+    
+}
+.morecomp{
+    margin-left: 15px;
+    color: #64748b; 
+    margin-top: 10px ;
+     float: left; 
+     margin-right: 74px;
+}
+

@@ -1,0 +1,10 @@
+.actions{
+    padding: 6px 10px ​!important;
+    /* border-radius: 50% !important; */
+    color: white;
+    font-size: 20px;
+}
+
+.actions .pi{
+    margin-left: 2px;
+}

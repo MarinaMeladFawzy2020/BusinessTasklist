@@ -1,0 +1,175 @@
+<input id="sidebar-toggle" type="checkbox" />
+
+<div class="sidebar">
+    <div class="sidbar-header">
+
+        <!-- <h3 class="brand"> BPM Business Application ( {{titleLoginMode}} ) </h3> -->
+
+        <!-- <div class="logomtsit" style="background: white; padding: 12px 15px; margin-top: 71px;">
+        <img src="assets/images/MTSLogo2.png" title="MTSIT logo"  width="115px"  />
+    </div> -->
+
+    </div>
+
+    <div class="sidebar-menu">
+
+        <!-- <p-panelMenu [model]="items" [style]="{'background':'#000'}" [multiple]='false'></p-panelMenu> -->
+
+        <ul>
+
+            <li routerLinkActive="active">
+                <a routerLink="processlist" title="processlist">
+                    <span class="fa fa-cogs  icon-navbar"></span>
+                    <span> Process List </span>
+                </a>
+            </li>
+
+            <li routerLinkActive="active">
+                <a routerLink="tasklist" title="tasklist">
+                    <span class="fa fa-tasks  icon-navbar"></span>
+                    <span> Task List </span>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="instancelist" title="instancelist">
+                    <span class="fa fa-list-alt  icon-navbar"></span>
+                    <span> Instance List </span>
+                </a>
+            </li>
+
+<!-- 
+            <li routerLinkActive="active">
+                <a routerLink="dashboard" title="Home ">
+                    <span class="fa fa-home  icon-navbar"></span>
+                    <span> Test </span>
+                </a>
+            </li> -->
+
+            <!-- <li> 
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <span class="fa fa-home  icon-navbar" ></span>
+                <span> Dashboard </span>
+            </a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li> <a href="#">  <span class="fa fa-home  icon-navbar" ></span> <span> Dashboard 1 </span></a> </li>
+                <li> <a href="#">  <span class="fa fa-home  icon-navbar" ></span> <span> Dashboard 2 </span></a> </li>
+            </ul>
+        </li> -->
+
+        </ul>
+
+
+        <!-- <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Task</h3>
+            <hr>
+        </div>
+        <ul class="list-unstyled components">
+            <p>MENUS</p>
+            <li> <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dashboard</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li> <a href="#">Dashboard1</a> </li>
+                    <li> <a href="#">Dashboard2</a> </li>
+                    <li> <a href="#">Dashboard3</a> </li>
+                </ul>
+            </li>
+            <li> <a href="#">Users</a> </li>
+            <li> <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Subscribers</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li> <a href="#">Active</a> </li>
+                    <li> <a href="#">Idle</a> </li>
+                    <li> <a href="#">Non Active</a> </li>
+                </ul>
+            </li>
+            <li> <a href="#">Timeline</a> </li>
+            <li> <a href="#">Live Chat</a> </li>
+            <li> <a href="#">Likes</a> </li>
+            <li> <a href="#">Comments</a> </li>
+        </ul>
+        <ul class="list-unstyled CTAs">
+            <li> <a href="#" class="download">Subscribe</a> </li>
+        </ul>
+    </nav> -->
+
+
+        <!-- <div class="content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light"> <button type="button" id="sidebarCollapse" class="btn btn-info"> <i class="fa fa-align-justify"></i> </button> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Features</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Pricing</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Contact</a> </li>
+                </ul>
+            </div>
+        </nav>
+     
+    </div> -->
+
+    </div>
+</div>
+
+<!-- Content -->
+<div class="main-content">
+
+    <header>
+        <div style="display: flex;">
+            <label for="sidebar-toggle" class="fa fa-bars memu-icon"></label>
+            <!-- <img src="assets/images/MTSLogo2.png" title="MTSIT logo" width="115px" /> -->
+        </div>
+        <div>
+            <h3 class="brand"> BPM Business Application ( {{titleLoginMode}} ) </h3>
+        </div>
+
+
+        <div style="display: inline-flex;" style="display: inline-flex;margin-left: 40px;border: 1px solid #d9dce0;">
+
+            <div class="dropdown">
+                <button class="btn btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-user"></i> {{username}}
+                </button>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li class="dropdown-item" routerLink="" (click)="logout()">
+                        <a style="color: #000;"> <i class="fa fa-sign-out"></i> Logout </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </header>
+
+    <main>
+        <!-- <h3>Page Name</h3> -->
+        <div class="container-fluid">
+            <div style="margin-top: 65px;margin-left: -12px;margin-right: -12px;border-radius: inherit;">
+                <router-outlet></router-outlet>
+                <!-- <app-dashboard></app-dashboard> -->
+            </div>
+        </div>
+    </main>
+</div>
+
+
+
+
+
+<!-- <p>navbar works!</p>
+<button class="btn btn-danger" (click)="logout()">Logout</button>
+{{showErrorMessage}}
+
+<button pButton type="button" label="Success" class="p-button-success"></button>
+<button pButton type="button" label="Small" icon="pi pi-check" class="p-button-sm"></button>
+
+<span class="p-input-icon-left">
+    <i class="pi pi-search"></i>
+    <input type="text" pInputText [(ngModel)]="value1" placeholder="Search">      
+</span>
+ <br>
+<p-listbox [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" [filter]="true"></p-listbox>
+ -->
+
+
+<!-- <router-outlet></router-outlet> -->

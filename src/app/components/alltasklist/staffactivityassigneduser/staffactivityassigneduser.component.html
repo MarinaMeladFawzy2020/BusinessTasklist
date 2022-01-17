@@ -1,0 +1,123 @@
+
+ 
+  
+<div class="modal fade" id="staffactivity" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false"  aria-labelledby="staffactivityLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+       
+        <div class="modal-header">
+          <h6 class="modal-title" id="staffactivityLabel">Activity Assigned Users </h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+         <!-- {{staffActivity | json}} -->
+
+         <p-table #dt1 [value]="staffActivity"  [rows]="10" [showCurrentPageReport]="true"  sortMode="multiple"
+         [rowsPerPageOptions]="[5,10,25,50]"  styleClass="p-datatable-sm p-datatable-gridlines" [loading]="loading"  selectionMode="single" [(selection)]="selectedProcess"
+         [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+         [globalFilterFields]="['assign_DATE','activity_INSTANCE_ID' , 'user_NAME' ]"
+         [metaKeySelection]="true"  responsiveLayout="scroll" selectionMode="multiple"   dataKey="activity_INSTANCE_ID">
+ 
+
+         <ng-template pTemplate="caption">
+             <div class="table-header">
+                 <span class="p-input-icon-left searchtable" style="margin-left: -75%;" >
+                     <i class="pi pi-search"></i>
+                     <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h" (input)="dt1.filterGlobal(inVal.value, 'contains')"  placeholder="Search keyword" /> 
+                 </span>
+             </div>
+         </ng-template>
+
+         
+
+ 
+ 
+         <ng-template pTemplate="header">
+             <tr>
+                 <th pSortableColumn="activity_INSTANCE_ID" >
+                     <div class="p-d-flex p-jc-between p-ai-center">
+                      activity_INSTANCE_ID                
+                         <p-sortIcon field="activity_INSTANCE_ID"></p-sortIcon>
+                     </div>
+                 </th>
+ 
+                 <th pSortableColumn="user_NAME" >
+                  <div class="p-d-flex p-jc-between p-ai-center">
+                    user_NAME                
+                      <p-sortIcon field="user_NAME"></p-sortIcon>
+                  </div>
+              </th>
+
+              <th pSortableColumn="assign_DATE" >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                  assign_DATE                
+                    <p-sortIcon field="assign_DATE"></p-sortIcon>
+                    
+                </div>
+            </th>
+
+
+
+             </tr>
+
+             <tr >
+              <th>
+                <p-columnFilter type="text" field="activity_INSTANCE_ID" ></p-columnFilter>
+              </th>
+            
+              <th>
+                <p-columnFilter type="text" field="user_NAME" ></p-columnFilter>
+              </th>
+
+              <th>
+                <p-columnFilter type="text" field="assign_DATE"></p-columnFilter>
+                <!-- <p-columnFilter type="date" field="assign_DATE"  ></p-columnFilter> -->
+
+
+                <!-- <p-columnFilter type="text" field="MEMBER_TYPE"></p-columnFilter>	 -->
+                <!-- <p-columnFilter  field="MEMBER_TYPE" matchMode="equals" [showMenu]="false">
+                  <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                    <p-dropdown  [ngModel]="value" [options]="statuses"   [ngModelOptions]="{standalone: true}" (onChange)="filter($event.value)" placeholder="Any" [showClear]="true">
+                      <ng-template let-option pTemplate="item">
+                        <span [class]="'customer-badge status-' + option.value">{{option.label}}</span>
+                      </ng-template>
+                    </p-dropdown>
+                  </ng-template>
+                </p-columnFilter> -->
+              </th>
+             
+            </tr>
+         </ng-template>
+ 
+ 
+         <ng-template pTemplate="body" let-Process>
+             <tr>
+                
+              <td>{{Process.activity_INSTANCE_ID}} </td>
+              <td>{{Process.user_NAME}} </td>
+              <td>{{Process.assign_DATE}} </td>
+              
+             </tr>
+         </ng-template>
+         <ng-template pTemplate="emptymessage">
+             <tr>
+                 <td colspan="7"><span class="emptymessage">No Data Found</span> </td>
+             </tr>
+         </ng-template>
+         </p-table>
+
+        </div>
+    
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-success"><i class="pi pi-check"></i> Save</button> -->
+          <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="pi pi-times"></i> Cancel</button>
+
+        </div>
+    </div>
+      </div>
+    </div>
+  
+

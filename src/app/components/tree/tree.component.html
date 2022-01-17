@@ -1,0 +1,166 @@
+
+<!-- <p-carousel [value]="dataslider" [numVisible]="1" [numScroll]="1" [circular]="false" [responsiveOptions]="responsiveOptions">
+  <ng-template pTemplate="header">
+  </ng-template>
+  <ng-template let-product pTemplate="item">
+      <div class="product-item">
+          <div class="product-item-content">
+           
+              <div>
+                  <h4 class="p-mb-1">{{product.name}}</h4>
+              </div>
+          </div>
+      </div>
+  </ng-template>
+</p-carousel> -->
+
+
+
+<!-- <p-button (click)="showMaximizableDialog()" icon="pi pi-external-link" label="Show"></p-button>
+
+<p-dialog header="Godfather I" [(visible)]="displayMaximizable"
+ [modal]="true" [style]="{width: '90vw' , height: '90vw'}" [maximizable]="true"
+    [draggable]="false" [resizable]="false">
+
+    <p>fficia deserunt mollit anim id est laborum.</p>
+
+        <ng-template pTemplate="footer">
+          <p-divider></p-divider>
+            <p-button icon="pi pi-check" (click)="displayMaximizable=false" label="Ok" ></p-button>
+        </ng-template>
+</p-dialog> -->
+
+
+<!-- <p-paginator [rows]="10" [totalRecords]="100" [pageLinkSize]="3"></p-paginator> -->
+
+<!-- <div>
+    <div class="p-grid p-align-center">
+        <div class="p-col-10">	{{first}}
+            <p-paginator [first]="first" [rows]="1"  [pageLinkSize]="0"
+            [totalRecords]="5" (onPageChange)="onPageChange($event)"
+            [showJumpToPageDropdown]="true" ></p-paginator>
+        </div>
+    </div>
+    <div class="image-gallery">
+      <div *ngFor="let dataslider of dataslider ; let i = index "  >
+        <div *ngIf = "first == i">
+          <h3>{{dataslider.name}}</h3>
+        </div>
+      </div>
+       <img src="assets/images/nature{{first + 1}}.jpg" /> 
+    </div>
+</div> -->
+
+
+<!-- <p-organizationChart [value]="dataorg"></p-organizationChart> -->
+<!-- <p-tree [value]="dataorg" layout="vertical" selectionMode="single" [(selection)]="selectedFile"></p-tree> -->
+
+<!-- <p-tree [value]="dataorg" layout="horizontal" selectionMode="single" [(selection)]="selectedFile"> -->
+
+  <!-- <ng-template let-node pTemplate="person">
+    <div class="node-header p-corner-top">{{node.label}}</div>
+    <div class="node-content">
+        <i class="fa fa-user"></i>
+        <div>{{node.data.name}}</div>
+        <div>{{node.data.version}}</div>
+    </div>
+</ng-template> -->
+<!-- <ng-template let-node pTemplate="department">
+{{node.label}}
+</ng-template>  -->
+
+<!--</p-tree> -->
+
+
+<!-- <p-toast [style]="{marginTop: '80px'}"></p-toast> -->
+
+<p-organizationChart  [value]="dataorg" selectionMode="single" [(selection)]="selectedNode" (onNodeSelect)="onNodeSelect($event)"
+    styleClass="company">
+    <ng-template let-node pTemplate="person">
+      <div class="node-header p-corner-top">{{node.label}}</div>
+      <div class="node-content" style="width: max-content;">
+          <i class="fa fa-user"></i>
+          <div>{{node.data.name}}</div>
+          <div>{{node.data.version}}</div>
+
+          <!-- <div>
+              <div class="image-gallery">
+                <div *ngFor="let dataslider of dataslider ; let i = index "  >
+                  <div *ngIf = "first == i">
+                    <h3>{{dataslider.name}}</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="p-grid p-align-center">
+                <div class="p-col-10">
+                    <p-paginator [first]="first" [rows]="1"  [pageLinkSize]="0"
+                    [totalRecords]="5" (onPageChange)="onPageChange($event)"
+                    [showJumpToPageDropdown]="true" ></p-paginator>
+                </div>
+            </div>
+          </div> -->
+
+          <p-carousel [value]="dataslider" id="carouseltask"  >
+            <ng-template let-car pTemplate="item">
+             <div >
+              Content to display 
+              <p> {{car.name}}</p> 
+             </div>
+            </ng-template>
+        </p-carousel>
+        
+  
+
+          
+      </div>
+  </ng-template>
+    <ng-template let-node pTemplate="department">
+    {{node.label}}
+    </ng-template> 
+</p-organizationChart>
+
+
+
+<!-- 
+<p-tree [value]="files1"></p-tree>
+
+<div style="margin-bottom: 1rem">
+    <button pButton type="button" label="Expand all" (click)="expandAll()" style="margin-right: .5rem"></button>
+    <button pButton type="button" label="Collapse all" (click)="collapseAll()"></button>
+</div> -->
+
+
+<!-- <p-tree [value]="files2"></p-tree> -->
+<!-- <p-tree [value]="treeall"></p-tree> -->
+
+<a class="btn btn-success" (click)="getDataTree()"> GetTreeAll</a>
+<p-tree [value]="treeall" [filter]="true" [filterPlaceholder]="'Filter By Role Name...'"   selectionMode="single" (onNodeSelect)="nodeSelect($event)" ></p-tree> 
+
+
+
+<!--Popup-->
+
+<button type="button" class="btn btn-success btn-sm mb-1" data-toggle="modal" data-target="#ProcessRole">
+    <i class="fa fa-plus"></i>  New Process Role 
+</button>
+  
+  <div class="modal fade" id="ProcessRole" tabindex="-1" role="dialog" aria-labelledby="ProcessRoleLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="ProcessRoleLabel">Add Process Role</h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success">Add Process Role</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+
+        </div>
+      </div>
+    </div>
+  </div>

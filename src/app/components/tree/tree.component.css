@@ -1,0 +1,52 @@
+
+    .p-person {
+        padding: 0;
+        border: 0 none;
+    }
+
+    .node-header, .node-content {
+        padding: .5em .7rem;
+    }
+
+    .node-header {
+        background-color: #d9dce0;
+        color: #212222;
+        border: 1px solid #b1b1b1;
+        border-bottom: none;
+        text-align: center;
+      
+    }
+
+    .node-content {
+        text-align: center;
+        border: 1px solid #b1b1b1;
+        
+    }
+
+    .node-content i {
+        border-radius: 50%;
+        background: #e9ecef;
+        padding: 10px 14px;
+        font-size: 2
+    }
+
+    .department-cfo {
+        background-color: #7247bc;
+        color: #ffffff;
+    }
+
+    .department-coo {
+        background-color: #a534b6;
+        color: #ffffff;
+    }
+
+    .department-cto {
+        background-color: #e9286f;
+        color: #ffffff;
+    }
+
+
+   #carouseltask   .p-carousel-container{
+    width: 380px !important;
+    }
+ 

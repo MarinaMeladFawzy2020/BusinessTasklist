@@ -1,0 +1,38 @@
+
+<!-- <button pButton pRipple type="button" data-toggle="modal" data-target="#createinstance"
+    class="p-button-rounded p-button-success actions"  > <i class="pi pi-plus"></i>
+</button> -->
+
+  
+  <div class="modal fade" id="createinstance" tabindex="-1" role="dialog" aria-labelledby="createinstanceLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="createinstanceLabel">Create Instance</h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+           <!-- {{proVersion}}
+           {{proVersion.replace(' ', '%20') }}  -->
+             <!-- {{dataP | json}}  -->
+            <div *ngIf="checkURLiFrame == true" >
+            <iframe height="300px" width="100%" class="IframeInstance"
+            [src]="trustedUrl">
+            </iframe>
+          </div>
+    
+        </div>
+
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-success">Save</button> -->
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+

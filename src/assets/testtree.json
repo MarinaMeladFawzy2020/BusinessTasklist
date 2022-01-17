@@ -1,0 +1,429 @@
+[
+    {
+        "ROLE_ID": 4724,
+        "ROLE_NAME": "Move Ticket From Draft to Resolution.jj",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": null
+    },
+    {
+        "ROLE_ID": 4764,
+        "ROLE_NAME": "From Closure Queue to Resolution Queue",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": null
+    },
+    {
+        "ROLE_ID": 4766,
+        "ROLE_NAME": "Move ticket from Freeze queue.",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": null
+    },
+    {
+        "ROLE_ID": 2622,
+        "ROLE_NAME": "ReviewIssues",
+        "DESCRIPTION": "Review The Issue",
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 1880
+    },
+    {
+        "ROLE_ID": 2954,
+        "ROLE_NAME": "cvs",
+        "DESCRIPTION": "ss",
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": null
+    },
+    {
+        "ROLE_ID": 2602,
+        "ROLE_NAME": "ISSUES",
+        "DESCRIPTION": "ISSUES PROCESS ROLE",
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 1880
+    },
+    {
+        "ROLE_ID": 3024,
+        "ROLE_NAME": "CreateSlots",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": null
+    },
+    {
+        "ROLE_ID": 3029,
+        "ROLE_NAME": "Requester",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 3024
+    },
+    {
+        "ROLE_ID": 3027,
+        "ROLE_NAME": "AGM",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 3024
+    },
+    {
+        "ROLE_ID": 3030,
+        "ROLE_NAME": "HRU",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 3024
+    },
+    {
+        "ROLE_ID": 1880,
+        "ROLE_NAME": "Director of general administrationk",
+        "DESCRIPTION": "jjdkkk",
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": null
+    },
+    {
+        "ROLE_ID": 1881,
+        "ROLE_NAME": "Head of dietary registration  team",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 1880
+    },
+    {
+        "ROLE_ID": 1882,
+        "ROLE_NAME": "Reception Supervisor",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 1881
+    },
+    {
+        "ROLE_ID": 1884,
+        "ROLE_NAME": "Head of SC team",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 1881
+    },
+    {
+        "ROLE_ID": 1885,
+        "ROLE_NAME": "SC Preparation Team",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 1884
+    },
+    {
+        "ROLE_ID": 1886,
+        "ROLE_NAME": "SC Execution Team",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 1884
+    },
+    {
+        "ROLE_ID": 1887,
+        "ROLE_NAME": "Stability User",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 1880
+    },
+    {
+        "ROLE_ID": 1888,
+        "ROLE_NAME": "Naming User",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 1880
+    },
+    {
+        "ROLE_ID": 1889,
+        "ROLE_NAME": "NODCAR User",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 1880
+    },
+    {
+        "ROLE_ID": 1890,
+        "ROLE_NAME": "Pricing User",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 1880
+    },
+    {
+        "ROLE_ID": 1891,
+        "ROLE_NAME": "Head of TC team",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 1881
+    },
+    {
+        "ROLE_ID": 1892,
+        "ROLE_NAME": "TC Preparation Team",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 1891
+    },
+    {
+        "ROLE_ID": 1893,
+        "ROLE_NAME": "TC Execution Team",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 1891
+    },
+    {
+        "ROLE_ID": 2041,
+        "ROLE_NAME": "Reception Users",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 1882
+    },
+    {
+        "ROLE_ID": 2039,
+        "ROLE_NAME": "Company",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 1881
+    },
+    {
+        "ROLE_ID": 2040,
+        "ROLE_NAME": "Company users",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 2039
+    },
+    {
+        "ROLE_ID": 2779,
+        "ROLE_NAME": "da",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 1880
+    },
+    {
+        "ROLE_ID": 2960,
+        "ROLE_NAME": "abb",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 2954
+    },
+    {
+        "ROLE_ID": 3324,
+        "ROLE_NAME": "GM",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 3024
+    },
+    {
+        "ROLE_ID": 3325,
+        "ROLE_NAME": "ChairMan",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 3024
+    },
+    {
+        "ROLE_ID": 4369,
+        "ROLE_NAME": "Schedule Per-Ch Process ROLE",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": null
+    },
+    {
+        "ROLE_ID": 3823,
+        "ROLE_NAME": "TDU",
+        "DESCRIPTION": "TDU",
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 3024
+    },
+    {
+        "ROLE_ID": 3914,
+        "ROLE_NAME": "DM",
+        "DESCRIPTION": "DM",
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 3024
+    },
+    {
+        "ROLE_ID": 4024,
+        "ROLE_NAME": "test2",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 4025
+    },
+    {
+        "ROLE_ID": 4025,
+        "ROLE_NAME": "child 2",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 4024
+    },
+    {
+        "ROLE_ID": 4026,
+        "ROLE_NAME": "test",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 4019
+    },
+    {
+        "ROLE_ID": 4027,
+        "ROLE_NAME": "test 3",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 4029
+    },
+    {
+        "ROLE_ID": 4028,
+        "ROLE_NAME": "child 3.2",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 4027
+    },
+    {
+        "ROLE_ID": 4029,
+        "ROLE_NAME": "test 4",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": null
+    },
+    {
+        "ROLE_ID": 4030,
+        "ROLE_NAME": "child 3.1",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 4028
+    },
+    {
+        "ROLE_ID": 3860,
+        "ROLE_NAME": "PAU",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 3024
+    },
+    {
+        "ROLE_ID": 4019,
+        "ROLE_NAME": "child",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 4026
+    },
+    {
+        "ROLE_ID": 4107,
+        "ROLE_NAME": "Medical_Roles",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": null
+    },
+    {
+        "ROLE_ID": 4444,
+        "ROLE_NAME": "Update Periodic Checkup Schedule",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": null
+    },
+    {
+        "ROLE_ID": 4478,
+        "ROLE_NAME": "UTTS-Ticket-process",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": null
+    },
+    {
+        "ROLE_ID": 4744,
+        "ROLE_NAME": "Resolution Queue to Closure Queue",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": null
+    },
+    {
+        "ROLE_ID": 4746,
+        "ROLE_NAME": "From closure To Close queue",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": null
+    },
+    {
+        "ROLE_ID": 4784,
+        "ROLE_NAME": "WFM",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": null
+    },
+    {
+        "ROLE_ID": 4785,
+        "ROLE_NAME": "FO",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 4784
+    },
+    {
+        "ROLE_ID": 5063,
+        "ROLE_NAME": "create work order",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": null
+    },
+    {
+        "ROLE_ID": 5189,
+        "ROLE_NAME": "Last Mile Agent",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 5187
+    },
+    {
+        "ROLE_ID": 5190,
+        "ROLE_NAME": "Regions",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 5187
+    },
+    {
+        "ROLE_ID": 5191,
+        "ROLE_NAME": "Infrastructure",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 5187
+    },
+    {
+        "ROLE_ID": 5187,
+        "ROLE_NAME": "Voice (Installation & Support)",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": null
+    },
+    {
+        "ROLE_ID": 6108,
+        "ROLE_NAME": "hh",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": null
+    },
+    {
+        "ROLE_ID": 6109,
+        "ROLE_NAME": "ff",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 1880
+    },
+    {
+        "ROLE_ID": 6023,
+        "ROLE_NAME": "ee",
+        "DESCRIPTION": "eeeeeeeeeeeeee",
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": null
+    },
+    {
+        "ROLE_ID": 6124,
+        "ROLE_NAME": "s",
+        "DESCRIPTION": "s",
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 1880
+    },
+    {
+        "ROLE_ID": 6123,
+        "ROLE_NAME": "TTTEEEESSSTTTT",
+        "DESCRIPTION": "DDDDDD",
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": 1880
+    },
+    {
+        "ROLE_ID": 6110,
+        "ROLE_NAME": "nnk",
+        "DESCRIPTION": null,
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": null
+    },
+    {
+        "ROLE_ID": 6143,
+        "ROLE_NAME": "-",
+        "DESCRIPTION": "-",
+        "LAST_MODIFIED_BY": "root",
+        "PARENT_ROLE_ID": null
+    }
+]

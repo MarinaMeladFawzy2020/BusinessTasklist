@@ -1,0 +1,67 @@
+
+<!-- <button pButton pRipple type="button" data-toggle="modal" data-target="#staffsuspend"
+    class="p-button-rounded p-button-success actions"  > <i class="pi pi-plus"></i>
+</button> -->
+
+ 
+  
+<div class="modal fade" id="staffresume" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false"  aria-labelledby="staffsuspendLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+       
+        <div class="modal-header">
+          <h6 class="modal-title" id="staffresumeLabel">Resume Task  Check from customer Side </h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+     <form #f="ngForm" (ngSubmit)="resumetask(f.value)">
+        <div class="modal-body">
+
+      <div class="row col-12">
+        <h6> Resume Task	 </h6>
+      </div>
+      <input type="text" pInputText  [(ngModel)]="process_INSTANCE_ID" name="P_PROC_INST_ID" style="visibility: hidden; height: 0px !important ; padding: 0;" >
+      
+     
+     
+
+      <div class="row col-12"> 
+        <div  *ngFor="let Filter of FilterList" class="p-field-checkbox FilterUserList" > 
+          <p-radioButton [inputId]="Filter.value" name="Filter" [value]="Filter"    
+           [(ngModel)]="selectedFilterList" ></p-radioButton>  <!---(click)="onChangeFilter(Filter)"-->
+          <label  [for]="Filter.value"  class="filterLabel" >{{Filter.name}}</label> 
+       </div>
+      </div>
+
+      <br>
+      <div class="row col-12"> 
+        <div *ngIf= "selectedFilterList.value == 1" >
+          <label class="mr-5">Resume Date</label>
+          <p-calendar dateFormat="dd/mm/yy" [(ngModel)]="ResumeDate" [minDate]="minDate" [showButtonBar]="true" [showIcon]="true"  [showTime]="true" [showSeconds]="true" id="ResumeDate" inputId="ResumeDate"
+            name="ResumeDate" #DATE2="ngModel" [required]="true" ></p-calendar>
+            <div class="mr-5" style="display: block; margin-left: 32%;">
+              <small class="text-danger mt-1"  *ngIf="DATE2.errors?.required && DATE2.touched"> Field is Required </small>
+            </div>
+
+        </div>
+
+      </div>
+ 
+ 
+
+        </div>
+    
+   
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success" [disabled]=f.form.invalid><i class="pi pi-check"></i> Save</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="reset(f)"><i class="pi pi-times"></i> Cancel</button>
+        </div>
+      </form>   
+    </div>
+      </div>
+    </div>
+  
+
+

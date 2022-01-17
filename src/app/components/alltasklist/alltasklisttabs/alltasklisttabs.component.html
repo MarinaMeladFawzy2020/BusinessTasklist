@@ -1,0 +1,42 @@
+<p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+
+<div class="card row col-12 " style="display:inline-flex; margin-left: -1px;">
+    <br>
+    <p-tabView class="tabview" (onChange)="handleChange($event)"  > 
+        <p-tabPanel [selected]="activetabs == 0"  >
+            <ng-template pTemplate = "header">
+                <span>My User Tasks</span>
+                <p-chip  [label]="totaltasklist"  class="custom-chip"></p-chip>
+            </ng-template>
+            <ng-template pTemplate="content">
+           <div>
+            <app-mytasklist  (getResponse)="gettotaltasklist($event)"></app-mytasklist>
+           </div>
+         </ng-template>
+        </p-tabPanel>
+    
+        <p-tabPanel  [selected]="activetabs == 1">  
+            <ng-template pTemplate = "header">
+                <span>MY Staff Tasks</span>
+                <p-chip  [label]="TotalStafList"  class="custom-chip"></p-chip>
+            </ng-template>
+
+            <ng-template pTemplate="content">
+                <div >
+                    <!-- <app-searchtasklist  [userTask]="1"></app-searchtasklist> -->
+                    <app-stafftasklist (getResponse)="gettotalStaflist($event)"></app-stafftasklist>
+                </div>
+            </ng-template>
+        </p-tabPanel>
+
+
+        <!-- <p-tabPanel header="Header 3">
+            <ng-template pTemplate="content">
+               hgggggggggggghg
+            </ng-template>
+        </p-tabPanel> -->
+
+    </p-tabView>
+        
+</div>
+

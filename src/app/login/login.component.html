@@ -1,0 +1,65 @@
+<div id="loginPage">
+    <form #f="ngForm" (ngSubmit)="login(f.value)">
+
+        <div class="p-fluid p-grid">
+            <div class="card">
+                <div class="p-fluid p-grid">
+                    <div class="p-field p-col-12 p-md-4">
+                        <img src="assets/images/MTSLogo.png" id="logo">
+                    </div>
+
+                    <!-- <div class="p-field p-col-12 p-md-4">
+                        <h3 class="text-center"> Login </h3>
+                    </div> -->
+
+                    <div class="p-field p-col-12 p-md-4">
+                        <label for="Username"> Username * </label>
+                        <input type="text" pInputText  [(ngModel)]="name" name="name"
+                            #RNAME="ngModel" required>
+                        <small class="text-danger mt-1" *ngIf="RNAME.errors?.required && RNAME.touched ">UserName is required.</small>
+                          
+                    </div>
+
+                    <div class="p-field p-col-12 p-md-4">
+                        <label for="password"> Password *</label>
+                        <!-- <p-password [(ngModel)]="value3" [toggleMask]="true" [(ngModel)]="password" name="password" #RPASS="ngModel" required></p-password> -->
+                            <input type="password"  pInputText [(ngModel)]="value3" [(ngModel)]="password" name="password"  
+                            #RPASS="ngModel" required>
+                        <small class="text-danger mt-1" *ngIf="RPASS.errors?.required && RPASS.touched ">Password is  required.</small>
+                           
+                    </div>
+
+                    <div class="p-field p-col-12 p-md-4" >
+                        <label for="LoginMode"> Login Mode * </label>
+                        
+                        <br>
+                          <div class="p-field-radiobutton" >
+                            <p-radioButton class="loginMode" inputId="Production"  name="LoginMode" value="0" [(ngModel)]="LoginMode"  #RMODE="ngModel"  ></p-radioButton>
+                            <label for="Production" > Production Mode </label>
+                          </div>
+
+                          <div class="p-field-radiobutton">
+                            <p-radioButton class="loginMode" inputId="Testing"  name="LoginMode" value="1" [(ngModel)]="LoginMode"  #RMODE="ngModel"  ></p-radioButton>
+                            <label for="Testing" > Testing Mode </label>
+                          </div>
+                         <!-- <small class="text-danger mt-1" *ngIf="RMODE.errors?.required && RMODE.touched "> Login Mode is required.</small> -->
+                    </div>
+
+                    <div class="p-field p-col-12 p-md-4">
+                        <button pButton type="submit" class="myform-btn" > <!--[disabled]=f.form.invalid-->
+                           <span class="titlelogin"> LOGIN</span>
+                        </button>
+                    </div>
+                    <div class="p-col-12">
+                        <p class="text-danger mt-3 text-center">{{showErrorMessage}}</p>
+                    </div>
+
+                    <!-- <div class="p-field p-col-12 p-md-4"></div> -->
+                       
+                    
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>

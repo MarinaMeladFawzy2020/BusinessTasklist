@@ -1,0 +1,87 @@
+<div class="modal fade" id="ActivityWorkItems" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false"
+    aria-labelledby="ActivityWorkItemsLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h6 class="modal-title" id="ActivityWorkItemsLabel"> Work Items List</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"  (click)="closedata()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form>
+                <div class="modal-body">
+
+                    <div class="row col-12">
+
+                        <div class="col-4 mb-3" *ngFor="let WorkItem of ActivityWorkItems ">
+                      
+                            <p-card class="card">
+                            
+                                <div class="p-d-flex" style="display: flex;">
+                                    <div class="mr-2 tilte" >ID :</div>
+                                    <div class="mr-2"> {{WorkItem.work_ITEM_ID}} </div>
+                                </div>
+                                <div class="p-d-flex" style="display: flex;">
+                                    <div class="mr-2 tilte" >Name :</div>
+                                    <div class="mr-2"> {{WorkItem.work_ITEM_NAME}} </div>
+                                </div>
+                                <div class="p-d-flex" style="display: flex;">
+                                    <div class="mr-2 tilte" >Assign Date :</div>
+                                    <div class="mr-2"> {{WorkItem.assign_DATE}} </div>
+                                </div>
+                                <div class="p-d-flex" style="display: flex;">
+                                    <div class="mr-2 tilte" >Assigned User :</div>
+                                    <div class="mr-2"> {{WorkItem.assigned_USER}}  </div>
+                                </div>
+                                <div class="p-d-flex" style="display: flex;">
+                                    <div class="mr-2 tilte" >Finished BY  :</div>
+                                    <div class="mr-2"> {{WorkItem.finished_BY}}  </div>
+                                </div>
+                                <div class="p-d-flex" style="display: flex;">
+                                    <div class="mr-2 tilte" >End_Date  :</div>
+                                    <div class="mr-2"> {{WorkItem.end_DATE}}  </div>
+                                </div>
+
+                                <div class="p-d-flex" style="display: flex;">
+                                    <div class="mr-2 tilte" >STATUS :</div>
+                                    <div class="mr-2" >
+                                        <h6 
+                                            [ngClass]="{
+                                                'progress-Not-Started' : (WorkItem.work_ITEM_STATUS) == 'Not Started',
+                                                'progress-Started' : (WorkItem.work_ITEM_STATUS) == 'Started',
+                                                'progress-Running' : (WorkItem.work_ITEM_STATUS) == 'Running',
+                                                'progress-Skipped' : (WorkItem.work_ITEM_STATUS) == 'Skipped',
+                                                'progress-Terminated' : (WorkItem.work_ITEM_STATUS) == 'Terminated',
+                                                'progress-Time-Out' : (WorkItem.work_ITEM_STATUS) == 'Time Out',
+                                                'progress-Completed' : (WorkItem.work_ITEM_STATUS) == 'Completed',
+                                                'progress-Finished' : (WorkItem.work_ITEM_STATUS) == 'Finished',
+                                                'progress-Suspended' : (WorkItem.work_ITEM_STATUS) == 'Suspended'
+                                                
+                                            }" >{{WorkItem.work_ITEM_STATUS}} </h6>
+                                    </div>
+                                </div>
+                                
+                            </p-card>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row col-12" *ngIf="WorkItemslength == true" >
+                        <span class="NoData">No Data Found </span>
+                    </div>
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="closedata()"><i class="pi pi-times"></i>
+                        Close</button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>

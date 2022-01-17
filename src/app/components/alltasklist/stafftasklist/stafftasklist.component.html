@@ -1,0 +1,85 @@
+<!-- {{StaffTaskList | json}}
+{{StaffTaskList[0].task_Status}} -->
+
+<app-searchtasklist [userTask]="1" (getResponse)="getsearchstafflist($event)"></app-searchtasklist>
+
+<p-table #dtStaffTaskList [value]="StaffTaskList" [rows]="10" [showCurrentPageReport]="true" sortMode="multiple"
+    [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading" selectionMode="single" [paginator]="true" styleClass="p-datatable-sm"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [globalFilterFields]="['work_ITEM_ID' , 'work_ITEM_NAME' , 'assigned_USER' , 'assign_DATE' , 'task_Status' , 'process_NAME' , 'version_NO']">
+
+
+    <ng-template pTemplate="caption">
+        <div class="table-header">
+            Staff Task List
+            <span class="p-input-icon-left searchtable" style="float: right; margin-top: -8px;">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h"
+                    (input)="dtStaffTaskList.filterGlobal(inVal.value, 'contains')" placeholder="Search keyword" />
+            </span>
+        </div>
+    </ng-template>
+
+
+
+    <ng-template pTemplate="body" let-myTask>
+        <tr >
+            <td><span class="btn btn-warning actions"> <i class="fa fa-th-list"></i> </span> </td>
+            <td>
+                <h6 title="work_ITEM_ID">{{myTask.work_ITEM_ID}}</h6>
+                <h6 title="work_ITEM_NAME">{{myTask.work_ITEM_NAME}}</h6>
+                <h6 title="assign_DATE">{{myTask.assign_DATE }}</h6>
+                <h6 title="assigned_USER">{{myTask.assigned_USER}}</h6>
+            </td>
+            <td style=" text-align: center; font-size: 16px;">
+                
+                <h6>
+                    <a title="count_STAFF_USERS" class="text-center" data-toggle="modal" data-target="#staffactivity" (click)="staffActivitydataRow(myTask)">{{myTask.count_STAFF_USERS}}</a>
+                </h6>
+                <a title="Assignee" class="text-center" data-toggle="modal" data-target="#staffactivity" (click)="staffActivitydataRow(myTask)">Assignee</a>
+                <app-staffactivityassigneduser #staffactivityassigned></app-staffactivityassigneduser> 
+            </td>
+
+
+            <td>
+                <span class="btn btn-success actions" title="Assign/Reassign Task" data-toggle="modal" data-target="#staffassignandreassign" (click)="staffdataRow(myTask)"> 
+                    <i class="pi pi-users"></i> 
+                </span>
+                <app-staffassignandreassign #staffreassign></app-staffassignandreassign> 
+
+            </td>
+           
+            <td *ngIf="StaffTaskList[0].task_Status == 'Started' ">
+                <button  type="button" title="Suspend Task" data-toggle="modal" data-target="#staffsuspend"  (click)="staffsuspenddataRow(myTask)"
+                    class="btn btn-danger actions"> <i class="pi pi-stop-circle"></i>
+                </button>
+                <app-staffsuspend #staffsuspend></app-staffsuspend> 
+            </td>
+
+            <td *ngIf="StaffTaskList[0].task_Status == 'Suspended' "> 
+                <button  type="button" title="Resume Task" data-toggle="modal" data-target="#staffresume"  (click)="staffresumedataRow(myTask)"
+                    class="btn btn-danger actions"> <i class="pi pi-play"></i>
+                </button>
+                <app-staffresumetask #staffresume></app-staffresumetask> 
+            </td>
+
+            <td>
+                <h6 title="task_Status">{{myTask.task_Status}}</h6>
+            </td>
+
+            <td style="width: 20%;" title="due_DATE">
+                <h6>{{myTask.due_DATE}}</h6>
+            </td> <!--  | date: 'dd/MM/yyyy'-->
+            <td>
+                <h6 title="process_NAME">{{myTask.process_NAME}}</h6>
+                <h6 title="version_NO">{{myTask.version_NO}}</h6>
+            </td>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="7"><span class="emptymessage">No Data Found</span> </td>
+        </tr>
+    </ng-template>
+</p-table>

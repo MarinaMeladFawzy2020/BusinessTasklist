@@ -1,0 +1,67 @@
+<!-- {{TaskList | json}} -->
+
+
+<app-searchtasklist  [userTask]="0"  (getResponse)="getsearchtasklist($event)"></app-searchtasklist>
+
+
+<p-table #dtmytasklist [value]="TaskList"  [rows]="10" [showCurrentPageReport]="true"  sortMode="multiple"
+[rowsPerPageOptions]="[5,10,25,50]" [loading]="loading"  selectionMode="single" styleClass="p-datatable-sm"
+[paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+[globalFilterFields]="['work_ITEM_ID' , 'work_ITEM_NAME' , 'assigned_USER' , 'assign_DATE' , 'task_Status' , 'process_NAME' , 'version_NO']">
+
+<ng-template pTemplate="caption">
+    <div class="table-header">
+        My User Tasks
+        <span class="p-input-icon-left searchtable" style="float: right; margin-top: -8px;">
+            <i class="pi pi-search"></i>
+            <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h" (input)="dtmytasklist.filterGlobal(inVal.value, 'contains')"  placeholder="Search keyword" /> 
+        </span>
+    </div>
+</ng-template>
+
+
+<!-- <ng-template pTemplate="header">
+    <tr>
+        <th>work ITEM ID</th>   
+        <th>version_NO</th>   
+        <th>process_ID</th>   
+        <th>process_NAME</th>   
+        <th>task_TYPE</th>   
+        <th>finished_BY</th>   
+    </tr>
+</ng-template>  -->
+
+
+<ng-template pTemplate="body" let-myTask>
+    <tr >
+        <td><span class="btn btn-warning actions" >  <i class="fa fa-th-list"></i> </span> </td>
+        <td>
+            <h6 title="work_ITEM_NAME">{{myTask.work_ITEM_NAME}}</h6>
+            <h6 title="assign_DATE">{{myTask.assign_DATE  }}</h6> <!--| date: 'dd/MM/yyyy'-->
+            <h6 title="assigned_USER">{{myTask.assigned_USER}}</h6>
+         </td>
+        <td><h6 title="task_Status">{{myTask.task_Status}}</h6> </td>
+
+        <td><span class="btn btn-primary actions"  title="history" >  <i class="fa fa-history"></i> </span> </td>
+        <td title="due_DATE" style="width: 20%;"> <h6  >{{myTask.due_DATE }}</h6> </td> 
+        <td>
+            <h6  title="process_NAME">{{myTask.process_NAME}}</h6>
+            <h6  title="version_NO">{{myTask.version_NO}}</h6>
+         </td>
+        
+    </tr>
+</ng-template>
+<ng-template pTemplate="emptymessage">
+    <tr>
+        <td colspan="7"><span class="emptymessage">No Data Found</span> </td>
+    </tr>
+</ng-template>
+</p-table>
+
+
+        
+
+           
+      
+        
+

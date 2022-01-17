@@ -1,0 +1,139 @@
+<!-- {{AllProcessInstance | json}} -->
+
+
+
+<div class="row" *ngIf="checkDetails == true">
+    <span *ngIf="message !== null" style="color:#a33 ; margin-left: 41%;font-weight: 700;">{{message}}</span>
+
+    <div class="col-4" *ngFor="let testobject of AllProcessInstance ; let i = index" style="padding: 1px;">
+        <div class="contentInstance">
+
+
+            <div class="row col-12">
+                <div class="col-10">
+
+                    <h6>{{testobject.version_NO}}</h6>
+                    <h6><a (click)="viewDetails(testobject.process_INSTANCE_ID )" title="process_INSTANCE_ID">
+                            {{testobject.process_INSTANCE_ID }} </a></h6>
+                    <h6><a (click)="viewDetails(testobject.process_INSTANCE_NAME )" title="process_INSTANCE_NAME">
+                            {{testobject.process_INSTANCE_NAME }} </a></h6>
+                    <h6>{{testobject.creation_DATE | date:'dd-MM-yyyy' }}</h6>
+
+
+                </div>
+                <div class="col-2">
+                    <a class="treeinstance" (click)="viewDetails(testobject.process_INSTANCE_ID )">
+                        <button pButton pRipple type="button"
+                            class="p-button-primary p-button-rounded count">{{testobject.count_SUB_INST}}</button>
+                        <img src="assets/images/process.png" width="51px;" />
+                    </a>
+
+                </div>
+
+            </div>
+            <br>
+            <div class="row col-12" style="padding: 0px;margin-top: -22px;">
+                <div class="col-5">
+                    <h6 style="color:#a33" >{{testobject.instance_STATUS}}</h6>
+
+                </div>
+                <div class="col-7" style="padding-right: 0px;">
+                    <h6 style=" margin-top: -30px;float: right;"> {{(testobject.finishedactivities /
+                        testobject.countactitivity)*100 | number:'1.2-2' }} % </h6>
+
+                    <div class="progress prog">
+                        <div class="progress-bar" role="progressbar"
+                            [style.width]="(testobject.finishedactivities / testobject.countactitivity)*100 +'%'"
+                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" [ngClass]="{
+                        'progress-easy' : (testobject.finishedactivities / testobject.countactitivity)*100 < 50,
+                        'progress-medium' : (testobject.finishedactivities / testobject.countactitivity)*100 == 50,
+                        'progress-hard' : (testobject.finishedactivities / testobject.countactitivity)*100 > 50 
+                     }">
+                            {{(testobject.finishedactivities / testobject.countactitivity)*100 | number:'1.2-2' }} %
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="row text-center">
+                <div class="col-sm-6">
+                    <button pButton pRipple type="button"
+                        class="p-button-info p-button-rounded p-button-outlined"  style="color: #5a6268;">{{testobject.countactitivity}}</button>
+                    <br> All
+                </div>
+                <div class="col-sm-6">
+                    <button pButton pRipple type="button"
+                        class=" p-button-primary p-button-rounded p-button-outlined">{{testobject.user_ACTIV_COUNT}}</button>
+                    <br> User
+                </div>
+
+            </div>
+
+            <br>
+            <div class="row text-center" style="margin-top: -20px;">
+                <div class="col-sm-6">
+                    <button pButton pRipple type="button"
+                        class=" p-button-warning p-button-rounded p-button-outlined"  >{{testobject.count_RUN_ACT}}</button>
+                    <br> Running
+                </div>
+                <div class="col-sm-6">
+                    <button pButton pRipple type="button"
+                        class=" p-button-success p-button-rounded p-button-outlined">{{testobject.count_COMP_ACT}}</button>
+                    <br> Completed
+                </div>
+            </div>
+         
+                <div class="row text-center" style="margin-left: 25%; margin-top: 10px;"
+                    *ngIf="testobject.instance_STATUS == 'Started'  || testobject.instance_STATUS == 'Suspended' ">
+                    <button pButton pRipple type="button" class=" p-button-danger"  (click)="Terminated(testobject.process_INSTANCE_ID , i)">Terminated</button> 
+                    <!-- data-toggle="modal" data-target="#Terminated"  -->
+                </div>
+                  <!-- <div class="modal fade" id="Terminated" tabindex="-1" role="dialog" aria-labelledby="TerminatedLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-l" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h6 class="modal-title" id="TerminatedLabel">Terminated</h6>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            {{process_INSTANCE_ID}} - {{index}} 
+                          Are you Sure ?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="submit" class="btn btn-success" (click)= "Done(process_INSTANCE_ID , index)" >ok</button>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+        
+        </div>
+    </div>
+
+</div>
+
+<br>
+<div class="col-12" *ngIf="checkDetails == true ">
+    <!-- {{processIDP}}<br>
+    {{PageNoP}} <br>
+    {{SizeP}}  -->
+    <div style="text-align: center;" *ngIf="hidenReadmore == false">
+        <button pButton pRipple type="button" class=" p-button-warning"
+            (click)="readMore(processIDP , PageNoP + 1  , SizeP  )">Read More</button> 
+    </div>
+
+</div>
+
+
+
+<!-- <p-virtualScroller [value]="cars" scrollHeight="500px" itemSize="150">
+    <ng-template pTemplate="item" let-car>
+        Car content
+    </ng-template>
+</p-virtualScroller> -->

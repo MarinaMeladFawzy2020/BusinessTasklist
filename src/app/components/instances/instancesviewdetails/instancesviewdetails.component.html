@@ -1,0 +1,104 @@
+<p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+
+
+<div class="card row col-12 " style="display: -webkit-inline-box; margin-left: -1px;padding: 15px;">
+    <!-- <p-tree [value]="treeall" [filter]="true"></p-tree>  -->
+
+    <div class="row col-12">
+        <h6>View Instance List - {{process_INSTANCE_ID}} </h6>
+        <div style="margin-left: 85%;">
+            <button (click)="zoomIn()" class="btn btn-danger mr-2 actions"> <i class="fa fa-search-plus"></i> </button>
+            <button (click)="reset()" class="btn btn-danger mr-2 actions"> <i class="fa fa-search"></i> </button>
+            <button (click)="zoomOut()" class="btn btn-danger mr-2  actions"> <i class="fa fa-search-minus"></i>
+            </button>
+        </div>
+    </div>
+    <div id="containerzoom">
+        <div id="slide">
+
+            <div id="Zoom" style='zoom: 80% ;  display: contents;'>
+                <div class="col-12">
+
+
+
+                    <p-organizationChart [value]="treeall" selectionMode="single" [(selection)]="selectedNode"
+                        (onNodeSelect)="onNodeSelect($event)" styleClass="company">
+
+                        <ng-template let-node pTemplate="person">
+                            <div class="node-header p-corner-top">
+                                <p-badge class="count" [value]="node.count_SUB_INST" size="large" severity="primary">
+                                </p-badge>
+                                <a (click)="viewlistactivites()">
+                                    {{node.process_INSTANCE_ID}} - {{node.process_INSTANCE_NAME}} <br>
+                                    {{node.creation_DATE}}
+                                </a>
+
+                            </div>
+
+                            <!-- <p-carousel [value]="datasliders" id="carouseltask55">
+                                <ng-template  pTemplate="item">
+                                    <div>{{pageNo}}
+                                        <p> {{node.process_INSTANCE_ID}}</p>
+                                    </div>
+                                </ng-template>
+                            </p-carousel> -->
+
+                            <div class="node-content" style="width: max-content;">
+
+                                <p-carousel class="carouseltask" [value]="datasliders" 
+                                    id="carouseltask{{node.process_INSTANCE_ID}}"
+                                    (onPage)="setPage($event , node.process_INSTANCE_ID )">
+
+                                    <ng-template pTemplate="item" > 
+                                        <div *ngIf="pageNo.get(node.process_INSTANCE_ID) == 0" > 
+                                            <!-- {{node.process_INSTANCE_ID }} -->
+                                            <h6>Instance Status : {{node.instance_STATUS}}</h6>
+                                            <h6 style="text-align: left;">Activities Summary : </h6>
+                                            <h6 style="color: #ff9800;">Initiated : {{node.count_INIT_ACT}} </h6>
+                                            <h6 style="color: #a33;">Skipped : {{node.count_SKIP_ACT}} </h6>
+                                            <h6 style="color: #8a5340;">Running : {{node.count_RUN_ACT}} </h6>
+                                            <h6 style="color: #256029;">Completed : {{node.count_COMP_ACT}} </h6>
+                                        </div>
+
+                                        <div *ngIf="pageNo.get(node.process_INSTANCE_ID) == 1">
+                                            <h6>Instance Date</h6>
+                                            <h6 style="color: #000;line-height: 25px;" >Creation Date : <br> {{node.creation_DATE}}</h6>
+                                            <h6 style="color: #ff9800;line-height: 25px;">Estimate Date : <br> {{node.estimate_TIME}}</h6>
+                                            <h6 style="color: #a33;line-height: 25px;" >Finish Date : <br> {{node.finish_DATE}}</h6>
+                                         </div>
+
+                                    </ng-template>
+
+                               
+
+                                </p-carousel>
+
+
+                            </div>
+
+                        </ng-template>
+                        <!-- <ng-template let-node pTemplate="departmentchild">
+                {{node.label}}------
+            </ng-template> -->
+
+                    </p-organizationChart>
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- <div mouseWheel (mouseWheelUp)="mouseWheelUpFunc(event)" (mouseWheelDown)="mouseWheelDownFunc(event)"> </div> -->
+
+
+
+
+
+
+
+</div>

@@ -1,0 +1,26 @@
+{
+    "data": 
+    [
+        {
+            "label": "Data11",
+            "children": [{
+                    "label": "Child1",
+                    "children": [
+                        {"label": "P1"}, {"label": "P2"}]
+                      
+                },
+                {
+                    "label": "Child2",
+                    "children": [{"label": "yyyy"}]
+                }]
+        },
+        {
+            "label": "Data2",
+            "children": [
+                {"label": "11111"},
+                {"label": "2222222"},
+                {"label": "33333"}]
+        }
+       
+    ]
+}

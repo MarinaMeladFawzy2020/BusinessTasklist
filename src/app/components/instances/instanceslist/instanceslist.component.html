@@ -1,0 +1,139 @@
+<p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
+
+<div class="row " style="margin-left: 2px; width: 100%;">
+
+    <div class="col-4 partone"> 
+        <p-card header="Instance List"  styleClass="p-card-shadow"> <!--[style]="{'width': '360px'}" [style.background]="colorHover" -->
+            <p-table #dt1 [value]="instancelist"  [rows]="5" [showCurrentPageReport]="true"  sortMode="multiple"
+            [rowsPerPageOptions]="[5,10,25,50]" [rowHover]="true" responsiveLayout="scroll" 
+             [loading]="loading"  selectionMode="single" [(selection)]="selectedProcess"  styleClass="p-datatable-sm"
+            [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [globalFilterFields]="['process_ID' ,'process_NAME']">
+     
+            
+            <ng-template pTemplate="caption">
+                <div class="table-header">
+                    <span class="p-input-icon-left searchtable" >
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h" (input)="dt1.filterGlobal(inVal.value, 'contains')"  placeholder="Search keyword" /> 
+                    </span>
+                </div>
+            </ng-template>
+     
+            <ng-template pTemplate="body" let-testobject>
+                <tr [pSelectableRow]="testobject" (click)="getDetails(testobject.process_ID , i )">
+                    <td>
+                     <div class="row" style="padding: 0 10px;" >
+                         <div class="contentInstance"> 
+                                 <div>
+                                     <h5 class="text-center">{{testobject.process_ID}}</h5>
+                                     <h6 class="text-center">{{testobject.process_NAME }}</h6>
+                                 </div>
+                                 <br>
+                                 <div class="row text-center">
+                                     <div class="col-sm-4">
+                                         <button pButton pRipple type="button" class=" p-button-info p-button-rounded p-button-outlined"  style="color: #5a6268;">{{testobject.count_ALL_INSTS}}</button> <br> All
+                                     </div>
+                                     <div class="col-sm-4">
+                                         <button pButton pRipple type="button" class=" p-button-warning p-button-rounded p-button-outlined" >{{testobject.count_RUNNING_INSTS}}</button> <br> Running
+                                     </div>
+                                     <div class="col-sm-4">
+                                         <button pButton pRipple type="button" class=" p-button-success p-button-rounded p-button-outlined">{{testobject.count_COMPLETED_INSTS}}</button> <br> Completed
+                                     </div>
+                                 </div>
+                 
+                                 <br>
+                                 <div class="row text-center">
+                                     <div class="col-sm-4">
+                                         <button pButton pRipple type="button" class=" p-button-primary p-button-rounded p-button-outlined">{{testobject.count_TERMINATED_INSTS}}</button> <br> Terminated
+                                     </div>
+                                     <div class="col-sm-4">
+                                         <button pButton pRipple type="button" class=" p-button-danger p-button-rounded p-button-outlined">{{testobject.count_DELAYED_INSTS}}</button> <br> Delayed
+                                     </div>
+                                     <div class="col-sm-4">
+                                         <button pButton pRipple type="button" class=" p-button-warning p-button-rounded p-button-outlined" style="color: #8a5340;">{{testobject.count_SUSPENDED_INSTS}}</button> <br> Suspended
+                                     </div>
+                                 </div>
+             
+                         </div>
+                         <div class="contentArrow">
+                             <i class="fa fa-caret-right"></i>
+                             
+                         </div>
+             
+                     </div>       
+                 
+                 </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="7"><span class="emptymessage">No Data Found</span> </td>
+                </tr>
+            </ng-template>
+            </p-table>
+     
+
+        </p-card>
+
+    </div>
+
+    <div class="col-8 parttwo" >
+        <p-card header="Instance Action"  styleClass="p-card-shadow2" >
+            <p>
+                <app-instancesaction #DetailsInstance></app-instancesaction>
+            </p>
+        </p-card>
+
+    </div>
+
+</div>
+
+
+
+
+
+            <!-- <div class="row" *ngFor="let testobject of instancelist ; let i = index"  (click)="getDetails(testobject.process_ID , i ) " >
+            <div class="contentInstance" [style.background]="colorHover" id="contentInstance{{i}}"> 
+
+                    <div>
+                        <h5 class="text-center">{{testobject.process_ID}}</h5>
+                        <h5 class="text-center">{{testobject.process_NAME }}</h5>
+                    </div>
+                    <br>
+                    <div class="row text-center">
+                        <div class="col-sm-4">
+                            <button pButton pRipple type="button" class=" p-button-info p-button-rounded p-button-outlined">{{testobject.count_ALL_INSTS}}</button> <br> All
+                        </div>
+                        <div class="col-sm-4">
+                            <button pButton pRipple type="button" class=" p-button-primary p-button-rounded p-button-outlined">{{testobject.count_RUNNING_INSTS}}</button> <br> Running
+                        </div>
+                        <div class="col-sm-4">
+                            <button pButton pRipple type="button" class=" p-button-success p-button-rounded p-button-outlined">{{testobject.count_COMPLETED_INSTS}}</button> <br> Completed
+                        </div>
+                    </div>
+    
+                    <br>
+                    <div class="row text-center">
+                        <div class="col-sm-4">
+                            <button pButton pRipple type="button" class=" p-button-primary p-button-rounded p-button-outlined">{{testobject.count_TERMINATED_INSTS}}</button> <br> Terminated
+                        </div>
+                        <div class="col-sm-4">
+                            <button pButton pRipple type="button" class=" p-button-danger p-button-rounded p-button-outlined">{{testobject.count_DELAYED_INSTS}}</button> <br> Delayed
+                        </div>
+                        <div class="col-sm-4">
+                            <button pButton pRipple type="button" class=" p-button-warning p-button-rounded p-button-outlined">{{testobject.count_SUSPENDED_INSTS}}</button> <br> Suspended
+                        </div>
+                    </div>
+
+            </div>
+            <div class="contentArrow">
+                <i class="fa fa-caret-right"></i>
+                
+            </div>
+
+             </div> -->
+          
+
+
+   

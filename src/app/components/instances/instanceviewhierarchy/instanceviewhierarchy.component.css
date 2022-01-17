@@ -1,0 +1,39 @@
+.NoData{
+    color: #a33;
+    margin-left: 47%;
+    font-weight: 500;
+}
+
+.tilte{
+    font-weight: 600;
+}
+
+.progress-Not-Started{
+    color: gray;
+    font-weight: 600;
+}
+.progress-Started{
+    color: #ff9800;
+    font-weight: 600;
+}
+
+.progress-Terminated{
+    color: #000;
+    font-weight: 600;
+ }
+
+ .progress-Running{
+    color: #F59E0B;
+    font-weight: 600;
+}
+
+ 
+ .progress-Skipped , .progress-Terminated , .progress-Time-Out , .progress-Suspended{
+    color: #a33;
+    font-weight: 600;
+ }
+ 
+ .progress-Completed , .progress-Finished{
+    color: #4caf50;
+    font-weight: 600;
+ }
