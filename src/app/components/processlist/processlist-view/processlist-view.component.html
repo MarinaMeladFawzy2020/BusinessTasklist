@@ -37,9 +37,9 @@
         <ng-template pTemplate="header">
             <tr>
                 <th >
-                    <div class="p-d-flex p-jc-between p-ai-center">
-                        Actions
-                    </div>
+                    <div class="p-d-flex p-jc-between p-ai-center"> </div>
+                        
+                   
                 </th>
 <!-- 
                 <th pSortableColumn="ProcessId" style="width: 10rem !important;">
@@ -54,6 +54,14 @@
                         ProcessName                
                         <p-sortIcon field="ProcessName"></p-sortIcon>
                         <p-columnFilter type="text" field="ProcessName" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th pSortableColumn="DefaultVersionNo" style="width: 10rem !important;">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Versions       
+                        <p-sortIcon field="DefaultVersionNo"></p-sortIcon>
+                        <p-columnFilter type="text" field="DefaultVersionNo" display="menu"></p-columnFilter>
                     </div>
                 </th>
 
@@ -81,13 +89,7 @@
                     </div>
                 </th> -->
             
-                <!-- <th pSortableColumn="DefaultVersionNo" style="width: 10rem !important;">
-                    <div class="p-d-flex p-jc-between p-ai-center">
-                        Versions       
-                        <p-sortIcon field="DefaultVersionNo"></p-sortIcon>
-                        <p-columnFilter type="text" field="DefaultVersionNo" display="menu"></p-columnFilter>
-                    </div>
-                </th> -->
+               
             
             
             
@@ -98,18 +100,20 @@
         <ng-template pTemplate="body" let-Process>
             <tr [pSelectableRow]="Process" (click)="viewVersion(Process.ProcessId)">
                 <td> 
-                    <span class="btn btn-warning actions" >  <i class="fa fa-cogs"></i> </span> 
+                    <!-- <span class="btn btn-warning actions" >  <i class="fa fa-cogs"></i> </span>  -->
+                    <span class="btn btn-warning actions" style="background: white;  border: 1px solid #ffc107;" >  <i class="fa fa-cogs" style="color:#ffc107"></i> </span> 
                      
                     <!-- <button pButton pRipple type="button" (click)="viewVersion(Process.ProcessId)"
                      class="p-button-rounded p-button-warning actions" > <i class="pi pi-eye"></i>
                     </button>  -->
                 </td>
                 <!-- <td>{{Process.ProcessId}} </td> -->
-                <td>{{Process.ProcessName}} </td>
+                <td>{{Process.ProcessId}} - {{Process.ProcessName}} </td>
+                <td>{{Process.DefaultVersionNo}} </td>
+
                 <!-- <td>{{Process.ProcessStatus}} </td> -->
                 <!-- <td>{{Process.Description}} </td> -->
                 <!-- <td>{{Process.ParentProcessId}} </td> -->
-                <!-- <td>{{Process.DefaultVersionNo}} </td> -->
             </tr>
         </ng-template>
         <ng-template pTemplate="emptymessage">

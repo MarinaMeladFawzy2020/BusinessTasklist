@@ -10,6 +10,7 @@ import { CreateinstanceComponent } from '../createinstance/createinstance.compon
 })
 export class VersionlistComponent implements OnInit {
 [x:string]:any;
+
 @ViewChild('myDetailsVersion') myDetailsVersion!: CreateinstanceComponent;
 
   constructor(private processList : ProcesslistService , private checkpremission:AuthService) { }
@@ -21,8 +22,11 @@ export class VersionlistComponent implements OnInit {
   }
 
   sendProcessId(ProcessId:any){
+    this.loading = true;
+
     this.processList.getAllProcessVersions(ProcessId).subscribe((Response: any) => {
       this.AllProcessVersions = Response.body;
+      this.loading = false;
        console.log(this.AllProcessVersions);
    }); 
 
