@@ -16,35 +16,48 @@
 
                         <div class="col-4 mb-3" *ngFor="let WorkItem of ActivityWorkItems ">
                       
-                            <p-card class="card">
+                            <div   [ngClass]="{
+                                'background-Not-Started' : (WorkItem.work_ITEM_STATUS) == 'Not Started',
+                                'background-Started' : (WorkItem.work_ITEM_STATUS) == 'Started',
+                                'background-Running' : (WorkItem.work_ITEM_STATUS) == 'Running',
+                                'background-Skipped' : (WorkItem.work_ITEM_STATUS) == 'Skipped',
+                                'background-Terminated' : (WorkItem.work_ITEM_STATUS) == 'Terminated',
+                                'background-Time-Out' : (WorkItem.work_ITEM_STATUS) == 'Time Out',
+                                'background-Completed' : (WorkItem.work_ITEM_STATUS) == 'Completed',
+                                'background-Finished' : (WorkItem.work_ITEM_STATUS) == 'Finished',
+                                'background-Suspended' : (WorkItem.work_ITEM_STATUS) == 'Suspended'
+                                
+                            }">
+
+                            <p-card class="card" id="card">
                             
                                 <div class="p-d-flex" style="display: flex;">
-                                    <div class="mr-2 tilte" >ID :</div>
+                                    <div class="mr-2 tilte" >ID:</div>
                                     <div class="mr-2"> {{WorkItem.work_ITEM_ID}} </div>
                                 </div>
                                 <div class="p-d-flex" style="display: flex;">
-                                    <div class="mr-2 tilte" >Name :</div>
+                                    <div class="mr-2 tilte" >Name:</div>
                                     <div class="mr-2"> {{WorkItem.work_ITEM_NAME}} </div>
                                 </div>
                                 <div class="p-d-flex" style="display: flex;">
-                                    <div class="mr-2 tilte" >Assign Date :</div>
+                                    <div class="mr-2 tilte" >Assign Date:</div>
                                     <div class="mr-2"> {{WorkItem.assign_DATE}} </div>
                                 </div>
                                 <div class="p-d-flex" style="display: flex;">
-                                    <div class="mr-2 tilte" >Assigned User :</div>
+                                    <div class="mr-2 tilte" >Assigned User:</div>
                                     <div class="mr-2"> {{WorkItem.assigned_USER}}  </div>
                                 </div>
                                 <div class="p-d-flex" style="display: flex;">
-                                    <div class="mr-2 tilte" >Finished BY  :</div>
+                                    <div class="mr-2 tilte" >Finished BY :</div>
                                     <div class="mr-2"> {{WorkItem.finished_BY}}  </div>
                                 </div>
                                 <div class="p-d-flex" style="display: flex;">
-                                    <div class="mr-2 tilte" >End_Date  :</div>
+                                    <div class="mr-2 tilte" >End_Date:</div>
                                     <div class="mr-2"> {{WorkItem.end_DATE}}  </div>
                                 </div>
 
                                 <div class="p-d-flex" style="display: flex;">
-                                    <div class="mr-2 tilte" >STATUS :</div>
+                                    <div class="mr-2 tilte" >STATUS:</div>
                                     <div class="mr-2" >
                                         <h6 
                                             [ngClass]="{
@@ -63,6 +76,8 @@
                                 </div>
                                 
                             </p-card>
+  </div>
+
                         </div>
 
                     </div>

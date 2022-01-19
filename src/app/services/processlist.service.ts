@@ -28,10 +28,16 @@ export class ProcesslistService {
   }
   
    getAllProcesses():Observable<any> {
+     if(this.LoginMode == 1){
+      this.LoginModenew = "UNDER_TESTING"
+     }else{
+      this.LoginModenew = " "
+     }
     this.obj = {
-      "LoginMode":this.LoginMode ,
+      "LoginMode":this.LoginModenew ,
       "UserName":this.nameuser 
      }
+     console.log(this.obj);
      return this.http.post<any>(this.URL+'BusinessApp/api/Process/getAllProcesses' , this.obj);
     }
 

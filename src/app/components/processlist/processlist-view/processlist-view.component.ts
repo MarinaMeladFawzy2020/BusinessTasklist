@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MessageService } from 'primeng/api';
 import { ProcesslistService } from 'src/app/services/processlist.service';
 import { VersionlistComponent } from '../versionlist/versionlist.component';
 
 @Component({
   selector: 'app-processlist-view',
   templateUrl: './processlist-view.component.html',
-  styleUrls: ['./processlist-view.component.css']
+  styleUrls: ['./processlist-view.component.css'],
 })
 export class ProcesslistViewComponent implements OnInit {
 
@@ -20,7 +21,10 @@ export class ProcesslistViewComponent implements OnInit {
   home = {icon: 'pi pi-home', routerLink: '/processlist'};
 
   
-  constructor(private processList : ProcesslistService) { }
+  constructor(private processList : ProcesslistService , private messageService: MessageService) { }
+  // showSuccess() {
+  //   this.messageService.add({severity:'success', summary: 'Success', detail: 'Message Content'});
+  // }
 
   ngOnInit(): void {
 

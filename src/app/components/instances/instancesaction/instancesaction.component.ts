@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { InstaceslistService } from 'src/app/services/instaceslist.service';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 declare var $: any
 declare var bootbox: any
 
@@ -18,7 +19,7 @@ export class InstancesactionComponent implements OnInit {
   checkResult= false;
     @ViewChild("myDiv") myDiv!: ElementRef;
 
-  constructor(private myinstancelist : InstaceslistService , private router: Router ) { }
+  constructor(private myinstancelist : InstaceslistService , private router: Router , private messageService: MessageService) { }
 
 
   ngOnInit(): void {
@@ -128,6 +129,8 @@ Done(_f:any , i:any){
         this.checkstatus = true;
         this.AllProcessInstance[i].instance_STATUS = "Terminated";
         $('#Terminated').modal('hide');
+        this.messageService.add({severity:'success', summary: 'Success', detail: 'Done successfully'});
+
       }
   });
   

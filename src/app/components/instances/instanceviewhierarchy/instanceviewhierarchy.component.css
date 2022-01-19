@@ -4,6 +4,7 @@
     font-weight: 500;
 }
 
+
 .tilte{
     font-weight: 600;
 }
@@ -12,7 +13,7 @@
     color: gray;
     font-weight: 600;
 }
-.progress-Started{
+.progress-Started ,  .progress-Running{
     color: #ff9800;
     font-weight: 600;
 }
@@ -22,10 +23,6 @@
     font-weight: 600;
  }
 
- .progress-Running{
-    color: #F59E0B;
-    font-weight: 600;
-}
 
  
  .progress-Skipped , .progress-Terminated , .progress-Time-Out , .progress-Suspended{
@@ -34,6 +31,33 @@
  }
  
  .progress-Completed , .progress-Finished{
-    color: #4caf50;
+    color: #16A34A;
     font-weight: 600;
  }
+
+
+
+ .background-Not-Started{
+    background-color: gray;
+    border-left: 7px solid gray;
+    border-radius: 11px;
+
+}
+.background-Started ,  .background-Running{
+    background-color: #ff9800;
+    border-left: 7px solid #ff9800;
+    border-radius: 11px;
+}
+
+ .background-Skipped , .background-Terminated , .background-Time-Out , .background-Suspended{
+    background-color: #a33;
+    border-left: 7px solid #a33;
+    border-radius: 11px;
+ }
+ 
+ .background-Completed , .background-Finished{
+    background-color: #16A34A;
+    border-left: 7px solid #16A34A;
+    border-radius: 11px;
+ }
+ 

@@ -17,20 +17,22 @@
 
         <ul>
 
-            <li routerLinkActive="active">
+            <li routerLinkActive="active" *ngIf="premissionAllProcessesview">
                 <a routerLink="processlist" title="processlist">
                     <span class="fa fa-cogs  icon-navbar"></span>
                     <span> Process List </span>
                 </a>
             </li>
+              
+            
 
-            <li routerLinkActive="active">
+            <li routerLinkActive="active" *ngIf="premissionTaskListview">
                 <a routerLink="tasklist" title="tasklist">
                     <span class="fa fa-tasks  icon-navbar"></span>
                     <span> Task List </span>
                 </a>
             </li>
-            <li routerLinkActive="active">
+            <li routerLinkActive="active" *ngIf="premissionInstanceListview">
                 <a routerLink="instancelist" title="instancelist">
                     <span class="fa fa-list-alt  icon-navbar"></span>
                     <span> Instance List </span>

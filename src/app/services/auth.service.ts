@@ -24,6 +24,17 @@ export class AuthService {
       console.log(response);
       sessionStorage.setItem("token", response["Authorization"]);
       sessionStorage.setItem("username", _f.username);
+
+      const decodedToken: any = jwt_decode(response["Authorization"]?.split(" ")[1] || '');
+      console.log(decodedToken);
+    //  console.log(decodedToken["roles"]);
+      if(decodedToken["ORGUNITID"] == ''){
+        sessionStorage.setItem("BusinessUnit", "");
+      }else{
+        sessionStorage.setItem("BusinessUnit", decodedToken["ORGUNITID"]);
+      }
+
+      sessionStorage.setItem("Allpermission", JSON.stringify(decodedToken["roles"]));
       return response;
   }));
 }
@@ -84,17 +95,17 @@ getAuthStatus(): boolean {
 //Check Permisson
 public checkAuth(actionPermission: string){
  // debugger;
-  const token = sessionStorage.getItem("token");
-  const decodedToken: any = jwt_decode(token?.split(" ")[1] || '');
-  console.log(decodedToken);
-  console.log(decodedToken.ORGUNITID);
-  if(decodedToken.ORGUNITID == ''){
-    sessionStorage.setItem("BusinessUnit", "");
-  }else{
-    sessionStorage.setItem("BusinessUnit", decodedToken.ORGUNITID);
-  }
+ // const token = sessionStorage.getItem("token");
+  //const decodedToken: any = jwt_decode(token?.split(" ")[1] || '');
+  //  console.log(decodedToken);
+ // console.log(decodedToken.ORGUNITID);
 
-  return decodedToken.roles.includes(actionPermission) ?  true : false;
+ let Allpermissions = sessionStorage.getItem("Allpermission");
+ let perms = JSON.parse(Allpermissions? Allpermissions : "");
+ console.log("perms");
+ console.log(perms);
+  return perms.includes(actionPermission) ?  true : false;
+
 }
 
 

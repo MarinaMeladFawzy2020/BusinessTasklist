@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { ProcesslistService } from 'src/app/services/processlist.service';
 import { CreateinstanceComponent } from '../createinstance/createinstance.component';
 
@@ -11,10 +12,12 @@ export class VersionlistComponent implements OnInit {
 [x:string]:any;
 @ViewChild('myDetailsVersion') myDetailsVersion!: CreateinstanceComponent;
 
-
-  constructor(private processList : ProcesslistService) { }
+  constructor(private processList : ProcesslistService , private checkpremission:AuthService) { }
 
   ngOnInit(): void {
+    // alert(this.checkpremission.checkAuth("AllProcesses.create"));
+   this.AllProcessescreate = this.checkpremission.checkAuth("AllProcesses.create");
+
   }
 
   sendProcessId(ProcessId:any){

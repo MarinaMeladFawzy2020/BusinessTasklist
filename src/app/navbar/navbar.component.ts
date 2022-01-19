@@ -28,6 +28,12 @@ selectedCity!: City ;
    }
 
   ngOnInit(): void {
+    this.premissionAllProcessesview = this.authservice.checkAuth('AllProcesses.view');
+    this.premissionTaskListview = this.authservice.checkAuth('TaskList.view');
+    this.premissionInstanceListview = this.authservice.checkAuth('InstanceList.view');
+ 
+  // alert(this.AllProcessesview)
+
     this.LoginMode  = sessionStorage.getItem("LoginMode");
     if( this.LoginMode == 1){
       this.titleLoginMode = "Testing";

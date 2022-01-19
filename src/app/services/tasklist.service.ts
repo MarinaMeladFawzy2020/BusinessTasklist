@@ -108,8 +108,6 @@ export class TasklistService {
     return this.http.post<any>(this.URL+'BusinessApp/api/Process/ResumeTask' , this.obj);
    }
 
-  
-
 
    checkPermission(){
     const s = this.authService.checkAuth("ExcProcessDefinition.createAll");

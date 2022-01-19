@@ -254,3 +254,7 @@ border-radius: inherit !important;
 .p-carousel-container{
     height: 155px !important;
 }
+
+#card .p-card .p-card-content{
+    padding: 0px !important;
+}

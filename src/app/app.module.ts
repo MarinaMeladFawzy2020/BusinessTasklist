@@ -35,6 +35,7 @@ import { StaffresumetaskComponent } from './components/alltasklist/staffresumeta
 import { InstancesviewdetailsComponent } from './components/instances/instancesviewdetails/instancesviewdetails.component';
 import { InstancelistactivitiesComponent } from './components/instances/instancelistactivities/instancelistactivities.component';
 import { InstanceviewhierarchyComponent } from './components/instances/instanceviewhierarchy/instanceviewhierarchy.component';
+import { MessageService } from 'primeng/api';
 
 
 
@@ -90,7 +91,9 @@ import { InstanceviewhierarchyComponent } from './components/instances/instancev
   providers: [
     { provide: HTTP_INTERCEPTORS , useClass: AuthInterceptor, multi: true },
     { provide: LOCALE_ID, useValue: 'en-GB'},
-    {provide: LocationStrategy, useClass: HashLocationStrategy}
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    {provide: MessageService}
+
   ],
   bootstrap: [AppComponent]
 })

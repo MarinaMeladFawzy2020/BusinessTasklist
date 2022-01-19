@@ -21,13 +21,13 @@
 
     <ng-template pTemplate="header">
         <tr>
-            <th style="width: 5rem !important;">
+            <th style="width: 12% !important;" *ngIf="AllProcessescreate == true">
                 <div class="p-d-flex p-jc-between p-ai-center">
                     Actions
                 </div>
             </th>
 
-            <th pSortableColumn="VersionNo" style="width: 6rem !important;">
+            <th pSortableColumn="VersionNo" style="width: 25% !important;">
                 <div class="p-d-flex p-jc-between p-ai-center">
                     VersionNo
                     <p-sortIcon field="VersionNo"></p-sortIcon>
@@ -35,9 +35,9 @@
                 </div>
             </th>
 
-            <th pSortableColumn="ProcessStatus" style="width: 0rem !important;">
+            <th pSortableColumn="ProcessStatus"  style="width: 20% !important;">
                 <div class="p-d-flex p-jc-between p-ai-center">
-                    ProcessStatus
+                    Status
                     <p-sortIcon field="ProcessStatus"></p-sortIcon>
                     <p-columnFilter type="text" field="ProcessStatus" display="menu"></p-columnFilter>
                 </div>
@@ -60,7 +60,7 @@
     <ng-template pTemplate="body" let-Process>
         <tr>
 
-            <td>
+            <td *ngIf="AllProcessescreate == true">
                 <button pButton pRipple type="button" data-toggle="modal" data-target="#createinstance"
                     (click)="onClickSend(Process)" class="p-button-rounded p-button-success actions"> <i
                         class="pi pi-plus"></i>

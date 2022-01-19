@@ -22,8 +22,8 @@ export class InstancelistactivitiesComponent implements OnInit {
 
     this.items = [
       {label: 'Instance List' , routerLink: '/instancelist'},
-      {label: 'Instance List Details' ,  url:['/instancelistDetails?process_INSTANCE_ID='+this.process_INSTANCE_ID]},
-      {label: 'Instance List Activities' , url:['/instancelistactivities?process_INSTANCE_ID='+this.process_INSTANCE_ID] }
+      {label: 'Instance List Details' ,  url:['/#/instancelistDetails?process_INSTANCE_ID='+this.process_INSTANCE_ID]},
+      {label: 'Instance List Activities' , url:['/#/instancelistactivities?process_INSTANCE_ID='+this.process_INSTANCE_ID] }
     ];
       this.home = {icon: 'pi pi-home', routerLink: '/instancelist'};
 
