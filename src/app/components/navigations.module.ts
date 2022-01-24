@@ -6,12 +6,7 @@ import { HttpClient } from '@angular/common/http';
 
 
 @NgModule({
-  declarations: [
-
-
-  
-  
-   
+  declarations: [ 
   ],
 
   entryComponents:[ ],

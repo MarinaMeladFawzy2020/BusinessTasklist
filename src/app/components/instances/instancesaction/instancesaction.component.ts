@@ -71,6 +71,11 @@ readMore(processIDP :any , PageNoP:any , SizeP:any) {
       this.AllProcessInstance.push(this.add[i]);
     }
      console.log(this.AllProcessInstance);
+
+     if(this.add.length < this.SizeP){
+      this.hidenReadmore = true ;
+     }
+
    } 
    else{
      this.hidenReadmore = true ;

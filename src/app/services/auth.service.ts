@@ -2,17 +2,20 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import jwt_decode from 'jwt-decode';
+import { EnvironmentUrlService } from './environment-url.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
  [x:string]:any;
- URL : string = "https://192.168.0.9:8083/";  
+ //URL : string = "https://192.168.0.9:8083/";  
  // URL : string = "https://192.168.0.9:8443/"; 
  // URL : string = "https://173.249.22.91:8083/"; //Cloud
 
- constructor(private http: HttpClient) {}
+ constructor(private http: HttpClient , private urlAdd: EnvironmentUrlService) {
+  this.URL = this.urlAdd.urlAddress ;
+ }
   // root - root1234
   checklogin(_f:any , LoginMode:any) { 
     console.log(_f);

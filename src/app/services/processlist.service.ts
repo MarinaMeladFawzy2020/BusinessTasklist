@@ -27,7 +27,7 @@ export class ProcesslistService {
     this.URL = this.urlAdd.urlAddress ;
   }
   
-   getAllProcesses():Observable<any> {
+   getAllProcesses(PageNo:any , Size:any):Observable<any> {
      if(this.LoginMode == 1){
       this.LoginModenew = "UNDER_TESTING"
      }else{
@@ -38,7 +38,7 @@ export class ProcesslistService {
       "UserName":this.nameuser 
      }
      console.log(this.obj);
-     return this.http.post<any>(this.URL+'BusinessApp/api/Process/getAllProcesses' , this.obj);
+     return this.http.post<any>(this.URL+'BusinessApp/api/Process/getAllProcesses?PageNo='+PageNo+'&Size='+Size , this.obj);
     }
 
     getAllProcessVersions(ProcessId:any):Observable<any> {

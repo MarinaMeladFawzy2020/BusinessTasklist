@@ -1,31 +1,33 @@
 <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
 
 
- <p-toast></p-toast>
+<p-toast></p-toast>
 <!-- <button type="button" pButton pRipple (click)="showSuccess()" label="Success" class="p-button-success p-mb-2"></button> -->
 
 
 <div class="card row col-12 " style="display: -webkit-inline-box; margin-left: -1px;">
-            <div class="p-col p-d-flex col-5">
-            <!-- {{AllProcesses | json}} -->
-            <br>
+    <div class="p-col p-d-flex col-5">
+        <!-- {{AllProcesses | json}} -->
+        <br>
         <!--Table Process-->
-        <p-table #dt1 [value]="AllProcesses"  [rows]="10" [showCurrentPageReport]="true"  sortMode="multiple"
-        [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading"  selectionMode="single" [(selection)]="selectedProcess"
-        [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"  styleClass="p-datatable-sm"
-        [globalFilterFields]="['ProcessId','ProcessName' , 'ProcessStatus' , 'Description' , 'ParentProcessId' , 'DefaultVersionNo']">
+        <p-table #dt1 [value]="AllProcesses" [rows]="10" [showCurrentPageReport]="true" sortMode="multiple"
+            [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading" selectionMode="single"
+            [(selection)]="selectedProcess" [paginator]="false"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" styleClass="p-datatable-sm"
+            [globalFilterFields]="['ProcessId','ProcessName' , 'No_Versions', 'ProcessStatus' , 'Description' , 'ParentProcessId' , 'DefaultVersionNo']">
 
-        <ng-template pTemplate="caption">
-            <div class="table-header">
-                Processes List
-                <span class="p-input-icon-left searchtable" >
-                    <i class="pi pi-search"></i>
-                    <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h" (input)="dt1.filterGlobal(inVal.value, 'contains')"  placeholder="Search keyword" /> 
-                </span>
-            </div>
-        </ng-template>
+            <ng-template pTemplate="caption">
+                <div class="table-header">
+                    Processes List
+                    <span class="p-input-icon-left searchtable">
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h"
+                            (input)="dt1.filterGlobal(inVal.value, 'contains')" placeholder="Search keyword" />
+                    </span>
+                </div>
+            </ng-template>
 
-        <!-- <ng-template pTemplate="caption">
+            <!-- <ng-template pTemplate="caption">
             <div class="p-d-flex">
                 <span class="p-input-icon-left p-ml-auto">
                     <i class="pi pi-search"></i> 
@@ -34,14 +36,12 @@
             </div>
         </ng-template> -->
 
-        <ng-template pTemplate="header">
-            <tr>
-                <th >
-                    <div class="p-d-flex p-jc-between p-ai-center"> </div>
-                        
-                   
-                </th>
-<!-- 
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>
+                        <div class="p-d-flex p-jc-between p-ai-center"> </div>
+                    </th>
+                    <!-- 
                 <th pSortableColumn="ProcessId" style="width: 10rem !important;">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         ProcessId
@@ -49,31 +49,31 @@
                         <p-columnFilter type="text" field="ProcessId" display="menu"></p-columnFilter>
                     </div>
                 </th> -->
-                <th pSortableColumn="ProcessName" >
-                    <div class="p-d-flex p-jc-between p-ai-center">
-                        ProcessName                
-                        <p-sortIcon field="ProcessName"></p-sortIcon>
-                        <p-columnFilter type="text" field="ProcessName" display="menu"></p-columnFilter>
-                    </div>
-                </th>
+                    <th pSortableColumn="ProcessName">
+                        <div class="p-d-flex p-jc-between p-ai-center">
+                            ProcessName
+                            <!-- <p-sortIcon field="ProcessName"></p-sortIcon> -->
+                            <!-- <p-columnFilter type="text" field="ProcessName" display="menu"></p-columnFilter> -->
+                        </div>
+                    </th>
 
-                <th pSortableColumn="DefaultVersionNo" style="width: 10rem !important;">
-                    <div class="p-d-flex p-jc-between p-ai-center">
-                        Versions       
-                        <p-sortIcon field="DefaultVersionNo"></p-sortIcon>
-                        <p-columnFilter type="text" field="DefaultVersionNo" display="menu"></p-columnFilter>
-                    </div>
-                </th>
+                    <th pSortableColumn="DefaultVersionNo" style="width: 6rem !important;">
+                        <div class="p-d-flex p-jc-between p-ai-center">
+                            Versions
+                            <!-- <p-sortIcon field="DefaultVersionNo"></p-sortIcon> -->
+                            <!-- <p-columnFilter type="text" field="DefaultVersionNo" display="menu"></p-columnFilter> -->
+                        </div>
+                    </th>
 
-                <!-- <th pSortableColumn="ProcessStatus">
+                    <!-- <th pSortableColumn="ProcessStatus">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         ProcessStatus                
                         <p-sortIcon field="ProcessStatus"></p-sortIcon>
                         <p-columnFilter type="text" field="ProcessStatus" display="menu"></p-columnFilter>
                     </div>
                 </th> -->
-            
-                <!-- <th pSortableColumn="Description">
+
+                    <!-- <th pSortableColumn="Description">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         Description                
                         <p-sortIcon field="Description"></p-sortIcon>
@@ -81,56 +81,73 @@
                     </div>
                 </th> -->
 
-                <!-- <th pSortableColumn="ParentProcessId">
+                    <!-- <th pSortableColumn="ParentProcessId">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         ParentProcessId                
                         <p-sortIcon field="ParentProcessId"></p-sortIcon>
                         <p-columnFilter type="text" field="ParentProcessId" display="menu"></p-columnFilter>
                     </div>
                 </th> -->
-            
-               
-            
-            
-            
-            </tr>
-        </ng-template>
 
 
-        <ng-template pTemplate="body" let-Process>
-            <tr [pSelectableRow]="Process" (click)="viewVersion(Process.ProcessId)">
-                <td> 
-                    <!-- <span class="btn btn-warning actions" >  <i class="fa fa-cogs"></i> </span>  -->
-                    <span class="btn btn-warning actions" style="background: white;  border: 1px solid #ffc107;" >  <i class="fa fa-cogs" style="color:#ffc107"></i> </span> 
-                     
-                    <!-- <button pButton pRipple type="button" (click)="viewVersion(Process.ProcessId)"
+
+
+
+                </tr>
+            </ng-template>
+
+
+            <ng-template pTemplate="body" let-Process>
+                <tr [pSelectableRow]="Process" (click)="viewVersion(Process.ProcessId)">
+                    <td>
+                        <!-- <span class="btn btn-warning actions" >  <i class="fa fa-cogs"></i> </span>  -->
+                        <span class="btn btn-warning actions" style="background: white;  border: 1px solid #ffc107;"> <i
+                                class="fa fa-cogs" style="color:#ffc107"></i> </span>
+
+                        <!-- <button pButton pRipple type="button" (click)="viewVersion(Process.ProcessId)"
                      class="p-button-rounded p-button-warning actions" > <i class="pi pi-eye"></i>
                     </button>  -->
-                </td>
-                <!-- <td>{{Process.ProcessId}} </td> -->
-                <td>{{Process.ProcessId}} - {{Process.ProcessName}} </td>
-                <td>{{Process.DefaultVersionNo}} </td>
+                    </td>
+                    <!-- <td>{{Process.ProcessId}} </td> -->
+                    <td>{{Process.ProcessId}} - {{Process.ProcessName}} </td>
+                    <td>
 
-                <!-- <td>{{Process.ProcessStatus}} </td> -->
-                <!-- <td>{{Process.Description}} </td> -->
-                <!-- <td>{{Process.ParentProcessId}} </td> -->
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="emptymessage">
-            <tr>
-                <td colspan="7"><span class="emptymessage">No Data Found</span> </td>
-            </tr>
-        </ng-template>
+
+                        <button pButton pRipple type="button" [label]="Process.No_Versions"
+                            style="width: 40px; height: 40px;"
+                            class=" p-button-success p-button-rounded p-button-outlined "></button>
+                    </td>
+
+                    <!-- <td>{{Process.ProcessStatus}} </td> -->
+                    <!-- <td>{{Process.Description}} </td> -->
+                    <!-- <td>{{Process.ParentProcessId}} </td> -->
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="7"><span class="emptymessage">No Data Found</span> </td>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="summary">
+                <div class="flex align-items-center justify-content-between" style="text-align: center;">
+                    <!-- <a style="text-decoration: underline;" (click)="readmore(PageNo + 1  , Size)"> Load More Items </a>  1-10 of 75 items. -->
+                    <button pButton pRipple type="button" class=" p-button-warning" *ngIf="hidenReadmore == false"
+                        (click)="readmore(PageNo + 1  , Size)">Read More</button>
+                    <p *ngIf="hidenReadmore == true"> Total Item : {{TotalProcess}} </p>
+                </div>
+            </ng-template>
+
         </p-table>
 
 
-            </div>
+    </div>
 
-           
-            <div class="p-col p-d-flex p-ai-center p-jc-center col-7">
-                <app-versionlist #myDetails></app-versionlist>
-            </div>
-        
+
+    <div class="p-col p-d-flex p-ai-center p-jc-center col-7">
+        <app-versionlist #myDetails></app-versionlist>
+    </div>
+
 </div>
 
 
