@@ -24,7 +24,8 @@ export class ProcesslistViewComponent implements OnInit {
   PageNo:any = 1;
   Size:any = 50;
   hidenReadmore = false;
-  constructor(private processList : ProcesslistService , private messageService: MessageService , @Inject(DOCUMENT) private document: Document) { }
+  constructor(private processList : ProcesslistService , private messageService: MessageService ,
+     @Inject(DOCUMENT) private document: Document) { }
   // showSuccess() {
   //   this.messageService.add({severity:'success', summary: 'Success', detail: 'Message Content'});
   // }
