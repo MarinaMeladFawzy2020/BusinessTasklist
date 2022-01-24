@@ -6,5 +6,5 @@ ngApp.use(express.static('./dist/TaskList'));
 ngApp.get('/*', function (request, response) {
     response.sendFile(path.join(__dirname, '/dist/TaskList/index.html'));
 });
-ngApp.listen(process.env.PORT || 5000);
+ngApp.listen(process.env.PORT || 8080);
 
