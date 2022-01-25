@@ -1,260 +1,255 @@
 /* You can add global styles to this file, and also import other style files */
-
+body {
+  font-size: 14px !important;
+}
 .p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th {
-    border-width: 1px 1px 1px 1px;
-    /* width: 8rem !important; */
-    font-size: 14px !important;
-    padding: 10px !important;
+  border-width: 1px 1px 1px 1px;
+  /* width: 8rem !important; */
+  font-size: 14px !important;
+  padding: 10px !important;
 }
 
-.p-datatable-responsive-scroll>.p-datatable-wrapper {
-    overflow-x: visible !important;
+.p-datatable-responsive-scroll > .p-datatable-wrapper {
+  overflow-x: visible !important;
 }
 
 .p-datatable.p-datatable-sm .p-datatable-header {
-    padding: 1rem 1rem !important;
+  padding: 1rem 1rem !important;
 }
 
 .p-calendar .p-datepicker {
-    min-width: 320px !important;
+  min-width: 320px !important;
 }
 
 .p-datepicker table td > span {
-    width: 30px !important;
-    height: 30px !important;
+  width: 30px !important;
+  height: 30px !important;
 }
-
-
 
 /* #pr_id_1 .p-paginator .p-paginator-current{
      width: 100% ; 
 } */
 .p-button {
-    padding: 9px 10px !important;
-    margin: 3px !important;
-    font-size: 14px !important;
-    font-weight: 400 !important;
-    border-radius: 0px !important;
+  padding: 9px 10px !important;
+  margin: 3px !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  border-radius: 0px !important;
 }
 
 .p-button-label {
-font-weight: 300px;
+  font-weight: 300px;
 }
 
-.p-search{
-    background:#4caf50 !important ;
-  }
-
-.p-splitbutton .p-splitbutton-defaultbutton{
- margin-right: -2px !important;
-
+.p-search {
+  background: #4caf50 !important ;
 }
-.p-breadcrumb{
-    background: #fff !important; /*f8f9fa*/
-    margin-bottom: 5px;
-    border-radius: 0;
+
+.p-splitbutton .p-splitbutton-defaultbutton {
+  margin-right: -2px !important;
+}
+.p-breadcrumb {
+  background: #fff !important; /*f8f9fa*/
+  margin-bottom: 5px;
+  border-radius: 0;
 }
 
 .p-breadcrumb ul li .p-menuitem-text {
-    font-size: 13px !important;
+  font-size: 13px !important;
 }
 
 .p-toolbar {
-    background: #fff;
-    border: 1px solid #fff;
-    padding: 5px;
-    border-radius: 3px;
-    margin: 3px 0;
+  background: #fff;
+  border: 1px solid #fff;
+  padding: 5px;
+  border-radius: 3px;
+  margin: 3px 0;
 }
 
 .p-panelmenu .p-panelmenu-header > a {
-    padding: 1.25rem !important;
-    border: none !important;
-    border-bottom: 1px solid #dee2e6 !important;
-    color: #ffffff !important;
-    background: #2a2b3c !important;
-    font-weight: 400 !important;
-    border-radius: 0px !important; 
-    transition: box-shadow 0.2s !important;
+  padding: 1.25rem !important;
+  border: none !important;
+  border-bottom: 1px solid #dee2e6 !important;
+  color: #ffffff !important;
+  background: #2a2b3c !important;
+  font-weight: 400 !important;
+  border-radius: 0px !important;
+  transition: box-shadow 0.2s !important;
 }
 
-.p-tree-empty-message{
-color: #a33 !important;
-font-weight: 600px !important;
+.p-tree-empty-message {
+  color: #a33 !important;
+  font-weight: 600px !important;
 }
 
-.p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler{
-    background: #f8f9fa !important;
-    border: 1px solid #dee2e6 !important;
+.p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler {
+  background: #f8f9fa !important;
+  border: 1px solid #dee2e6 !important;
 }
 
-.p-tree .p-tree-filter-container .p-tree-filter{
-    height: 40px !important;
+.p-tree .p-tree-filter-container .p-tree-filter {
+  height: 40px !important;
 }
 
 .p-datatable {
-    border: 1px solid #dee2e6  !important;
+  border: 1px solid #dee2e6 !important;
 }
 
-.p-inputtext{
-    height: 40px !important;
+.p-inputtext {
+  height: 40px !important;
 }
 
 .p-inputtext:enabled:hover {
-    border-color: #ced4da !important;
+  border-color: #ced4da !important;
 }
 
 .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
-    background: #f8f9fa  !important;
-    border: 1px solid #d9dce0  !important;
-    color: #6366F1;
-    text-decoration: none !important;
+  background: #f8f9fa !important;
+  border: 1px solid #d9dce0 !important;
+  color: #6366f1;
+  text-decoration: none !important;
 }
 
 .p-tabview .p-tabview-nav li .p-tabview-nav-link {
-    text-decoration: none !important;
+  text-decoration: none !important;
 }
 
 .p-component-overlay {
-    background-color: rgb(0 0 0 / 10%) !important;
-    transition-duration: 0.2s;
+  background-color: rgb(0 0 0 / 10%) !important;
+  transition-duration: 0.2s;
 }
 
 .p-tabview .p-tabview-panels {
-    padding: 3px 0px !important;
+  padding: 3px 0px !important;
 }
 
 .carouseltask .p-carousel {
-    width: 300px  !important;
+  width: 300px !important;
 }
 
 .p-button.p-button-rounded {
-    border-radius: 2rem !important;
+  border-radius: 2rem !important;
 }
 
-.p-card{
-border-radius: inherit !important;
+.p-card {
+  border-radius: inherit !important;
 }
 
 .p-card .p-card-title {
-    font-size: 20px !important;
-    font-weight: 600 !important;
-    margin-bottom: -10px !important;
-    margin-top: -7px !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  margin-bottom: -10px !important;
+  margin-top: -7px !important;
 }
 
-.p-card-shadow2  {
-    width: 105%;
+.p-card-shadow2 {
+  width: 105%;
 }
 
-.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link{
-    padding: 10px !important;
-    height: 64px !important;
-    line-height: 2.5 !important;
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  padding: 10px !important;
+  height: 64px !important;
+  line-height: 2.5 !important;
 }
 
-.p-multiselect{
-    display: flex !important;
-    height: 40px;
-    width: -webkit-fill-available !important;
-
+.p-multiselect {
+  display: flex !important;
+  height: 40px;
+  width: -webkit-fill-available !important;
 }
 
 .p-multiselect-label {
-    margin-top: -5px  !important;
+  margin-top: -5px !important;
 }
 
 .p-dropdown .p-dropdown-label.p-placeholder {
-    margin-top: -5px  !important;
-     width: 100px; 
-     line-height: inherit;
-    /* width: -webkit-fill-available !important; */
+  margin-top: -5px !important;
+  width: 100px;
+  line-height: inherit;
+  /* width: -webkit-fill-available !important; */
 }
 .p-dropdown .p-dropdown-label {
-    line-height: normal;
+  line-height: normal;
 }
 
-
 .p-dropdown {
-    display: flex !important;
+  display: flex !important;
 }
 
 .p-calendar {
-    max-width: 75% !important;
-    /* max-width: -webkit-fill-available !important; */
+  max-width: 75% !important;
+  /* max-width: -webkit-fill-available !important; */
 }
 
 .p-calendar-w-btn .p-datepicker-trigger {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    margin: 0 !important;
-    height: 40px;
-    background: #f8f9fa !important;
-    color: black !important;
-    border: 1px solid #d9dce0 !important;
-    border-left: none !important;
-    padding: 0 20px !important;
-    width: -webkit-fill-available !important;
-
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin: 0 !important;
+  height: 40px;
+  background: #f8f9fa !important;
+  color: black !important;
+  border: 1px solid #d9dce0 !important;
+  border-left: none !important;
+  padding: 0 20px !important;
+  width: -webkit-fill-available !important;
 }
 
 .p-calendar-w-btn .p-inputtext {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    /* width: 202px !important; */
-    width: -webkit-fill-available !important;
-    
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  /* width: 202px !important; */
+  width: -webkit-fill-available !important;
 }
 .p-inputnumber {
-    width: -webkit-fill-available !important; 
+  width: -webkit-fill-available !important;
 }
 
-.p-tabview{
-    width: 100% !important;
+.p-tabview {
+  width: 100% !important;
 }
 
-.emptymessage{
-    font-weight: 700;
-    color: #a33;
-    margin-left: 44%;
-
+.emptymessage {
+  font-weight: 700;
+  color: #a33;
+  margin-left: 44%;
 }
 
-#WorkItemId .p-inputnumber-input{
-    width: 174px !important;
+#WorkItemId .p-inputnumber-input {
+  width: 174px !important;
 }
 
-.p-multiselect .p-multiselect-label{
-    color: #64748b; 
+.p-multiselect .p-multiselect-label {
+  color: #64748b;
 }
 
 .p-datepicker .p-datepicker-buttonbar .p-button {
-    width: auto;
-    background: #f8f9fa;
-    border: 1px solid #d9dce0;
+  width: auto;
+  background: #f8f9fa;
+  border: 1px solid #d9dce0;
 }
 
 .p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
-    width: 0 !important;
+  width: 0 !important;
 }
 
 .p-column-filter-overlay {
-    z-index: 1070 !important;
+  z-index: 1070 !important;
 }
 
-.p-carousel .p-carousel-content .p-carousel-prev, .p-carousel .p-carousel-content .p-carousel-next{
-    padding: 0 !important;
-    margin: 3px !important;
+.p-carousel .p-carousel-content .p-carousel-prev,
+.p-carousel .p-carousel-content .p-carousel-next {
+  padding: 0 !important;
+  margin: 3px !important;
 }
 
-.p-organizationchart-node-content{
-    padding-top: 40px !important;
+.p-organizationchart-node-content {
+  padding-top: 40px !important;
 }
 
-.p-carousel-container{
-    height: 155px !important;
+.p-carousel-container {
+  height: 155px !important;
 }
 
-#card .p-card .p-card-content{
-    padding: 0px !important;
+#card .p-card .p-card-content {
+  padding: 0px !important;
 }
