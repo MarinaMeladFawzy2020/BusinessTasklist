@@ -15,6 +15,11 @@ body {
 
 .p-datatable.p-datatable-sm .p-datatable-header {
   padding: 1rem 1rem !important;
+  font-size: 14px !important;
+}
+
+.p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+  font-size: 14px !important;
 }
 
 .p-calendar .p-datepicker {
