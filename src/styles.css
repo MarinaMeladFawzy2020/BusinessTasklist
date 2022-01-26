@@ -34,6 +34,7 @@ h6 {
 .p-datatable.p-datatable-sm .p-datatable-header {
   padding: 1rem 1rem !important;
   font-size: 14px !important;
+  border-bottom: 1px solid #ddd;
 }
 
 .p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
@@ -339,9 +340,11 @@ h6 {
 
 .p-datatable>.p-datatable-wrapper>.p-datatable-table>.p-datatable-thead {
   position: sticky;
-  top: 0;
+  top: -1;
   z-index: 1;
 }
+
+
 
 .p-datepicker table {
   font-size: 14px !important;
