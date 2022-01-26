@@ -3,6 +3,8 @@
 
 <app-searchtasklist [userTask]="1" (getResponse)="getsearchstafflist($event)"></app-searchtasklist>
 
+<div style=" margin-top: -18px;">
+
 <p-table #dtStaffTaskList [value]="StaffTaskList" [rows]="10" [showCurrentPageReport]="true" sortMode="multiple"
     [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading" selectionMode="single" [paginator]="true" styleClass="p-datatable-sm"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
@@ -29,7 +31,7 @@
                 <h6 title="work_ITEM_ID">{{myTask.work_ITEM_ID}}</h6>
                 <h6 title="work_ITEM_NAME">{{myTask.work_ITEM_NAME}}</h6>
                 <h6 title="assign_DATE">{{myTask.assign_DATE }}</h6>
-                <h6 title="assigned_USER">{{myTask.assigned_USER}}</h6>
+                <!-- <h6 title="assigned_USER">{{myTask.assigned_USER}}</h6> -->
             </td>
             <td style=" text-align: center; font-size: 16px;">
                 
@@ -79,7 +81,8 @@
     </ng-template>
     <ng-template pTemplate="emptymessage">
         <tr>
-            <td colspan="7"><span class="emptymessage">No Data Found</span> </td>
+            <td colspan="7"><h6 class="emptymessage">No Data Found</h6>  </td>
         </tr>
     </ng-template>
 </p-table>
+</div>

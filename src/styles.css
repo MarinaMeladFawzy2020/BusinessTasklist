@@ -1,5 +1,23 @@
+
 /* You can add global styles to this file, and also import other style files */
 body {
+  font-size: 14px !important;
+}
+
+button {
+  line-height: initial !important;
+  font-size: 14px !important;
+}
+
+h6 {
+  font-size: 14px !important;
+}
+
+.p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
+    /* padding: 9px 10px 0px 10px; */
+}
+
+.p-inputtext{
   font-size: 14px !important;
 }
 .p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th {
@@ -20,6 +38,17 @@ body {
 
 .p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
   font-size: 14px !important;
+}
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link{
+  font-size: 12px !important;
+
+}
+.p-chip .p-chip-text{
+  font-size: 12px !important;
+  margin-top: 3px;
+  margin-bottom: 2px;
+
 }
 
 .p-calendar .p-datepicker {
@@ -57,6 +86,7 @@ body {
   background: #fff !important; /*f8f9fa*/
   margin-bottom: 5px;
   border-radius: 0;
+  padding: 8px 10px;
 }
 
 .p-breadcrumb ul li .p-menuitem-text {
@@ -101,11 +131,15 @@ body {
 }
 
 .p-inputtext {
-  height: 40px !important;
+  height: 35px !important;
 }
 
 .p-inputtext:enabled:hover {
   border-color: #ced4da !important;
+}
+
+.p-tabview-nav-content{
+  margin-top: -17px;
 }
 
 .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
@@ -120,12 +154,13 @@ body {
 }
 
 .p-component-overlay {
-  background-color: rgb(0 0 0 / 10%) !important;
+  background-color: rgb(0 0 0 / 5%) !important;
   transition-duration: 0.2s;
 }
 
 .p-tabview .p-tabview-panels {
   padding: 3px 0px !important;
+  font-size: 14px  !important;
 }
 
 .carouseltask .p-carousel {
@@ -141,25 +176,43 @@ body {
 }
 
 .p-card .p-card-title {
-  font-size: 20px !important;
-  font-weight: 600 !important;
-  margin-bottom: -10px !important;
-  margin-top: -7px !important;
+  font-size: 16px !important;
+    font-weight: 600 !important;
+    margin-bottom: -14px !important;
+    margin-top: -15px !important;
 }
 
+.p-datatable .p-paginator-bottom{
+  font-size:14px ;
+  padding: 1px;
+}
 .p-card-shadow2 {
   width: 105%;
 }
 
+.p-tabview .p-tabview-nav{
+  margin-top: 10px;
+    /* height: 40px; */
+    background: none !important;
+    border-width: 0px 0 1px 0 !important;
+
+}
+.p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  font-size: 12px !important;
+  height: 40px;
+  margin-top: 20px;
+}
+
 .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
-  padding: 10px !important;
-  height: 64px !important;
+  padding: 4px !important;
+  height: 40px !important;
   line-height: 2.5 !important;
+  margin-top: 20px;
 }
 
 .p-multiselect {
   display: flex !important;
-  height: 40px;
+  height: 35px;
   width: -webkit-fill-available !important;
 }
 
@@ -171,10 +224,12 @@ body {
   margin-top: -5px !important;
   width: 100px;
   line-height: inherit;
+  
   /* width: -webkit-fill-available !important; */
 }
-.p-dropdown .p-dropdown-label {
+ #searchtasklist .p-dropdown .p-dropdown-label {
   line-height: normal;
+  padding-top: 8px;
 }
 
 .p-dropdown {
@@ -190,7 +245,7 @@ body {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   margin: 0 !important;
-  height: 40px;
+  height: 35px;
   background: #f8f9fa !important;
   color: black !important;
   border: 1px solid #d9dce0 !important;
@@ -225,8 +280,12 @@ body {
 
 .p-multiselect .p-multiselect-label {
   color: #64748b;
+  font-size: 14px;
 }
 
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item{
+  font-size: 14px;
+}
 .p-datepicker .p-datepicker-buttonbar .p-button {
   width: auto;
   background: #f8f9fa;
@@ -257,4 +316,34 @@ body {
 
 #card .p-card .p-card-content {
   padding: 0px !important;
+}
+
+.p-datatable.p-datatable-sm .p-datatable-header {
+  padding:13px ​10px 10px 10px !important;
+  font-size: 14px !important;
+}
+
+.filterLabel , .p-datatable .p-datatable-tbody > tr {
+  font-size: 14px !important;
+}
+
+.p-datatable-wrapper{
+  overflow-y: scroll;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* .noscroll .p-datatable-wrapper  {
+  overflow-y: hidden;
+  border-bottom: 1px solid #dee2e6;
+} */
+
+.p-datatable>.p-datatable-wrapper>.p-datatable-table>.p-datatable-thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.p-datepicker table {
+  font-size: 14px !important;
+  margin: 0.5rem 0;
 }

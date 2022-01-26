@@ -1,8 +1,41 @@
-<p-table [value]="AllData" dataKey="name" responsiveLayout="scroll">
+
+<p-table [value]="AllData" dataKey="col1" responsiveLayout="scroll">
+   
+    <ng-template pTemplate="body" let-MainData let-expanded="expanded">
+        <tr>
+            <td>
+                <button type="button" pButton pRipple [pRowToggler]="MainData"
+                    class="p-button-text p-button-rounded p-button-plain"
+                    [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
+                </button>
+            </td>
+            <td>{{MainData.col1}}</td>
+            <td>{{MainData.col2}}</td>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="rowexpansion" let-MainData>
+        <tr>
+            <td colspan="7">
+                <div class="p-p-3">
+                    <app-versionlist #myDetails></app-versionlist>
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+
+
+
+
+
+<p-table [value]="AllData" dataKey="col1" responsiveLayout="scroll">
     <ng-template pTemplate="header">
         <tr>
             <th style="width: 3rem"></th>
-            <th pSortableColumn="col1">col1 <p-sortIcon field="col1"></p-sortIcon></th>
+            <th pSortableColumn="col1">col1 <p-sortIcon field="col1"></p-sortIcon>
+            </th>
             <th>col2</th>
         </tr>
     </ng-template>
@@ -12,8 +45,8 @@
         <tr>
             <td>
                 <button type="button" pButton pRipple [pRowToggler]="MainData"
-                 class="p-button-text p-button-rounded p-button-plain"
-                  [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
+                    class="p-button-text p-button-rounded p-button-plain"
+                    [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
                 </button>
             </td>
             <td>{{MainData.col1}}</td>
@@ -27,25 +60,27 @@
                 <div class="p-p-3">
                     <p-table [value]="MainData.details" dataKey="id">
                         <ng-template pTemplate="header">
-                            <tr>
-                                <th pSortableColumn="id">Id <p-sortIcon field="id"></p-sortIcon></th>
-                                <th pSortableColumn="name">name <p-sortIcon field="name"></p-sortIcon></th>
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="body" let-DetailsData>
-                            <tr>
-                                <td>{{DetailsData.id}}</td>
-                                <td>{{DetailsData.name}}</td>
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="emptymessage">
-                            <tr>
-                                <td colspan="6"> No Data Child </td>
-                            </tr>
-                        </ng-template>
-                    </p-table>
-                </div>
-            </td>
+        <tr>
+            <th pSortableColumn="id">Id <p-sortIcon field="id"></p-sortIcon>
+            </th>
+            <th pSortableColumn="name">name <p-sortIcon field="name"></p-sortIcon>
+            </th>
         </tr>
     </ng-template>
+    <ng-template pTemplate="body" let-DetailsData>
+        <tr>
+            <td>{{DetailsData.id}}</td>
+            <td>{{DetailsData.name}}</td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="6"> No Data Child </td>
+        </tr>
+    </ng-template>
+</p-table>
+</div>
+</td>
+</tr>
+</ng-template>
 </p-table>

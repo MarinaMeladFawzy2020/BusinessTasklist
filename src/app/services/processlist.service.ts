@@ -28,6 +28,8 @@ export class ProcesslistService {
   }
   
    getAllProcesses(PageNo:any , Size:any):Observable<any> {
+    this.LoginMode = sessionStorage.getItem("LoginMode") ;
+   // alert(this.LoginMode);
      if(this.LoginMode == 1){
       this.LoginModenew = "UNDER_TESTING"
      }else{
@@ -42,12 +44,13 @@ export class ProcesslistService {
     }
 
     getAllProcessVersions(ProcessId:any):Observable<any> {
-      this.obj = {
-        "LoginMode":this.LoginMode ,
+      this.obj1 = {
+        "LoginMode": sessionStorage.getItem("LoginMode") ,
         "UserName":this.nameuser ,
         "ProcessId":ProcessId
        }
-      return this.http.post<any>(this.URL+'BusinessApp/api/Process/getAllProcessVersions' , this.obj);
+       console.log(this.obj1);
+      return this.http.post<any>(this.URL+'BusinessApp/api/Process/getAllProcessVersions' , this.obj1);
      }
     
 

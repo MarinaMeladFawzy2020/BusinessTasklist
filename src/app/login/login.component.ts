@@ -33,7 +33,7 @@ LoginMode = "0";
       Response => {
          console.log(Response);
          if(Response){
-          this.router.navigate(["/processlist"]);
+          this.router.navigate(["/dashboard"]);
          }else{
           this.showErrorMessage = "Invalid username or password";
 

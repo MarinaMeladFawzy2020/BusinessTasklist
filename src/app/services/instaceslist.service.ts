@@ -20,7 +20,7 @@ constructor(private http: HttpClient, private authService: AuthService , private
 
  getProcessTracking():Observable<any> {
   this.obj = {
-    "LoginMode":this.LoginMode ,
+    "LoginMode":sessionStorage.getItem("LoginMode") ,
     "UserName":this.nameuser 
    }
   return this.http.post<any>(this.URL+'BusinessApp/api/Process/ProcessTracking', this.obj);
@@ -29,7 +29,7 @@ constructor(private http: HttpClient, private authService: AuthService , private
  
  getProcessInstance(_processID:any , PageNo:any , Size:any):Observable<any> {
   this.obj = {
-    "LoginMode":this.LoginMode ,
+    "LoginMode":sessionStorage.getItem("LoginMode") ,
     "UserName":this.nameuser ,
     "ProcessId": _processID,
    }

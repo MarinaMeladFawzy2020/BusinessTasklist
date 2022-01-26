@@ -5,15 +5,16 @@
     font-weight: 600;
     color: #64748b; 
     margin-left: 2px;
+    font-size: 14px;
 }
 .search .p-inputtext , .search .p-dropdown .p-dropdown-label.p-placeholder {
     width: -webkit-fill-available !important;
 }
 .actions{
     float: right;
-    margin-top: -3px;
+    /* margin-top: -3px; */
     margin-left: 14px;
-    padding: 28px 0px 0px 0px;
+    /* padding: 28px 0px 0px 0px; */
 }
 
 .actions .pi{
@@ -35,5 +36,6 @@
     margin-top: 10px ;
      float: left; 
      margin-right: 74px;
+     font-size: 14px;
 }
 

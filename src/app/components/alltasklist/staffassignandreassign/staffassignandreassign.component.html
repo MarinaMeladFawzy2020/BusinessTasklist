@@ -21,7 +21,7 @@ role="dialog" aria-labelledby="staffassignandreassignLabel"  data-backdrop="stat
         <h6>Filter User List </h6>
       </div>
 
-      <div class="row col-12"> 
+      <div class="row col-12" style="margin-bottom: 5px;"> 
         <div  *ngFor="let Filter of FilterUserList" class="p-field-checkbox FilterUserList" > 
           <p-radioButton [inputId]="Filter.value" name="Filter" [value]="Filter"   
            [(ngModel)]="selectedFilterUserList" (click)="onChangeFilter(Filter.value)"></p-radioButton>
@@ -29,11 +29,10 @@ role="dialog" aria-labelledby="staffassignandreassignLabel"  data-backdrop="stat
        </div>
       </div>
 
-      <br>
 
 
-
-      <p-table #dtuser [value]="UsersToAsignee"  [rows]="5" [showCurrentPageReport]="true" sortMode="multiple"
+      <p-table #dtuser [value]="UsersToAsignee"  [rows]="5" [showCurrentPageReport]="true" sortMode="multiple" 
+      [scrollable]="false"  scrollHeight="280px"
            [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading" [rowHover]="true" styleClass="p-datatable-sm  p-datatable-striped p-datatable-gridlines "
            [paginator]="true"  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
            [globalFilterFields]="['display_NAME','user_NAME' ]"  [metaKeySelection]="true"  responsiveLayout="scroll" 

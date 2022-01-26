@@ -3,10 +3,10 @@
 <p-toast></p-toast>
 
 
-<div class="row" *ngIf="checkDetails == true">
+<div class="row" *ngIf="checkDetails == true"  style="overflow-y: scroll;height:450px;">
     <span *ngIf="message !== null" style="color:#a33 ; margin-left: 41%;font-weight: 700;">{{message}}</span>
 
-    <div class="col-4" *ngFor="let testobject of AllProcessInstance ; let i = index" style="padding: 1px;">
+    <div class="col-4" *ngFor="let testobject of AllProcessInstance ; let i = index" style="font-size: 14px; padding: 1px;">
         <div class="contentInstance">
 
 

@@ -10,10 +10,12 @@
         <!-- {{AllProcesses | json}} -->
         <br>
         <!--Table Process-->
+        <!-- [scrollable]="true"  scrollHeight="410px" -->
         <p-table #dt1 [value]="AllProcesses" [rows]="10" [showCurrentPageReport]="true" sortMode="multiple"
-            [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading" selectionMode="single"
-            [(selection)]="selectedProcess" [paginator]="false"
-            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" styleClass="p-datatable-sm"
+            [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading" selectionMode="single" scrollHeight="420px"  
+            [(selection)]="selectedProcess" [paginator]="false"   
+          
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" styleClass="p-datatable-sm noscroll"
             [globalFilterFields]="['ProcessId','ProcessName' , 'No_Versions', 'ProcessStatus' , 'Description' , 'ParentProcessId' , 'DefaultVersionNo']">
 
             <ng-template pTemplate="caption">
@@ -125,7 +127,7 @@
             </ng-template>
             <ng-template pTemplate="emptymessage">
                 <tr>
-                    <td colspan="7"><span class="emptymessage">No Data Found</span> </td>
+                    <td colspan="7"><h6 class="emptymessage">No Data Found</h6> </td>
                 </tr>
             </ng-template>
 

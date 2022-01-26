@@ -1,5 +1,5 @@
 
-<div class="card" style="padding: 12px 10px; background: f0f8ff; width: 100%;" >
+<div  id="searchtasklist" class="card" style="padding: 12px 10px; background: f0f8ff; width: 100%;" >
 
     <div class="row" >
        
@@ -12,7 +12,15 @@
     
     <form #f="ngForm" (ngSubmit)="searchtask(f.value)">
       
+        <div class="actions" style="margin-top: -95px">
+            <p-button label="Search" type="submit" icon="pi pi-search" styleClass="p-button-success p-search" [disabled]=f.form.invalid ></p-button>
+            <p-button label="Reset"  type="button" (click)="reset(f)" icon="pi pi-refresh" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
+          </div>
+
     <div class="row  search">
+
+       
+
         <div class="col-2"  *ngFor="let oneComponent of selectedmoreComponents">
             <!-- {{oneComponent.name}} -   {{oneComponent.code}} -->
     
@@ -71,14 +79,10 @@
                 <label >Process Id</label>
                 <input type="text" id="ProcessId"  pInputText [(ngModel)]="ProcessId" name="process_ID"> 
             </div>
-        
-            
+
        </div>
 
-      <div class="actions">
-        <p-button label="Search" type="submit" icon="pi pi-search" styleClass="p-button-success p-search" [disabled]=f.form.invalid ></p-button>
-        <p-button label="Reset"  type="button" (click)="reset(f)" icon="pi pi-refresh" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
-      </div>
+    
 
     </div>
 

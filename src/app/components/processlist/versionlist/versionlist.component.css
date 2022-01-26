@@ -10,8 +10,15 @@
 
 .actions .pi{
     margin-left: 2px;
+    font-size: 14px;
+    width: 15px;
+    height: 15px;
 }
 
 .p-paginator-current .ng-star-inserted{
 font-size: 14px !important;    
+}
+
+button.close {
+    font-size: 18px !important;    
 }

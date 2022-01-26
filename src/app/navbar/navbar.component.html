@@ -17,14 +17,21 @@
 
         <ul>
 
+            <li routerLinkActive="active">
+                <a routerLink="dashboard" title="Home">
+                    <span class="fa fa-home  icon-navbar"></span>
+                    <span> Home </span>
+                </a>
+            </li>
+
             <li routerLinkActive="active" *ngIf="premissionAllProcessesview">
                 <a routerLink="processlist" title="processlist">
                     <span class="fa fa-cogs  icon-navbar"></span>
                     <span> Process List </span>
                 </a>
             </li>
-              
-            
+
+
 
             <li routerLinkActive="active" *ngIf="premissionTaskListview">
                 <a routerLink="tasklist" title="tasklist">
@@ -39,13 +46,8 @@
                 </a>
             </li>
 
-<!-- 
-            <li routerLinkActive="active">
-                <a routerLink="dashboard" title="Home ">
-                    <span class="fa fa-home  icon-navbar"></span>
-                    <span> Test </span>
-                </a>
-            </li> -->
+
+
 
             <!-- <li> 
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">

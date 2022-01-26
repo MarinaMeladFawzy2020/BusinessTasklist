@@ -10,8 +10,8 @@ declare var bootbox:any;
 export class StaffresumetaskComponent implements OnInit {
   [x:string]:any;
   FilterList: any[] = [
-      {name: 'Manual Suspend ', value: '0'}, 
-      {name: ' Automatic Suspend', value: '1'},
+      {name: 'Manual Resume ', value: '0'}, 
+      {name: ' Automatic Resume', value: '1'},
     ];
   
     minDate = new Date();

@@ -25,7 +25,7 @@ export class TasklistService {
 
    getMyTaskList():Observable<any> {
     this.obj = {
-      "LoginMode":this.LoginMode ,
+      "LoginMode":sessionStorage.getItem("LoginMode") ,
       "UserName":this.nameuser ,
      }
     return this.http.post<any>(this.URL+'BusinessApp/api/Process/MyTaskList' , this.obj);
@@ -33,7 +33,7 @@ export class TasklistService {
 
    getStaffTaskList():Observable<any> {
     this.obj = {
-      "LoginMode":this.LoginMode ,
+      "LoginMode":sessionStorage.getItem("LoginMode") ,
       "UserName":this.nameuser ,
      }
     return this.http.post<any>(this.URL+'BusinessApp/api/Process/StaffTaskList' , this.obj);
@@ -42,7 +42,7 @@ export class TasklistService {
    SearchTaskList(obj:any , StaffTask:any):Observable<any> {
     //  console.log(obj);
    this.objSeach = {
-      "LoginMode": this.LoginMode,
+      "LoginMode": sessionStorage.getItem("LoginMode"),
       "StaffTask": StaffTask,
       "UserName": this.nameuser,
       "exc_WORK_ITEM": obj 
@@ -61,7 +61,7 @@ export class TasklistService {
 
    AssignWorkItem(f:any , datastaff:any ):Observable<any> {  
    this.obj =  {
-    "LoginMode": this.LoginMode,
+    "LoginMode": sessionStorage.getItem("LoginMode"),
     "currentUser": this.nameuser,
     "P_Activity_INST_ID": datastaff.activity_INSTANCE_ID ,
     "P_PROC_INST_ID": datastaff.process_INSTANCE_ID,

@@ -18,6 +18,15 @@
 		
 			"col1": "test2",
 			"col2": "test15887",
-            "details": []
+            "details": [
+                {
+                    "id": "15500",
+                    "name": "David James"
+                },
+                {
+                    "id": "10441",
+                    "name": "Leon Rodrigues"
+                }
+            ]
 		}
 	]

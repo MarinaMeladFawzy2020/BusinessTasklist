@@ -2,6 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { ProcesslistService } from 'src/app/services/processlist.service';
+import { TestService } from 'src/app/services/test.service';
 import { VersionlistComponent } from '../versionlist/versionlist.component';
 
 @Component({
@@ -25,15 +26,19 @@ export class ProcesslistViewComponent implements OnInit {
   Size:any = 50;
   hidenReadmore = false;
   constructor(private processList : ProcesslistService , private messageService: MessageService ,
-     @Inject(DOCUMENT) private document: Document) { }
+     @Inject(DOCUMENT) private document: Document ,private productService: TestService) { }
   // showSuccess() {
   //   this.messageService.add({severity:'success', summary: 'Success', detail: 'Message Content'});
   // }
+
+
 
   ngOnInit(): void {
     this.processList.getAllProcesses(this.PageNo , this.Size).subscribe((Response: any) => {
       this.AllProcesses = Response.body;
        console.log(this.AllProcesses);
+       this.TotalProcess = this.AllProcesses.length
+
    }); 
 
   }
