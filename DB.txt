@@ -1,12 +1,15 @@
+https://173.249.22.91:8083/swagger-ui.html#/
+
+----------------------------------
+ DB
+------
+
 spring.datasource.url=jdbc:oracle:thin:@192.168.0.10:1521:wfmdb
 spring.datasource.username=bpm_execution
 spring.datasource.password=mtsbpm2016
 
 
-
-
 cloud DB
-
 ------
 
 spring.datasource.url=jdbc:oracle:thin:@173.249.22.91:1521:hivewfm.mts-mea.com

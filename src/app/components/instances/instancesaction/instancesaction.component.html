@@ -3,10 +3,42 @@
 <p-toast></p-toast>
 
 
-<div class="row" *ngIf="checkDetails == true"  style="overflow-y: scroll;height:450px;">
+<div class="row" style="display: none">
+
+    <form #f="ngForm" (ngSubmit)="searchtinstance(f.value)">
+  hh
+
+            <div class="row search">
+                <div class=" col-5 md:col-3">
+                    <label>Instance ID</label>
+                    <p-inputNumber   [useGrouping]="false" [min]="0" id="InstanceID"  name="InstanceID" [(ngModel)]="InstanceID"> </p-inputNumber>
+                </div>
+                <div class=" col-5 md:col-3">
+                        <label>Instance Name</label>
+                        <input type="text" id="InstanceName" pInputText name="Instance_NAME" [(ngModel)]="InstanceName">
+                    </div>
+              
+            </div>
+
+
+        <div class="actions">
+            <p-button label="Search" type="submit" icon="pi pi-search" styleClass="p-button-success p-search"
+                [disabled]=f.form.invalid></p-button>
+            <p-button label="Reset" type="button" (click)="reset(f)" icon="pi pi-refresh"
+                styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
+        </div>
+    </form>
+
+</div>
+
+
+<div class="row" *ngIf="checkDetails == true" style="overflow-y: scroll;height:450px;">
+
+
     <span *ngIf="message !== null" style="color:#a33 ; margin-left: 41%;font-weight: 700;">{{message}}</span>
 
-    <div class="col-4" *ngFor="let testobject of AllProcessInstance ; let i = index" style="font-size: 14px; padding: 1px;">
+    <div class="col-4" *ngFor="let testobject of AllProcessInstance ; let i = index"
+        style="font-size: 14px; padding: 1px;">
         <div class="contentInstance">
 
 
@@ -34,11 +66,11 @@
             </div>
             <br>
             <div class="row col-12" style="padding: 0px;margin-top: -22px;">
-                <div class="col-5">
-                    <h6 style="color:#a33" >{{testobject.instance_STATUS}}</h6>
+                <div class="col-6">
+                    <h6 style="color:#a33">{{testobject.instance_STATUS}}</h6>
 
                 </div>
-                <div class="col-7" style="padding-right: 0px;">
+                <div class="col-6" style="padding-right: 0px;">
                     <h6 style=" margin-top: -30px;float: right;"> {{(testobject.finishedactivities /
                         testobject.countactitivity)*100 | number:'1.2-2' }} % </h6>
 
@@ -61,8 +93,8 @@
 
             <div class="row text-center">
                 <div class="col-sm-6">
-                    <button pButton pRipple type="button"
-                        class="p-button-info p-button-rounded p-button-outlined"  style="color: #5a6268;">{{testobject.countactitivity}}</button>
+                    <button pButton pRipple type="button" class="p-button-info p-button-rounded p-button-outlined"
+                        style="color: #5a6268;">{{testobject.countactitivity}}</button>
                     <br> All
                 </div>
                 <div class="col-sm-6">
@@ -77,7 +109,7 @@
             <div class="row text-center" style="margin-top: -20px;">
                 <div class="col-sm-6">
                     <button pButton pRipple type="button"
-                        class=" p-button-warning p-button-rounded p-button-outlined"  >{{testobject.count_RUN_ACT}}</button>
+                        class=" p-button-warning p-button-rounded p-button-outlined">{{testobject.count_RUN_ACT}}</button>
                     <br> Running
                 </div>
                 <div class="col-sm-6">
@@ -86,13 +118,14 @@
                     <br> Completed
                 </div>
             </div>
-         
-                <div class="row text-center" style="margin-left: 25%; margin-top: 10px;"
-                    *ngIf="testobject.instance_STATUS == 'Started'  || testobject.instance_STATUS == 'Suspended' ">
-                    <button pButton pRipple type="button" class=" p-button-danger"  (click)="Terminated(testobject.process_INSTANCE_ID , i)">Terminated</button> 
-                    <!-- data-toggle="modal" data-target="#Terminated"  -->
-                </div>
-                  <!-- <div class="modal fade" id="Terminated" tabindex="-1" role="dialog" aria-labelledby="TerminatedLabel" aria-hidden="true">
+
+            <div class="row text-center" style="margin-left: 25%; margin-top: 10px;"
+                *ngIf="testobject.instance_STATUS == 'Started'  || testobject.instance_STATUS == 'Suspended' ">
+                <button pButton pRipple type="button" class=" p-button-danger"
+                    (click)="Terminated(testobject.process_INSTANCE_ID , i)">Terminated</button>
+                <!-- data-toggle="modal" data-target="#Terminated"  -->
+            </div>
+            <!-- <div class="modal fade" id="Terminated" tabindex="-1" role="dialog" aria-labelledby="TerminatedLabel" aria-hidden="true">
                     <div class="modal-dialog modal-l" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -113,7 +146,7 @@
                       </div>
                     </div>
                   </div> -->
-        
+
         </div>
     </div>
 
@@ -126,7 +159,7 @@
     {{SizeP}}  -->
     <div style="text-align: center;" *ngIf="hidenReadmore == false">
         <button pButton pRipple type="button" class=" p-button-warning"
-            (click)="readMore(processIDP , PageNoP + 1  , SizeP  )">Read More</button> 
+            (click)="readMore(processIDP , PageNoP + 1  , SizeP  )">Read More</button>
     </div>
 
 </div>

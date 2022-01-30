@@ -37,6 +37,17 @@ constructor(private http: HttpClient, private authService: AuthService , private
   return this.http.post<any>(this.URL+'BusinessApp/api/Process/ProcessInstance?PageNo='+PageNo+'&Size='+Size , this.obj ); //1448
  }
 
+ searchProcessInstance(_processID:any , PageNo:any , Size:any):Observable<any> {
+  this.obj = {
+    "LoginMode":sessionStorage.getItem("LoginMode") ,
+    "UserName":this.nameuser ,
+    "ProcessId": _processID,
+    "Process_Instance_Id": null,
+    "Process_Instance_Name": "asdf",
+   }
+   console.log( this.obj );
+  return this.http.post<any>(this.URL+'BusinessApp/api/Process/ProcessInstance/Search?PageNo='+PageNo+'&Size='+Size , this.obj ); //1448
+ }
  
  getHireachyInstance(PROCESSINSTANCEID:any ):Observable<any> {
   return this.http.get<any>(this.URL+'BusinessApp/api/Process/HireachyInstance?PROCESS_INSTANCE_ID='+PROCESSINSTANCEID); //258130756

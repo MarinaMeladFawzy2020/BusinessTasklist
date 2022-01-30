@@ -52,6 +52,11 @@ this.myinstancelist.getProcessInstance(processID , PageNo , Size).subscribe((Res
 
 }
 
+
+searchtinstance(fsearch:any)
+{
+  console.log(fsearch);
+}
 readMore(processIDP :any , PageNoP:any , SizeP:any) {
  
   this.myinstancelist.getProcessInstance(processIDP , PageNoP , SizeP).subscribe((Response: any) => {
