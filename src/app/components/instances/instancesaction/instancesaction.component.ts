@@ -17,6 +17,7 @@ export class InstancesactionComponent implements OnInit {
   hidenReadmore = false;
   checkstatus = false;
   checkResult= false;
+  checksearchbtn = false;
     @ViewChild("myDiv") myDiv!: ElementRef;
 
   constructor(private myinstancelist : InstaceslistService , private router: Router , private messageService: MessageService) { }
@@ -30,12 +31,14 @@ export class InstancesactionComponent implements OnInit {
 
 
 
-ProcessInstance(processID:any , PageNo:any , Size:any){
+ProcessInstance(processID:any , PageNo:any , Size:any ){
 //alert(_f);
 this.hidenReadmore = false ;
 this.PageNoP = PageNo;
 this.SizeP = Size ;
 this.processIDP = processID;
+this.checksearchbtn = false;
+
 this.myinstancelist.getProcessInstance(processID , PageNo , Size).subscribe((Response: any) => {
   this.AllProcessInstance = Response.body;
   this.checkDetails = true;
@@ -53,10 +56,7 @@ this.myinstancelist.getProcessInstance(processID , PageNo , Size).subscribe((Res
 }
 
 
-searchtinstance(fsearch:any)
-{
-  console.log(fsearch);
-}
+
 readMore(processIDP :any , PageNoP:any , SizeP:any) {
  
   this.myinstancelist.getProcessInstance(processIDP , PageNoP , SizeP).subscribe((Response: any) => {
@@ -70,6 +70,57 @@ readMore(processIDP :any , PageNoP:any , SizeP:any) {
   //  // alert(this.add.length);
   //  }
 
+   if(this.add.length > 0){
+    for(let i = 0 ; i< this.add.length ; i ++){
+   //   console.log(this.add[i]);
+      this.AllProcessInstance.push(this.add[i]);
+    }
+     console.log(this.AllProcessInstance);
+
+     if(this.add.length < this.SizeP){
+      this.hidenReadmore = true ;
+     }
+
+   } 
+   else{
+     this.hidenReadmore = true ;
+   }
+ 
+ });
+ 
+ }
+// search 
+searchtinstance(fsearch:any)
+{
+  console.log(fsearch);
+this.hidenReadmore = false ;
+this.PageNoP = 1;
+this.SizeP = 3 ;
+this.datasearch =  fsearch;
+this.checksearchbtn = true
+this.myinstancelist.searchProcessInstance(fsearch , 1 , 3).subscribe((Response: any) => {
+  this.AllProcessInstance = Response.body;
+  this.checkDetails = true;
+   console.log(this.AllProcessInstance);
+   if(this.AllProcessInstance.length == 0){
+     this.hidenReadmore = true ;
+     this.message = "NO Data Found" ;
+   }else{
+    this.message = null ;
+
+   }
+
+});
+}
+searchreadMore( PageNoP:any , SizeP:any) {
+ console.log(this.datasearch)
+  this.myinstancelist.searchProcessInstance(this.datasearch , PageNoP , SizeP).subscribe((Response: any) => {
+   this.PageNoP = PageNoP;
+   this.add = Response.body;
+   console.log(this.add);
+
+   console.log(this.add.length);
+ 
    if(this.add.length > 0){
     for(let i = 0 ; i< this.add.length ; i ++){
    //   console.log(this.add[i]);

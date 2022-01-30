@@ -3,30 +3,39 @@
 <p-toast></p-toast>
 
 
-<div class="row" style="display: none">
+<div class="row">
 
-    <form #f="ngForm" (ngSubmit)="searchtinstance(f.value)">
-  hh
+    <form #f="ngForm" (ngSubmit)="searchtinstance(f.value)" class="formsearch" >
+        <div class="row search">
 
-            <div class="row search">
-                <div class=" col-5 md:col-3">
-                    <label>Instance ID</label>
-                    <p-inputNumber   [useGrouping]="false" [min]="0" id="InstanceID"  name="InstanceID" [(ngModel)]="InstanceID"> </p-inputNumber>
-                </div>
-                <div class=" col-5 md:col-3">
-                        <label>Instance Name</label>
-                        <input type="text" id="InstanceName" pInputText name="Instance_NAME" [(ngModel)]="InstanceName">
-                    </div>
-              
+            <input type="text" pInputText name="processIDP" [(ngModel)]="processIDP" style="height: 0px !important;  padding: 0; width: 0;">
+          
+    
+            <div class=" col-4 md:col-3">
+                <label>Instance ID</label> 
+                <p-inputNumber [useGrouping]="false" [min]="0"  name="Process_Instance_Id"
+                    [(ngModel)]="Process_Instance_Id"> </p-inputNumber>
             </div>
+            <div class=" col-4 md:col-3">
+                <label>Instance Name</label>
+                <input type="text" pInputText name="Process_Instance_Name" [(ngModel)]="Process_Instance_Name">
+            </div>
+         
 
-
-        <div class="actions">
-            <p-button label="Search" type="submit" icon="pi pi-search" styleClass="p-button-success p-search"
-                [disabled]=f.form.invalid></p-button>
-            <p-button label="Reset" type="button" (click)="reset(f)" icon="pi pi-refresh"
-                styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
         </div>
+        <div >
+            <label> </label>
+            <div class="actions" style="margin-top: -44px; float: right;">
+           
+                <p-button label="Search" type="submit" icon="pi pi-search" styleClass="p-button-success p-search"
+                    [disabled]=f.form.invalid></p-button>
+                <!-- <p-button label="Reset" type="button" (click)="reset(f)" icon="pi pi-refresh"
+                    styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button> -->
+            </div>
+        </div>
+
+
+      
     </form>
 
 </div>
@@ -158,8 +167,12 @@
     {{PageNoP}} <br>
     {{SizeP}}  -->
     <div style="text-align: center;" *ngIf="hidenReadmore == false">
-        <button pButton pRipple type="button" class=" p-button-warning"
+        <button pButton pRipple type="button" class=" p-button-warning" *ngIf="checksearchbtn == false"
             (click)="readMore(processIDP , PageNoP + 1  , SizeP  )">Read More</button>
+
+            <button pButton pRipple type="button" class=" p-button-warning" *ngIf="checksearchbtn == true"
+            (click)="searchreadMore(PageNoP + 1  , SizeP  )">Read More </button>
+            
     </div>
 
 </div>

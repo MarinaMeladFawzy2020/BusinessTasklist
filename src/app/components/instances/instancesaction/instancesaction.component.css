@@ -45,3 +45,8 @@
    right: -18px;
    padding-left: 14px !important;
 }
+
+.formsearch{
+   width: -webkit-fill-available;
+   margin-bottom: 5px;
+}

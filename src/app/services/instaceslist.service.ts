@@ -37,13 +37,14 @@ constructor(private http: HttpClient, private authService: AuthService , private
   return this.http.post<any>(this.URL+'BusinessApp/api/Process/ProcessInstance?PageNo='+PageNo+'&Size='+Size , this.obj ); //1448
  }
 
- searchProcessInstance(_processID:any , PageNo:any , Size:any):Observable<any> {
+ searchProcessInstance(_f:any , PageNo:any , Size:any):Observable<any> {
+   console.log(_f);
   this.obj = {
     "LoginMode":sessionStorage.getItem("LoginMode") ,
     "UserName":this.nameuser ,
-    "ProcessId": _processID,
-    "Process_Instance_Id": null,
-    "Process_Instance_Name": "asdf",
+    "ProcessId": _f.processIDP,
+    "Process_Instance_Id": _f.Process_Instance_Id,
+    "Process_Instance_Name": _f.Process_Instance_Name,
    }
    console.log( this.obj );
   return this.http.post<any>(this.URL+'BusinessApp/api/Process/ProcessInstance/Search?PageNo='+PageNo+'&Size='+Size , this.obj ); //1448
