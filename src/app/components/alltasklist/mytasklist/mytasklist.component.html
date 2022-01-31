@@ -3,7 +3,6 @@
 
 <app-searchtasklist  [userTask]="0"  (getResponse)="getsearchtasklist($event)"></app-searchtasklist>
 
-
 <div style=" margin-top: -18px;">
 
 <p-table #dtmytasklist [value]="TaskList"  [rows]="10" [showCurrentPageReport]="true"  sortMode="multiple"
@@ -46,7 +45,9 @@
         <td><h6 title="task_Status">{{myTask.task_Status}}</h6> </td>
 
         <td><span class="btn btn-primary actions"  title="history" >  <i class="fa fa-history"></i> </span> </td>
-        <td title="due_DATE" style="width: 20%;"> <h6  >{{myTask.due_DATE }}</h6> </td> 
+        <td title="due_DATE" style="width: 20%;"> <h6>{{myTask.due_DATE }}</h6> </td> 
+        <td title="end_DATE" style="width: 20%;"> <h6>{{myTask.end_DATE }}</h6> </td> 
+        
         <td>
             <h6  title="process_NAME">{{myTask.process_NAME}}</h6>
             <h6  title="version_NO">{{myTask.version_NO}}</h6>
