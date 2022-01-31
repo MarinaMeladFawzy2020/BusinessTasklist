@@ -12,7 +12,6 @@ declare var bootbox: any
 })
 export class InstancesactionComponent implements OnInit {
   [x:string]:any;
-  loading: boolean = true;
   checkDetails = false;
   hidenReadmore = false;
   checkstatus = false;
@@ -27,7 +26,6 @@ export class InstancesactionComponent implements OnInit {
     // document.body.innerHTML = "<pre>" + (JSON.stringify(this.treeall, null, " "))
 
 }
-
 
 
 
@@ -48,7 +46,9 @@ this.myinstancelist.getProcessInstance(processID , PageNo , Size).subscribe((Res
      this.message = "NO Data Found" ;
    }else{
     this.message = null ;
-
+    if(this.AllProcessInstance.length < this.SizeP){
+      this.hidenReadmore = true ;
+    }
    }
 
 });
@@ -58,7 +58,8 @@ this.myinstancelist.getProcessInstance(processID , PageNo , Size).subscribe((Res
 
 
 readMore(processIDP :any , PageNoP:any , SizeP:any) {
- 
+  console.log(processIDP);
+  console.log(PageNoP);
   this.myinstancelist.getProcessInstance(processIDP , PageNoP , SizeP).subscribe((Response: any) => {
    this.PageNoP = PageNoP;
    this.add = Response.body;
@@ -98,7 +99,7 @@ this.PageNoP = 1;
 this.SizeP = 3 ;
 this.datasearch =  fsearch;
 this.checksearchbtn = true
-this.myinstancelist.searchProcessInstance(fsearch , 1 , 3).subscribe((Response: any) => {
+this.myinstancelist.searchProcessInstance(fsearch , 1 , this.SizeP).subscribe((Response: any) => {
   this.AllProcessInstance = Response.body;
   this.checkDetails = true;
    console.log(this.AllProcessInstance);
@@ -107,6 +108,9 @@ this.myinstancelist.searchProcessInstance(fsearch , 1 , 3).subscribe((Response: 
      this.message = "NO Data Found" ;
    }else{
     this.message = null ;
+    if(this.AllProcessInstance.length < this.SizeP){
+      this.hidenReadmore = true ;
+    }
 
    }
 
@@ -141,6 +145,18 @@ searchreadMore( PageNoP:any , SizeP:any) {
  
  }
 
+
+ reset(f:any){
+  //   f.form.reset({
+  //     Process_Instance_Id: null, 
+  //     Process_Instance_Name: "",
+  // });
+  this.Process_Instance_Id= null, 
+  this.Process_Instance_Name= "", 
+  console.log(f.value);
+  console.log(this.processIDP);
+  this.ProcessInstance(this.processIDP , 1 , 3 );
+ }
 
 viewDetails(process_INSTANCE_ID:any ){
   this.router.navigate(["/instancelistDetails"] ,  { queryParams: {process_INSTANCE_ID: process_INSTANCE_ID }});

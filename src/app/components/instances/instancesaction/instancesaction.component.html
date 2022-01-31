@@ -1,16 +1,10 @@
 <!-- {{AllProcessInstance | json}} -->
 
 <p-toast></p-toast>
-
-
-<div class="row">
-
+<div class="row"  *ngIf="checkDetails == true">
     <form #f="ngForm" (ngSubmit)="searchtinstance(f.value)" class="formsearch" >
         <div class="row search">
-
             <input type="text" pInputText name="processIDP" [(ngModel)]="processIDP" style="height: 0px !important;  padding: 0; width: 0;">
-          
-    
             <div class=" col-4 md:col-3">
                 <label>Instance ID</label> 
                 <p-inputNumber [useGrouping]="false" [min]="0"  name="Process_Instance_Id"
@@ -21,7 +15,6 @@
                 <input type="text" pInputText name="Process_Instance_Name" [(ngModel)]="Process_Instance_Name">
             </div>
          
-
         </div>
         <div >
             <label> </label>
@@ -29,13 +22,11 @@
            
                 <p-button label="Search" type="submit" icon="pi pi-search" styleClass="p-button-success p-search"
                     [disabled]=f.form.invalid></p-button>
-                <!-- <p-button label="Reset" type="button" (click)="reset(f)" icon="pi pi-refresh"
-                    styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button> -->
+                <p-button label="Reset" type="button" (click)="reset(f)" icon="pi pi-refresh"
+                    styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
             </div>
         </div>
-
-
-      
+  
     </form>
 
 </div>
@@ -171,7 +162,7 @@
             (click)="readMore(processIDP , PageNoP + 1  , SizeP  )">Read More</button>
 
             <button pButton pRipple type="button" class=" p-button-warning" *ngIf="checksearchbtn == true"
-            (click)="searchreadMore(PageNoP + 1  , SizeP  )">Read More </button>
+            (click)="searchreadMore(PageNoP + 1  , SizeP  )">Read More</button>
             
     </div>
 
