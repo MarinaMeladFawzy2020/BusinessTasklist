@@ -12,6 +12,11 @@
 [globalFilterFields]="['work_ITEM_ID' , 'work_ITEM_NAME' , 'assigned_USER' , 'assign_DATE' , 'task_Status' , 'process_NAME' , 'version_NO']">
 
 <ng-template pTemplate="caption">
+
+    <div class="flex" style="float: right; margin-top: -10px;">
+        <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()" class="p-button-success mr-2"   title="Export Excel" style="height: 32px;"></button>
+    </div>
+
     <div class="table-header">
         My User Tasks
         <span class="p-input-icon-left searchtable" style="float: right; margin-top: -8px;">
@@ -43,11 +48,9 @@
             <!-- <h6 title="assigned_USER">{{myTask.assigned_USER}}</h6> -->
          </td>
         <td><h6 title="task_Status">{{myTask.task_Status}}</h6> </td>
-
         <td><span class="btn btn-primary actions"  title="history" >  <i class="fa fa-history"></i> </span> </td>
         <td title="due_DATE" style="width: 20%;"> <h6>{{myTask.due_DATE }}</h6> </td> 
         <td title="end_DATE" style="width: 20%;"> <h6>{{myTask.end_DATE }}</h6> </td> 
-        
         <td>
             <h6  title="process_NAME">{{myTask.process_NAME}}</h6>
             <h6  title="version_NO">{{myTask.version_NO}}</h6>

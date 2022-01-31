@@ -12,6 +12,9 @@
 
 
     <ng-template pTemplate="caption">
+        <div class="flex" style="float: right; margin-top: -10px;">
+            <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()" class="p-button-success mr-2"   title="Export Excel" style="height: 32px;"></button>
+        </div>
         <div class="table-header">
             Staff Task List
             <span class="p-input-icon-left searchtable" style="float: right; margin-top: -8px;">

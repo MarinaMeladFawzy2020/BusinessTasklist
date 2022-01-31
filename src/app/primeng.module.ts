@@ -40,6 +40,7 @@ import {ScrollPanelModule} from 'primeng/scrollpanel';
 import {AccordionModule} from 'primeng/accordion';
 import {BadgeModule} from 'primeng/badge';
 import {GMapModule} from 'primeng/gmap';
+import {TooltipModule} from 'primeng/tooltip';
 
 import {ConfirmPopupModule} from 'primeng/confirmpopup';
 const primengModules = [
@@ -85,6 +86,7 @@ const primengModules = [
     BadgeModule,
     GMapModule,
     ConfirmPopupModule,
+    TooltipModule
     
    
 ];

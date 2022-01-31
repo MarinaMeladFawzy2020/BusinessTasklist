@@ -1,4 +1,6 @@
+import { formatDate } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import * as FileSaver from 'file-saver';
 import { TasklistService } from 'src/app/services/tasklist.service';
 import { StaffactivityassigneduserComponent } from '../staffactivityassigneduser/staffactivityassigneduser.component';
 import { StaffassignandreassignComponent } from '../staffassignandreassign/staffassignandreassign.component';
@@ -61,4 +63,26 @@ export class StafftasklistComponent implements OnInit {
     }
     
     
+
+    
+  exportExcel() {
+    //npm install xlsx
+    import('xlsx').then((xlsx): void => {
+        const worksheet = xlsx.utils.json_to_sheet(this.StaffTaskList);
+        const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+        const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
+        this.saveAsExcelFile(excelBuffer, "StaffTaskList");
+    });
+}
+
+saveAsExcelFile(buffer: any, fileName: string): void {
+  //npm install filesaver
+  let EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+  let EXCEL_EXTENSION = '.xlsx';
+  const data: Blob = new Blob([buffer], {
+      type: EXCEL_TYPE
+  });
+ FileSaver.saveAs(data, fileName + '_' + formatDate(new Date() ,"dd-MMM-YYYY hh:mm" ,'en-US') + EXCEL_EXTENSION);
+}
+
 }
