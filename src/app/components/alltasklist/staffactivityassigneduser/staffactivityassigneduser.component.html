@@ -16,6 +16,7 @@
          <!-- {{staffActivity | json}} -->
 
          <p-table #dt1 [value]="staffActivity"  [rows]="10" [showCurrentPageReport]="true"  sortMode="multiple"
+         [scrollable]="false"  scrollHeight="400px"
          [rowsPerPageOptions]="[5,10,25,50]"  styleClass="p-datatable-sm p-datatable-gridlines" [loading]="loading"  selectionMode="single" [(selection)]="selectedProcess"
          [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
          [globalFilterFields]="['assign_DATE','activity_INSTANCE_ID' , 'user_NAME' ]"

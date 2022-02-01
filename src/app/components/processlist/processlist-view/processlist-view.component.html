@@ -5,17 +5,16 @@
 <!-- <button type="button" pButton pRipple (click)="showSuccess()" label="Success" class="p-button-success p-mb-2"></button> -->
 
 
-<div class="card row col-12 " style="display: -webkit-inline-box; margin-left: -1px;">
-    <div class="p-col p-d-flex col-5">
+<div class="card row col-12 " style="display: -webkit-inline-box; margin-left: -1px; ">
+    <div class="p-col p-d-flex col-5" style="padding: 10px 0px;">
         <!-- {{AllProcesses | json}} -->
-        <br>
+       
         <!--Table Process-->
         <!-- [scrollable]="true"  scrollHeight="410px" -->
         <p-table #dt1 [value]="AllProcesses" [rows]="10" [showCurrentPageReport]="true" sortMode="multiple"
-            [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading" selectionMode="single" scrollHeight="420px"  
-            [(selection)]="selectedProcess" [paginator]="false"   
-          
-            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" styleClass="p-datatable-sm noscroll"
+            [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading" selectionMode="single" [scrollable]="false"  
+            [(selection)]="selectedProcess" [paginator]="false"    responsiveLayout="scroll"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" styleClass="p-datatable-sm noscroll" 
             [globalFilterFields]="['ProcessId','ProcessName' , 'No_Versions', 'ProcessStatus' , 'Description' , 'ParentProcessId' , 'DefaultVersionNo']">
 
             <ng-template pTemplate="caption">
@@ -40,7 +39,7 @@
 
             <ng-template pTemplate="header">
                 <tr>
-                    <th>
+                    <th style="width: 5rem !important;" >
                         <div class="p-d-flex p-jc-between p-ai-center"> </div>
                     </th>
                     <!-- 
@@ -116,7 +115,7 @@
 
 
                         <button pButton pRipple type="button" [label]="Process.No_Versions"
-                            style="width: 40px; height: 40px;"
+                            style="width: 40px; height: 32px;"
                             class=" p-button-success p-button-rounded p-button-outlined "></button>
                     </td>
 
@@ -142,11 +141,11 @@
 
         </p-table>
 
-
+      
     </div>
 
 
-    <div class="p-col p-d-flex p-ai-center p-jc-center col-7">
+    <div class="p-col p-d-flex p-ai-center p-jc-center col-7" style="padding: 10px 10px;" >
         <app-versionlist #myDetails></app-versionlist>
     </div>
 

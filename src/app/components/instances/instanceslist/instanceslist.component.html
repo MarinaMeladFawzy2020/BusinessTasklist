@@ -1,8 +1,7 @@
 <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
 
-<div class="row " style="margin-left: 2px; width: 100%;">
-
-    <div class="col-4 partone"> 
+<div class="row" style="margin-left: 2px; width: 100%;">
+    <div class="col-3 partone" > 
         <p-card header="Instance List"  styleClass="p-card-shadow"> <!--[style]="{'width': '360px'}" [style.background]="colorHover" -->
             <p-table #dt1 [value]="instancelist"  [rows]="5" [showCurrentPageReport]="true"  sortMode="multiple"
             [rowsPerPageOptions]="[5,10,25,50]" [rowHover]="true" responsiveLayout="scroll" 
@@ -79,8 +78,8 @@
 
     </div>
 
-    <div class="col-8 parttwo" >
-        <div class="card" styleClass="p-card-shadow2" style="width: 106%; padding: 10px 20px;margin-left: -4px;border-radius: 0;" >
+    <div class="col-9 parttwo" >
+        <div class="card" styleClass="p-card-shadow2" style="width: 105%; padding: 10px 20px;margin-left: -4px;border-radius: 0;" >
     
                 <h6 style="font-size:16px !important ;">Instance Action</h6>
                 <app-instancesaction #DetailsInstance></app-instancesaction>

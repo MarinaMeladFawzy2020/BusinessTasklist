@@ -61,10 +61,7 @@ export class StafftasklistComponent implements OnInit {
     staffresumedataRow(_f:any){
       this.staffresume.getDataRow(_f);
     }
-    
-    
-
-    
+        
   exportExcel() {
     //npm install xlsx
     import('xlsx').then((xlsx): void => {

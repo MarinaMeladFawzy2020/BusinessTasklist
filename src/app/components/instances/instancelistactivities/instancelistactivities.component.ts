@@ -10,6 +10,7 @@ import { InstanceviewhierarchyComponent } from '../instanceviewhierarchy/instanc
 })
 export class InstancelistactivitiesComponent implements OnInit {
 [x:string]:any;
+loading: boolean = true;
     //breadcrumb
     @ViewChild('viewhierarchy') viewhierarchy!: InstanceviewhierarchyComponent;
 
@@ -29,6 +30,7 @@ export class InstancelistactivitiesComponent implements OnInit {
 
     this.myinstancelist.getActivityInstForTracking(this.process_INSTANCE_ID).subscribe((Response: any) => {
       this.listactivities = Response.body;
+      this.loading= false;
       console.log(this.listactivities);
 
    }); 

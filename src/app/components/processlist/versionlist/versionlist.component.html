@@ -1,9 +1,9 @@
-<br>
+
 
 <!--Table Process Versions-->
 <p-table #dt2 [value]="AllProcessVersions" dataKey="id" [rows]="10" [showCurrentPageReport]="true" sortMode="multiple"
-    [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading"  scrollHeight="420px" 
-    styleClass="p-datatable-sm p-datatable-AllProcessVersions p-datatable-gridlines noscroll" [paginator]="true"
+    [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading" [scrollable]="false"  
+    styleClass="p-datatable-sm p-datatable-AllProcessVersions  noscroll" [paginator]="true"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
     [globalFilterFields]="['ProcessId','VersionNo' , 'ProcessName' , 'ProcessStatus' , 'Description' , 'ParentProcessId' , 'ParentVersionNo']">
 

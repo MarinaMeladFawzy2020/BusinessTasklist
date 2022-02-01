@@ -4,15 +4,83 @@
         <div class="modal-content">
 
             <div class="modal-header">
-                <h6 class="modal-title" id="ActivityWorkItemsLabel"> Work Items List</h6>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"  (click)="closedata()">
+                <h6 class="modal-title" id="ActivityWorkItemsLabel"> Activity Attributes</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closedata()">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <form>
                 <div class="modal-body">
+                    <!-- {{ActivityAttributes | json}} -->
+                    <!-- {{checktype}} -->
+                 <div *ngIf="checktype == 'UserTask'">
 
-                    <div class="row col-12">
+                    <p-table #dt1 [value]="ActivityAttributes"  [rows]="10" [showCurrentPageReport]="true"  sortMode="multiple"
+                    [rowsPerPageOptions]="[5,10,25,50]"  styleClass="p-datatable-sm p-datatable-gridlines" [loading]="loading"  selectionMode="single"
+                    [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                    [globalFilterFields]="['att_NAME','att_VALUE' ]" scrollHeight="450px"
+                    [metaKeySelection]="true"  responsiveLayout="scroll"  dataKey="att_NAME">
+            
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th pSortableColumn="att_NAME" >
+                                <div class="p-d-flex p-jc-between p-ai-center">
+                                    att_NAME                
+                                    <p-sortIcon field="att_NAME"></p-sortIcon>
+                                </div>
+                            </th>
+            
+                            <th pSortableColumn="att_VALUE" >
+                             <div class="p-d-flex p-jc-between p-ai-center">
+                                att_VALUE                
+                                 <p-sortIcon field="att_VALUE"></p-sortIcon>
+                             </div>
+                         </th>
+           
+                   
+                        </tr>
+           
+                        <tr >
+                         <th>
+                           <p-columnFilter type="text" field="att_NAME" ></p-columnFilter>
+                         </th>
+                       
+                         <th>
+                           <p-columnFilter type="text" field="att_VALUE" ></p-columnFilter>
+                         </th>
+        
+                        
+                       </tr>
+                    </ng-template>
+            
+            
+                    <ng-template pTemplate="body" let-Process>
+                        <tr>
+                           
+                         <td>{{Process.att_NAME}} </td>
+                         <td>{{Process.att_VALUE}} </td>
+                         
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="emptymessage">
+                        <tr>
+                         <td colspan="7"><h6 class="emptymessage">No Data Found</h6>  </td>
+                       </tr>
+                    </ng-template>
+                    </p-table>
+                 </div>
+
+
+                 <div *ngIf="checktype == 'Start_Event'">
+                     {{checktype}}
+                 </div>
+
+
+                    
+                    
+
+
+                    <!-- <div class="row col-12">
 
                         <div class="col-4 mb-3" *ngFor="let WorkItem of ActivityWorkItems ">
                       
@@ -80,18 +148,19 @@
 
                         </div>
 
-                    </div>
+                    </div> -->
 
 
-                    <div class="row col-12" *ngIf="WorkItemslength == true" >
+                    <!-- <div class="row col-12" *ngIf="WorkItemslength == true">
                         <h6 class="NoData">No Data Found </h6>
-                    </div>
+                    </div> -->
 
 
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="closedata()"><i class="pi pi-times"></i>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="closedata()"><i
+                            class="pi pi-times"></i>
                         Close</button>
                 </div>
 

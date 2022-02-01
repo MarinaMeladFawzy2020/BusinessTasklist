@@ -1,32 +1,44 @@
 <!-- {{AllProcessInstance | json}} -->
 
 <p-toast></p-toast>
-<div class="row"  *ngIf="checkDetails == true">
-    <form #f="ngForm" (ngSubmit)="searchtinstance(f.value)" class="formsearch" >
+
+
+<div class="row" *ngIf="checkDetails == true">
+    <form #f="ngForm" (ngSubmit)="searchtinstance(f.value)" class="formsearch">
         <div class="row search">
-            <input type="text" pInputText name="processIDP" [(ngModel)]="processIDP" style="height: 0px !important;  padding: 0; width: 0;">
-            <div class=" col-4 md:col-3">
-                <label>Instance ID</label> 
-                <p-inputNumber [useGrouping]="false" [min]="0"  name="Process_Instance_Id"
-                    [(ngModel)]="Process_Instance_Id"> </p-inputNumber>
-            </div>
-            <div class=" col-4 md:col-3">
-                <label>Instance Name</label>
-                <input type="text" pInputText name="Process_Instance_Name" [(ngModel)]="Process_Instance_Name">
-            </div>
-         
-        </div>
-        <div >
-            <label> </label>
-            <div class="actions" style="margin-top: -44px; float: right;">
+            <input type="text" pInputText name="processIDP" [(ngModel)]="processIDP"
+                style="height: 0px !important;  padding: 0; width: 0;">
            
-                <p-button label="Search" type="submit" icon="pi pi-search" styleClass="p-button-success p-search"
-                    [disabled]=f.form.invalid></p-button>
-                <p-button label="Reset" type="button" (click)="reset(f)" icon="pi pi-refresh"
-                    styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
+          
+            <div class="form-group" style=" display: flex;">
+                <label class="col-sm-4 col-form-label col-form-label-sm">Instance ID</label>
+                <div class="col-sm-4">
+                     <p-inputNumber [useGrouping]="false" [min]="0" name="Process_Instance_Id"
+                    [(ngModel)]="Process_Instance_Id"> </p-inputNumber>
+                </div>
             </div>
+
+            <div class="form-group" style=" display: flex;">
+                <label class="col-sm-4 col-form-label col-form-label-sm">Instance Name</label>
+                <div class="col-sm-4">
+                    <input type="text" pInputText name="Process_Instance_Name" [(ngModel)]="Process_Instance_Name">
+                </div>
+            </div>
+
+            <div class="form-group" >
+                <div style="margin-top:-5px;">
+                    <p-button label="Search" type="submit" icon="pi pi-search" styleClass="p-button-success p-search"
+                    [disabled]=f.form.invalid></p-button>
+                  <p-button label="Reset" type="button" (click)="reset(f)" icon="pi pi-refresh"
+                    styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
+                </div>
+            </div>
+
         </div>
-  
+
+
+    
+
     </form>
 
 </div>
@@ -37,7 +49,7 @@
 
     <span *ngIf="message !== null" style="color:#a33 ; margin-left: 41%;font-weight: 700;">{{message}}</span>
 
-    <div class="col-4" *ngFor="let testobject of AllProcessInstance ; let i = index"
+    <div class="col-3" *ngFor="let testobject of AllProcessInstance ; let i = index"
         style="font-size: 14px; padding: 1px;">
         <div class="contentInstance">
 
@@ -161,9 +173,9 @@
         <button pButton pRipple type="button" class=" p-button-warning" *ngIf="checksearchbtn == false"
             (click)="readMore(processIDP , PageNoP + 1  , SizeP  )">Read More</button>
 
-            <button pButton pRipple type="button" class=" p-button-warning" *ngIf="checksearchbtn == true"
+        <button pButton pRipple type="button" class=" p-button-warning" *ngIf="checksearchbtn == true"
             (click)="searchreadMore(PageNoP + 1  , SizeP  )">Read More</button>
-            
+
     </div>
 
 </div>

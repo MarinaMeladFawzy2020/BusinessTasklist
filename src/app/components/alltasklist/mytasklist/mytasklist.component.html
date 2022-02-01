@@ -5,20 +5,25 @@
 
 <div style=" margin-top: -18px;">
 
-<p-table #dtmytasklist [value]="TaskList"  [rows]="10" [showCurrentPageReport]="true"  sortMode="multiple"
+<p-table #dtmytasklist [value]="TaskList"  [rows]="10" [showCurrentPageReport]="true"  sortMode="multiple"   [columns]="selectedColumns"
 [scrollable]="false"  scrollHeight="300px"   
 [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading"  selectionMode="single" styleClass="p-datatable-sm"
 [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
 [globalFilterFields]="['work_ITEM_ID' , 'work_ITEM_NAME' , 'assigned_USER' , 'assign_DATE' , 'task_Status' , 'process_NAME' , 'version_NO']">
 
 <ng-template pTemplate="caption">
+   
+  
+    <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header"   class="multicol"
+    selectedItemsLabel="{0} columns selected"  placeholder="Choose Columns"></p-multiSelect>
 
     <div class="flex" style="float: right; margin-top: -10px;">
         <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()" class="p-button-success mr-2"   title="Export Excel" style="height: 32px;"></button>
     </div>
 
-    <div class="table-header">
-        My User Tasks
+    <div class="table-header" style="height: 18px;">
+        <!-- My User Tasks -->
+      
         <span class="p-input-icon-left searchtable" style="float: right; margin-top: -8px;">
             <i class="pi pi-search"></i>
             <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h" (input)="dtmytasklist.filterGlobal(inVal.value, 'contains')"  placeholder="Search keyword" /> 
@@ -27,25 +32,56 @@
 </ng-template>
 
 
-<!-- <ng-template pTemplate="header">
+<ng-template pTemplate="header" let-columns >
     <tr>
-        <th>work ITEM ID</th>   
-        <th>version_NO</th>   
-        <th>process_ID</th>   
-        <th>process_NAME</th>   
-        <th>task_TYPE</th>   
-        <th>finished_BY</th>   
+        <th></th> 
+        <th *ngFor="let col of columns">
+            {{col.header}}
+        </th>
+      
     </tr>
-</ng-template>  -->
+</ng-template> 
 
+     
+          
 
-<ng-template pTemplate="body" let-myTask>
+<ng-template pTemplate="body" let-myTask let-columns="columns">
     <tr >
         <td><span class="btn btn-warning actions" >  <i class="fa fa-th-list"></i> </span> </td>
-        <td >
+
+        <td *ngFor="let col of columns ; let i = index" >
+            
+            <!-- <h6 title="myTask[col.field]">{{myTask[col.field]}}</h6>  -->
+
+            <span  *ngIf="col.field == 'work_ITEM_NAME' "> 
+                <h6 title="work_ITEM_NAME">{{myTask.work_ITEM_NAME}}</h6> 
+                <h6 title="assign_DATE">{{myTask.assign_DATE  }}</h6> 
+            </span>
+
+            <span  *ngIf="col.field == 'task_Status' "> 
+                <h6 title="task_Status">{{myTask.task_Status}}</h6>
+             </span>
+
+            <span  *ngIf="col.field == 'history' " class="btn btn-primary actions"  title="history" >  <i class="fa fa-history"></i> </span>
+
+            <span  *ngIf="col.field == 'due_DATE' "> 
+                <h6 title="due_DATE">{{myTask.due_DATE}}</h6>
+             </span>
+
+             <span  *ngIf="col.field == 'end_DATE' "> 
+                <h6 title="end_DATE">{{myTask.end_DATE}}</h6>
+             </span>
+
+             <span  *ngIf="col.field == 'process_NAME' "> 
+                <h6  title="process_NAME">{{myTask.process_NAME}}</h6>
+                <h6  title="version_NO">{{myTask.version_NO}}</h6>
+             </span>
+
+        </td>
+
+        <!-- <td>
             <h6 title="work_ITEM_NAME">{{myTask.work_ITEM_NAME}}</h6> 
-            <h6 title="assign_DATE">{{myTask.assign_DATE  }}</h6> <!--| date: 'dd/MM/yyyy'-->
-            <!-- <h6 title="assigned_USER">{{myTask.assigned_USER}}</h6> -->
+            <h6 title="assign_DATE">{{myTask.assign_DATE  }}</h6>
          </td>
         <td><h6 title="task_Status">{{myTask.task_Status}}</h6> </td>
         <td><span class="btn btn-primary actions"  title="history" >  <i class="fa fa-history"></i> </span> </td>
@@ -54,7 +90,7 @@
         <td>
             <h6  title="process_NAME">{{myTask.process_NAME}}</h6>
             <h6  title="version_NO">{{myTask.version_NO}}</h6>
-         </td>
+         </td> -->
         
     </tr>
 </ng-template>

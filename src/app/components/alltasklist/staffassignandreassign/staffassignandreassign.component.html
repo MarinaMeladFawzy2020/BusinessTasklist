@@ -31,8 +31,8 @@ role="dialog" aria-labelledby="staffassignandreassignLabel"  data-backdrop="stat
 
 
 
-      <p-table #dtuser [value]="UsersToAsignee"  [rows]="5" [showCurrentPageReport]="true" sortMode="multiple" 
-      [scrollable]="false"  scrollHeight="280px"
+      <p-table #dtuser [value]="UsersToAsignee"  [rows]="10" [showCurrentPageReport]="true" sortMode="multiple" 
+      [scrollable]="false"  scrollHeight="400px"
            [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading" [rowHover]="true" styleClass="p-datatable-sm  p-datatable-striped p-datatable-gridlines "
            [paginator]="true"  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
            [globalFilterFields]="['display_NAME','user_NAME' ]"  [metaKeySelection]="true"  responsiveLayout="scroll" 

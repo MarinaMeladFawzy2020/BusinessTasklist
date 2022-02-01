@@ -47,6 +47,6 @@
 }
 
 .formsearch{
-   width: -webkit-fill-available;
-   margin-bottom: -15px;
+   /* width: -webkit-fill-available; */
+   margin-bottom: -8px;
 }

@@ -2,6 +2,7 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   font-size: 14px !important;
+  /* zoom: 85%; */
 }
 
 button {
@@ -331,6 +332,7 @@ h6 {
 .p-datatable-wrapper{
   overflow-y: scroll;
   border-bottom: 1px solid #dee2e6;
+  max-height: 520px;
 }
 
 /* .noscroll .p-datatable-wrapper  {
@@ -340,7 +342,7 @@ h6 {
 
 .p-datatable>.p-datatable-wrapper>.p-datatable-table>.p-datatable-thead {
   position: sticky;
-  top: -1;
+  top: -2px;
   z-index: 1;
 }
 
@@ -349,4 +351,8 @@ h6 {
 .p-datepicker table {
   font-size: 14px !important;
   margin: 0.5rem 0;
+}
+
+.p-dropdown .p-dropdown-panel{
+  left: 0 !important;
 }

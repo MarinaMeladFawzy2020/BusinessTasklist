@@ -35,7 +35,7 @@ export class InstanceslistComponent implements OnInit {
 getDetails(_f :any , i:any){
 // alert(_f);
 // $('#contentInstance'+i).css('background','#edf0f5');
-this.DetailsInstance.ProcessInstance(_f , 1 , 3);
+this.DetailsInstance.ProcessInstance(_f , 1 , 4);
 }
 
 }

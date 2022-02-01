@@ -62,6 +62,9 @@ constructor(private http: HttpClient, private authService: AuthService , private
   return this.http.get<any>(this.URL+'BusinessApp/api/Process/ActivityWorkItems?ACT_INST_ID='+ACTINSTID); //258117550
  }
 
+ getTaskAttributes(ACTINSTID:any ):Observable<any> {
+  return this.http.post<any>(this.URL+'BusinessApp/api/Process/TaskAttributes?P_Activity_INST_ID='+ACTINSTID , {}); //258117550
+ }
 
  TerminateTask(f:any):Observable<any> {  
   this.obj =    {

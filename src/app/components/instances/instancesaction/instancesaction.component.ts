@@ -96,7 +96,7 @@ searchtinstance(fsearch:any)
   console.log(fsearch);
 this.hidenReadmore = false ;
 this.PageNoP = 1;
-this.SizeP = 3 ;
+this.SizeP = 4 ;
 this.datasearch =  fsearch;
 this.checksearchbtn = true
 this.myinstancelist.searchProcessInstance(fsearch , 1 , this.SizeP).subscribe((Response: any) => {
@@ -155,7 +155,7 @@ searchreadMore( PageNoP:any , SizeP:any) {
   this.Process_Instance_Name= "", 
   console.log(f.value);
   console.log(this.processIDP);
-  this.ProcessInstance(this.processIDP , 1 , 3 );
+  this.ProcessInstance(this.processIDP , 1 , 4 );
  }
 
 viewDetails(process_INSTANCE_ID:any ){
