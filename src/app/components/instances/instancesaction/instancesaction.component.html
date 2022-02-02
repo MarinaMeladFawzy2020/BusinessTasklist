@@ -44,7 +44,7 @@
 </div>
 
 
-<div class="row" *ngIf="checkDetails == true" style="overflow-y: scroll;height:450px;">
+<div class="row" *ngIf="checkDetails == true" style="overflow-y: scroll;height:500px;">
 
 
     <span *ngIf="message !== null" style="color:#a33 ; margin-left: 41%;font-weight: 700;">{{message}}</span>
@@ -57,17 +57,17 @@
             <div class="row col-12">
                 <div class="col-10">
 
-                    <h6>{{testobject.version_NO}}</h6>
+                    <h6  title="version NO">{{testobject.version_NO}}</h6>
                     <h6><a (click)="viewDetails(testobject.process_INSTANCE_ID )" title="process_INSTANCE_ID">
                             {{testobject.process_INSTANCE_ID }} </a></h6>
                     <h6><a (click)="viewDetails(testobject.process_INSTANCE_NAME )" title="process_INSTANCE_NAME">
                             {{testobject.process_INSTANCE_NAME }} </a></h6>
-                    <h6>{{testobject.creation_DATE | date:'dd-MM-yyyy' }}</h6>
+                    <h6 title="Creation Date">{{testobject.creation_DATE | date:'dd-MM-yyyy' }}</h6>
 
 
                 </div>
                 <div class="col-2">
-                    <a class="treeinstance" (click)="viewDetails(testobject.process_INSTANCE_ID )">
+                    <a class="treeinstance" (click)="viewDetails(testobject.process_INSTANCE_ID )" >
                         <button pButton pRipple type="button"
                             class="p-button-primary p-button-rounded count">{{testobject.count_SUB_INST}}</button>
                         <img src="assets/images/process.png" width="51px;" />
@@ -79,7 +79,7 @@
             <br>
             <div class="row col-12" style="padding: 0px;margin-top: -22px;">
                 <div class="col-6">
-                    <h6 style="color:#a33">{{testobject.instance_STATUS}}</h6>
+                    <h6 style="color:#a33" title="instance_STATUS">{{testobject.instance_STATUS}}</h6>
 
                 </div>
                 <div class="col-6" style="padding-right: 0px;">

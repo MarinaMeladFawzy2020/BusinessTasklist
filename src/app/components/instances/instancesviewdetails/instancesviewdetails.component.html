@@ -5,7 +5,7 @@
     <!-- <p-tree [value]="treeall" [filter]="true"></p-tree>  -->
 
     <div class="row col-12">
-        <h6>View Instance List - {{process_INSTANCE_ID}} </h6>
+        <h6 title="process_INSTANCE_ID">View Instance List - {{process_INSTANCE_ID}} </h6>
         <div style="margin-left: 85%;">
             <button (click)="zoomIn()" class="btn btn-danger mr-2 actions"> <i class="fa fa-search-plus"></i> </button>
             <button (click)="reset()" class="btn btn-danger mr-2 actions"> <i class="fa fa-search"></i> </button>
@@ -28,9 +28,10 @@
                             <div class="node-header p-corner-top">
                                 <p-badge class="count" [value]="node.count_SUB_INST" size="large" severity="primary">
                                 </p-badge>
-                                <a (click)="viewlistactivites()">
-                                    {{node.process_INSTANCE_ID}} - {{node.process_INSTANCE_NAME}} <br>
-                                    {{node.creation_DATE}}
+                                <a (click)="viewlistactivites()" >
+                                   <span  title="process_INSTANCE_ID"> {{node.process_INSTANCE_ID}} </span> - 
+                                   <span  title="process_INSTANCE_NAME">  {{node.process_INSTANCE_NAME}} </span><br>
+                                   <span  title="creation_DATE"> {{node.creation_DATE}} </span>
                                 </a>
 
                             </div>

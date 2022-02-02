@@ -1,79 +1,98 @@
 <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
 
 
-<p-table #dtlistactivities [value]="listactivities"  [rows]="10" [showCurrentPageReport]="true"  sortMode="multiple"
-[rowsPerPageOptions]="[5,10,25,50]" [loading]="loading"  selectionMode="single" styleClass="p-datatable-sm" [scrollable]="false" 
-[paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-[globalFilterFields]="['activity_INSTANCE_ID' , 'activity_NAME' , 'instance_STATUS' , 'finished_BY']">
+<p-table #dtlistactivities [value]="listactivities" [rows]="10" [showCurrentPageReport]="true" sortMode="multiple"
+    [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading" [columns]="selectedColumns" selectionMode="single"
+    styleClass="p-datatable-sm" [scrollable]="false" scrollHeight="400px" [paginator]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [globalFilterFields]="['activity_INSTANCE_ID' , 'activity_NAME' , 'instance_STATUS' ,  'due_DATE' , 'finish_DATE' , 'finished_BY']">
 
-<ng-template pTemplate="caption">
-    <div class="table-header">
-        Instance List Activities
-        <span class="p-input-icon-left searchtable" style="float: right; margin-top: -8px;">
-            <i class="pi pi-search"></i>
-            <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h" (input)="dtlistactivities.filterGlobal(inVal.value, 'contains')"  placeholder="Search keyword" /> 
-        </span>
-    </div>
-</ng-template>
+    <ng-template pTemplate="caption">
+        <div class="table-header" style="height: 18px;">
+            <!-- Instance List Activities -->
 
-<ng-template pTemplate="header">
-    <tr>
-        <th> </th>
-        <th> Activity Name</th>
-        <th> Status</th>
-        <th> </th>
-        <th> Due Date</th>
-        <th> Finish Date</th>
-        <th> Finished BY</th>
-          
+            <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header" class="multicol"
+                selectedItemsLabel="{0} columns selected" placeholder="Choose Columns"></p-multiSelect>
 
+            <div class="flex" style="float: right; margin-top: -10px;">
+                <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()"
+                    class="p-button-success mr-2" title="Export Excel" style="height: 32px;"></button>
+            </div>
 
-    </tr>
-</ng-template>
+            <span class="p-input-icon-left searchtable" style="float: right; margin-top: -8px;">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h"
+                    (input)="dtlistactivities.filterGlobal(inVal.value, 'contains')" placeholder="Search keyword" />
+            </span>
+        </div>
+    </ng-template>
 
 
-<ng-template pTemplate="body" let-myTask>
-    <tr >
-        <td><span class="btn btn-warning actions" >  <i class="fa fa-user"></i> </span> </td>
-        <td>
-            <h6 title="activity_INSTANCE_ID">{{myTask.activity_INSTANCE_ID}}</h6>
-            <h6 title="activity_NAME">{{myTask.activity_NAME}}</h6>
-         </td>
-        <td><h6 title="instance_STATUS"  
-          [ngClass]="{
-            'progress-Not-Started' : (myTask.instance_STATUS) == 'Not Started',
-            'progress-Started' : (myTask.instance_STATUS) == 'Started',
-            'progress-Running' : (myTask.instance_STATUS) == 'Running',
-            'progress-Skipped' : (myTask.instance_STATUS) == 'Skipped',
-            'progress-Terminated' : (myTask.instance_STATUS) == 'Terminated',
-            'progress-Time-Out' : (myTask.instance_STATUS) == 'Time Out',
-            'progress-Completed' : (myTask.instance_STATUS) == 'Completed'
-         }"
-         >{{myTask.instance_STATUS}}</h6> </td>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th></th>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
 
-        <td>
-                  <button  type="button" title="View PrepareFiles's Work Items" data-toggle="modal" data-target="#ActivityWorkItems"  (click)="viewhierarchydataRow(myTask)"
-                  class="btn btn-primary actions"> <i class="fa fa-sitemap"></i>
-              </button>
-              <app-instanceviewhierarchy #viewhierarchy></app-instanceviewhierarchy> 
 
-                </td>
-        <td title="due_DATE" style="width: 20%;"> 
-            <h6  >{{myTask.due_DATE }}</h6> 
-        </td> 
-        <td title="finish_DATE" style="width: 20%;">
-            <h6  >{{myTask.finish_DATE }}</h6> 
-        </td> 
-   
-        <td>
-            <h6  title="finished_BY">{{myTask.finished_BY}}</h6>
-         </td>
-        
-    </tr>
-</ng-template>
-<ng-template pTemplate="emptymessage">
-    <tr>
-        <td colspan="7"><h6 class="emptymessage">No Data Found</h6>  </td>
-    </tr>
-</ng-template>
+    <ng-template pTemplate="body" let-myTask let-columns="columns">
+        <tr>
+            <td><span class="btn btn-warning actions"> <i class="fa fa-user"></i> </span> </td>
+
+            <td *ngFor="let col of columns ">
+                <span *ngIf="col.field == 'activity_NAME' ">
+                    <h6 title="activity_INSTANCE_ID">{{myTask.activity_INSTANCE_ID}}</h6>
+                    <h6 title="activity_NAME">{{myTask.activity_NAME}}</h6>
+                </span>
+
+
+                <span *ngIf="col.field == 'instance_STATUS' ">
+                    <h6 title="instance_STATUS" [ngClass]="{
+                        'progress-Not-Started' : (myTask.instance_STATUS) == 'Not Started',
+                        'progress-Started' : (myTask.instance_STATUS) == 'Started',
+                        'progress-Running' : (myTask.instance_STATUS) == 'Running',
+                        'progress-Skipped' : (myTask.instance_STATUS) == 'Skipped',
+                        'progress-Terminated' : (myTask.instance_STATUS) == 'Terminated',
+                        'progress-Time-Out' : (myTask.instance_STATUS) == 'Time Out',
+                        'progress-Completed' : (myTask.instance_STATUS) == 'Completed'
+                     }">{{myTask.instance_STATUS}}</h6>
+
+                </span>
+
+                <span *ngIf="col.field == 'view' ">
+
+                    <button type="button" title="View PrepareFiles's Work Items" data-toggle="modal"
+                    data-target="#ActivityWorkItems" (click)="viewhierarchydataRow(myTask)"
+                    class="btn btn-primary actions"> <i class="fa fa-sitemap"></i>
+                </button>
+                <app-instanceviewhierarchy #viewhierarchy></app-instanceviewhierarchy>
+                    
+                </span>
+
+                <span *ngIf="col.field == 'due_DATE' ">
+                    <h6 title="due_DATE">{{myTask.due_DATE }}</h6>
+                </span>
+
+                <span *ngIf="col.field == 'finish_DATE' ">
+                    <h6 title="finish_DATE">{{myTask.finish_DATE }}</h6>
+                </span>
+
+                <span *ngIf="col.field == 'finished_BY' ">
+                    <h6 title="finished_BY">{{myTask.finished_BY }}</h6>
+                </span>
+            </td>
+
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="7">
+                <h6 class="emptymessage">No Data Found</h6>
+            </td>
+        </tr>
+    </ng-template>
 </p-table>

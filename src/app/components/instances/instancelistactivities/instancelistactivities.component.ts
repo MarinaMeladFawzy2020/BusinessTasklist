@@ -1,5 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { formatDate } from '@angular/common';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import * as FileSaver from 'file-saver';
 import { InstaceslistService } from 'src/app/services/instaceslist.service';
 import { InstanceviewhierarchyComponent } from '../instanceviewhierarchy/instanceviewhierarchy.component';
 
@@ -34,13 +36,56 @@ loading: boolean = true;
       console.log(this.listactivities);
 
    }); 
+  
+   this.cols = [
+    { field: 'activity_NAME', header: 'Activity Name' },
+    { field: 'instance_STATUS', header: 'Status' },
+    { field: 'view', header: 'View Work Items' },
+    { field: 'due_DATE', header: 'Due Date' },
+    { field: 'finish_DATE', header: 'Finish Date' },
+    { field: 'finished_BY', header: 'Finished BY' },
+    
+  ];
+  this._selectedColumns =  this.cols ;
+}
+
+
+@Input() get selectedColumns(): any[] {
+  return this._selectedColumns;
+}
+
+set selectedColumns(val: any[]) {
+  //restore original order
+  this._selectedColumns = this.cols.filter((col: any) => val.includes(col));
+}
 
     
-  }
-
+  
   viewhierarchydataRow(_f:any){
     this.viewhierarchy.getDataRow(_f);
 
   }
 
+
+  
+  exportExcel() {
+    //npm install xlsx
+    import('xlsx').then((xlsx): void => {
+      const worksheet = xlsx.utils.json_to_sheet(this.listactivities);
+      const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+      const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
+      this.saveAsExcelFile(excelBuffer, "InstanceListActivities");
+    });
+  }
+
+  saveAsExcelFile(buffer: any, fileName: string): void {
+    //npm install filesaver
+    let EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+    let EXCEL_EXTENSION = '.xlsx';
+    const data: Blob = new Blob([buffer], {
+      type: EXCEL_TYPE
+    });
+    FileSaver.saveAs(data, fileName + '_' + formatDate(new Date(), "dd-MMM-YYYY hh:mm", 'en-US') + EXCEL_EXTENSION);
+  }
+  
 }

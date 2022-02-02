@@ -6,6 +6,7 @@
 <div style=" margin-top: -18px;">
 
 <p-table #dtStaffTaskList [value]="StaffTaskList" [rows]="10" [showCurrentPageReport]="true" sortMode="multiple"
+    [scrollable]="false"  scrollHeight="400px"  
     [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading" selectionMode="single" [paginator]="true" styleClass="p-datatable-sm"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
     [globalFilterFields]="['work_ITEM_ID' , 'work_ITEM_NAME' , 'assigned_USER' , 'assign_DATE' , 'task_Status' , 'process_NAME' , 'version_NO']">

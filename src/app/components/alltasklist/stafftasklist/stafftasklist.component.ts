@@ -1,5 +1,5 @@
 import { formatDate } from '@angular/common';
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import * as FileSaver from 'file-saver';
 import { TasklistService } from 'src/app/services/tasklist.service';
 import { StaffactivityassigneduserComponent } from '../staffactivityassigneduser/staffactivityassigneduser.component';
@@ -23,6 +23,7 @@ export class StafftasklistComponent implements OnInit {
   @ViewChild('staffresume') staffresume!: StaffresumetaskComponent;
 
   
+  
     constructor(private myTaskList: TasklistService ) { }
   
     ngOnInit(): void {
@@ -33,7 +34,13 @@ export class StafftasklistComponent implements OnInit {
         this.getResponse.emit(this.TotalStafList);
         console.log(this.StaffTaskList);
       }); 
-    }
+      
+      
+   }
+
+
+  
+    
   
   
     
