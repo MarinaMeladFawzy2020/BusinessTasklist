@@ -1,5 +1,6 @@
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, formatDate } from '@angular/common';
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import * as FileSaver from 'file-saver';
 import { MessageService } from 'primeng/api';
 import { ProcesslistService } from 'src/app/services/processlist.service';
 import { TestService } from 'src/app/services/test.service';
@@ -74,4 +75,26 @@ export class ProcesslistViewComponent implements OnInit {
     this.document.documentElement.scrollTop = 0
     this.myDetails.sendProcessId(ProcessId);
   }
+
+
+  exportExcel() {
+    //npm install xlsx
+    import('xlsx').then((xlsx): void => {
+      const worksheet = xlsx.utils.json_to_sheet(this.AllProcesses);
+      const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+      const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
+      this.saveAsExcelFile(excelBuffer, "ProcessesList");
+    });
+  }
+
+  saveAsExcelFile(buffer: any, fileName: string): void {
+    //npm install filesaver
+    let EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+    let EXCEL_EXTENSION = '.xlsx';
+    const data: Blob = new Blob([buffer], {
+      type: EXCEL_TYPE
+    });
+    FileSaver.saveAs(data, fileName + '_' + formatDate(new Date(), "dd-MMM-YYYY hh:mm", 'en-US') + EXCEL_EXTENSION);
+  }
+  
 }

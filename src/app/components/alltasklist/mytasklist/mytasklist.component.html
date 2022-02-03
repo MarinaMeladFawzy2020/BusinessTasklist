@@ -18,8 +18,8 @@
     <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header"   class="multicol"
     selectedItemsLabel="{0} columns selected"  placeholder="Choose Columns"></p-multiSelect>
 
-    <div class="flex" style="float: right; margin-top: -10px;">
-        <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()" class="p-button-success mr-2"   title="Export Excel" style="height: 32px;"></button>
+    <div class="flex" style="float: right; margin-top: -14px;"> 
+        <p-button label="Export" type="button" icon="pi pi-file-excel" styleClass=" t p-button-success mr-2" (click)="exportExcel()" title="Export Excel"  ></p-button>
     </div>
 
     <div class="table-header" style="height: 18px;">

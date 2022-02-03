@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TasklistService } from 'src/app/services/tasklist.service';
 declare var bootbox:any;
 
@@ -9,6 +9,8 @@ declare var bootbox:any;
 })
 export class StaffresumetaskComponent implements OnInit {
   [x:string]:any;
+  @Output() getResponse = new EventEmitter;  
+
   FilterList: any[] = [
       {name: 'Manual Resume ', value: '0'}, 
       {name: ' Automatic Resume', value: '1'},
@@ -42,12 +44,18 @@ export class StaffresumetaskComponent implements OnInit {
       this.myTaskList.ResumeTask(_f).subscribe((Response: any) => {
         console.log(Response);
         if(Response.code == 1 ){
+
+          // $('#Terminated').modal('hide');
+        
+          
           bootbox.alert({
             title: "<span style='font-weight: 400; font-size: 16px;'>"+"  Success"+"</span>  </i>",
             message: "<span style='font-weight: 400; font-size: 16px;'>"+"  Success "+"</span>  </i>",
-            callback: function(){ 
+            callback:  () => {
               window.location.reload();
+              this.getResponse.emit("Success");
             }
+
         });
         }
       }); 

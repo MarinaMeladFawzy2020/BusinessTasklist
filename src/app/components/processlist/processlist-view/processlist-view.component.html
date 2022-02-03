@@ -18,8 +18,14 @@
             [globalFilterFields]="['ProcessId','ProcessName' , 'No_Versions', 'ProcessStatus' , 'Description' , 'ParentProcessId' , 'DefaultVersionNo']">
 
             <ng-template pTemplate="caption">
-                <div class="table-header">
+
+                <div class="flex" style="float: right; margin-top: -14px;">
+                    <p-button label="Export" type="button" icon="pi pi-file-excel" styleClass="p-button-success mr-5" (click)="exportExcel()" title="Export Excel" ></p-button>
+                </div>
+
+                <div class="table-header" style="height: 18px;">
                     Processes List
+
                     <span class="p-input-icon-left searchtable">
                         <i class="pi pi-search"></i>
                         <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h"
@@ -91,9 +97,6 @@
                 </th> -->
 
 
-
-
-
                 </tr>
             </ng-template>
 
@@ -115,7 +118,7 @@
 
 
                         <button pButton pRipple type="button" [label]="Process.No_Versions"
-                            style="width: 40px; height: 32px;"
+                            style="width: 40px;"
                             class=" p-button-success p-button-rounded p-button-outlined "></button>
                     </td>
 

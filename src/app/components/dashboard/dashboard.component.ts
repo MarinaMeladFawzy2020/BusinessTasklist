@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Testdata } from 'src/app/interfaces/testdata';
-import {Observable} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import { LazyLoadEvent, PrimeNGConfig } from 'primeng/api';
+declare var $ :any;
 
 @Component({
   selector: 'app-dashboard',
@@ -17,11 +18,89 @@ export class DashboardComponent implements OnInit {
      ];
     home = {icon: 'pi pi-home', routerLink: '/dashboard'};
 
-  constructor(private http: HttpClient , private primengConfig: PrimeNGConfig) { }
+   
+  count1:number = 0;
+  countstop1:any = setInterval(()=>{
+    this.count1++;
+    if(this.count1 == 500)
+    {
+      clearInterval(this.countstop1);
+    }
+  },10) 
+
+  constructor(private http: HttpClient , private primengConfig: PrimeNGConfig ) { }
  
   ngOnInit(): void {
 
-    
-  }
+
+ 
+   
+    this.data = {
+      labels: ['A','B','C'],
+      datasets: [
+          {
+              data: [150, 250, 200 ],
+              backgroundColor: [
+                  "#42A5F5",
+                  "#66BB6A",
+                  "#FFA726"
+              ],
+              hoverBackgroundColor: [
+                  "#64B5F6",
+                  "#81C784",
+                  "#FFB74D"
+              ]
+          }
+      ]
+  };
+
+
+  this.dataline = {
+    labels: ['A','B','C'],
+    datasets: [
+        {
+            label: 'First Dataset',
+            data: [150, 250, 100 ],
+            backgroundColor: [
+                "#42A5F5",
+                "#66BB6A",
+                "#FFA726"
+            ],
+            hoverBackgroundColor: [
+                "#64B5F6",
+                "#81C784",
+                "#FFB74D"
+            ]
+
+        },
+        {
+            label: 'Second Dataset',
+            data: [28, 48, 40],
+            backgroundColor: [
+                "#42A5F5",
+                "#66BB6A",
+                "#FFA726"
+            ],
+            hoverBackgroundColor: [
+                "#64B5F6",
+                "#81C784",
+                "#FFB74D"
+            ]
+        }
+    ]
 }
+
+
+  }
+
+  update(event: Event) {
+  //  this.data = //create new data
+}
+
+
+
+
+
+}
+
 

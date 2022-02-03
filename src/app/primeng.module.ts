@@ -43,6 +43,10 @@ import {GMapModule} from 'primeng/gmap';
 import {TooltipModule} from 'primeng/tooltip';
 
 import {ConfirmPopupModule} from 'primeng/confirmpopup';
+import {ChartModule} from 'primeng/chart';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+
 const primengModules = [
 
     ButtonModule,
@@ -86,7 +90,10 @@ const primengModules = [
     BadgeModule,
     GMapModule,
     ConfirmPopupModule,
-    TooltipModule
+    TooltipModule,
+    ChartModule,
+    MessageModule,
+    MessagesModule
     
    
 ];

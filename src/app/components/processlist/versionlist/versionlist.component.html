@@ -8,7 +8,11 @@
     [globalFilterFields]="['ProcessId','VersionNo' , 'ProcessName' , 'ProcessStatus' , 'Description' , 'ParentProcessId' , 'ParentVersionNo']">
 
     <ng-template pTemplate="caption">
-        <div class="table-header">
+        <div class="flex" style="float: right; margin-top: -14px;">
+            <p-button label="Export" type="button" icon="pi pi-file-excel" styleClass="p-button-success mr-2" (click)="exportExcel()" title="Export Excel"  ></p-button>
+        </div>
+
+        <div class="table-header" style="height: 18px;">
             Version List
             <span class="p-input-icon-left searchtable">
                 <i class="pi pi-search"></i>

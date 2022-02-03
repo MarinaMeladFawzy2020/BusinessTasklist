@@ -1,6 +1,7 @@
 import { formatDate } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import * as FileSaver from 'file-saver';
+import { MessageService } from 'primeng/api';
 import { TasklistService } from 'src/app/services/tasklist.service';
 import { StaffactivityassigneduserComponent } from '../staffactivityassigneduser/staffactivityassigneduser.component';
 import { StaffassignandreassignComponent } from '../staffassignandreassign/staffassignandreassign.component';
@@ -24,7 +25,7 @@ export class StafftasklistComponent implements OnInit {
 
   
   
-    constructor(private myTaskList: TasklistService ) { }
+    constructor(private myTaskList: TasklistService , private messageService: MessageService  ) { }
   
     ngOnInit(): void {
       this.myTaskList.getStaffTaskList().subscribe((Response: any) => {
@@ -67,6 +68,15 @@ export class StafftasklistComponent implements OnInit {
 
     staffresumedataRow(_f:any){
       this.staffresume.getDataRow(_f);
+    }
+
+    getMessageResume($event: any) {
+      this.searchtasklist = $event;
+      // alert("searchtasklist");
+   //   this.messageService.add({severity:'success', summary: 'Success', detail: 'Done successfully'});
+
+      console.log(this.searchtasklist);
+  
     }
         
   exportExcel() {

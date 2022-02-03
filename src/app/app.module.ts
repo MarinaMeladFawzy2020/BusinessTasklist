@@ -39,7 +39,6 @@ import { MessageService } from 'primeng/api';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +68,8 @@ import { MessageService } from 'primeng/api';
     InstancesactionComponent,
     InstancesviewdetailsComponent,
     InstancelistactivitiesComponent,
-    InstanceviewhierarchyComponent
+    InstanceviewhierarchyComponent,
+    
 
 
 

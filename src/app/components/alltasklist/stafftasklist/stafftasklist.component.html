@@ -1,5 +1,6 @@
 <!-- {{StaffTaskList | json}}
 {{StaffTaskList[0].task_Status}} -->
+<p-toast></p-toast>
 
 <app-searchtasklist [userTask]="1" (getResponse)="getsearchstafflist($event)"></app-searchtasklist>
 
@@ -13,8 +14,8 @@
 
 
     <ng-template pTemplate="caption">
-        <div class="flex" style="float: right; margin-top: -10px;">
-            <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()" class="p-button-success mr-2"   title="Export Excel" style="height: 32px;"></button>
+        <div class="flex" style="float: right; margin-top: -14px;">
+            <p-button label="Export" type="button" icon="pi pi-file-excel" styleClass="p-button-success mr-2" (click)="exportExcel()" title="Export Excel"  ></p-button>
         </div>
         <div class="table-header">
             Staff Task List
@@ -66,7 +67,7 @@
                 <button  type="button" title="Resume Task" data-toggle="modal" data-target="#staffresume"  (click)="staffresumedataRow(myTask)"
                     class="btn btn-danger actions"> <i class="pi pi-play"></i>
                 </button>
-                <app-staffresumetask #staffresume></app-staffresumetask> 
+                <app-staffresumetask #staffresume  (getResponse)="getMessageResume($event)"></app-staffresumetask> 
             </td>
 
             <td>
