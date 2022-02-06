@@ -192,4 +192,5 @@ main {
 
 .dropdown-menu{
   font-size: 14px;
+  transform: translate3d(-76px, 33px, 0px) !important;
 }

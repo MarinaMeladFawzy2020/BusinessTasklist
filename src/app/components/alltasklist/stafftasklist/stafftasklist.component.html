@@ -6,88 +6,126 @@
 
 <div style=" margin-top: -18px;">
 
-<p-table #dtStaffTaskList [value]="StaffTaskList" [rows]="10" [showCurrentPageReport]="true" sortMode="multiple"
-    [scrollable]="false"  scrollHeight="400px"  
-    [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading" selectionMode="single" [paginator]="true" styleClass="p-datatable-sm"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-    [globalFilterFields]="['work_ITEM_ID' , 'work_ITEM_NAME' , 'assigned_USER' , 'assign_DATE' , 'task_Status' , 'process_NAME' , 'version_NO']">
+    <p-table #dtStaffTaskList [value]="StaffTaskList" [rows]="10" [showCurrentPageReport]="true" sortMode="multiple"
+        [scrollable]="false" scrollHeight="400px" [columns]="selectedColumns" [rowsPerPageOptions]="[5,10,25,50]"
+        [loading]="loading" selectionMode="single" [paginator]="true" styleClass="p-datatable-sm"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [globalFilterFields]="['work_ITEM_ID' , 'work_ITEM_NAME' , 'assigned_USER' , 'assign_DATE' , 'task_Status' , 'process_NAME' , 'version_NO']">
 
 
-    <ng-template pTemplate="caption">
-        <div class="flex" style="float: right; margin-top: -14px;">
-            <p-button label="Export" type="button" icon="pi pi-file-excel" styleClass="p-button-success mr-2" (click)="exportExcel()" title="Export Excel"  ></p-button>
-        </div>
-        <div class="table-header">
-            Staff Task List
-            <span class="p-input-icon-left searchtable" style="float: right; margin-top: -8px;">
-                <i class="pi pi-search"></i>
-                <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h"
-                    (input)="dtStaffTaskList.filterGlobal(inVal.value, 'contains')" placeholder="Search keyword" />
-            </span>
-        </div>
-    </ng-template>
+        <ng-template pTemplate="caption">
 
+            <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header" class="multicol"
+                selectedItemsLabel="{0} columns selected" placeholder="Choose Columns"></p-multiSelect>
 
+            <div class="flex" style="float: right; margin-top: -14px;">
+                <p-button label="Export" type="button" icon="pi pi-file-excel" styleClass="p-button-success mr-2"
+                    (click)="exportExcel()" title="Export Excel"></p-button>
+            </div>
 
-    <ng-template pTemplate="body" let-myTask>
-        <tr >
-            <td><span class="btn btn-warning actions"> <i class="fa fa-th-list"></i> </span> </td>
-            <td>
-                <h6 title="work_ITEM_ID">{{myTask.work_ITEM_ID}}</h6>
-                <h6 title="work_ITEM_NAME">{{myTask.work_ITEM_NAME}}</h6>
-                <h6 title="assign_DATE">{{myTask.assign_DATE }}</h6>
-                <!-- <h6 title="assigned_USER">{{myTask.assigned_USER}}</h6> -->
-            </td>
-            <td style=" text-align: center; font-size: 16px;">
-                
-                <h6>
-                    <a title="count_STAFF_USERS" class="text-center" data-toggle="modal" data-target="#staffactivity" (click)="staffActivitydataRow(myTask)">{{myTask.count_STAFF_USERS}}</a>
-                </h6>
-                <a title="Assignee" class="text-center" data-toggle="modal" data-target="#staffactivity" (click)="staffActivitydataRow(myTask)">Assignee</a>
-                <app-staffactivityassigneduser #staffactivityassigned></app-staffactivityassigneduser> 
-            </td>
-
-
-            <td>
-                <span class="btn btn-success actions" title="Assign/Reassign Task" data-toggle="modal" data-target="#staffassignandreassign" (click)="staffdataRow(myTask)"> 
-                    <i class="pi pi-users"></i> 
+            <div class="table-header" style="height: 18px;">
+                <!-- Staff Task List -->
+                <span class="p-input-icon-left searchtable" style="float: right; margin-top: -8px;">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h"
+                        (input)="dtStaffTaskList.filterGlobal(inVal.value, 'contains')" placeholder="Search keyword" />
                 </span>
-                <app-staffassignandreassign #staffreassign></app-staffassignandreassign> 
+            </div>
+        </ng-template>
 
-            </td>
-           
-            <td *ngIf="StaffTaskList[0].task_Status == 'Started' ">
-                <button  type="button" title="Suspend Task" data-toggle="modal" data-target="#staffsuspend"  (click)="staffsuspenddataRow(myTask)"
-                    class="btn btn-danger actions"> <i class="pi pi-stop-circle"></i>
-                </button>
-                <app-staffsuspend #staffsuspend></app-staffsuspend> 
-            </td>
 
-            <td *ngIf="StaffTaskList[0].task_Status == 'Suspended' "> 
-                <button  type="button" title="Resume Task" data-toggle="modal" data-target="#staffresume"  (click)="staffresumedataRow(myTask)"
-                    class="btn btn-danger actions"> <i class="pi pi-play"></i>
-                </button>
-                <app-staffresumetask #staffresume  (getResponse)="getMessageResume($event)"></app-staffresumetask> 
-            </td>
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th></th>
+                <th *ngFor="let col of columns">
+                    {{col.header}}
+                </th>
 
-            <td>
-                <h6 title="task_Status">{{myTask.task_Status}}</h6>
-            </td>
+            </tr>
+        </ng-template>
 
-            <td style="width: 20%;" title="due_DATE">
-                <h6>{{myTask.due_DATE}}</h6>
-            </td> <!--  | date: 'dd/MM/yyyy'-->
-            <td>
-                <h6 title="process_NAME">{{myTask.process_NAME}}</h6>
-                <h6 title="version_NO">{{myTask.version_NO}}</h6>
-            </td>
 
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="emptymessage">
-        <tr>
-            <td colspan="7"><h6 class="emptymessage">No Data Found</h6>  </td>
-        </tr>
-    </ng-template>
-</p-table>
+
+
+        <ng-template pTemplate="body" let-myTask let-columns="columns">
+            <tr>
+                <td><span class="btn btn-warning actions"> <i class="fa fa-th-list"></i> </span> </td>
+
+                <td *ngFor="let col of columns ; let i = index">
+                    <span *ngIf="col.field == 'work_ITEM_NAME' ">
+                        <h6 title="work_ITEM_ID">{{myTask.work_ITEM_ID}}</h6>
+                        <h6 title="work_ITEM_NAME">{{myTask.work_ITEM_NAME}}</h6>
+                    </span>
+
+                    <span *ngIf="col.field == 'assign_DATE' ">
+                        <h6 title="assign_DATE">{{myTask.assign_DATE }}</h6>
+                    </span>
+
+                    <span *ngIf="col.field == 'Assignee' " >
+                        <h6 style="margin-left: 25px;    margin-bottom: 5px;">
+                            <a title="count_STAFF_USERS" class="text-center" data-toggle="modal"
+                                data-target="#staffactivity"
+                                (click)="staffActivitydataRow(myTask)">{{myTask.count_STAFF_USERS}}</a>
+                        </h6>
+                        <a title="Assignee" class="text-center" data-toggle="modal" data-target="#staffactivity"
+                            (click)="staffActivitydataRow(myTask)">Assignee</a>
+                        <app-staffactivityassigneduser #staffactivityassigned></app-staffactivityassigneduser>
+                    </span>
+
+                    <span *ngIf="col.field == 'Assign/Reassign' ">
+                        <span class="btn btn-success actions" title="Assign/Reassign Task" data-toggle="modal"
+                        data-target="#staffassignandreassign" (click)="staffdataRow(myTask)">
+                        <i class="pi pi-users"></i>
+                    </span>
+                    <app-staffassignandreassign #staffreassign></app-staffassignandreassign>
+                    </span>
+
+
+                    <span *ngIf="col.field == 'Suspend/Resume' ">
+
+                        <span *ngIf="StaffTaskList[0].task_Status == 'Started' ">
+                            <button type="button" title="Suspend Task" data-toggle="modal" data-target="#staffsuspend"
+                                (click)="staffsuspenddataRow(myTask)" class="btn btn-danger actions"> <i
+                                    class="pi pi-stop-circle"></i>
+                            </button>
+                            <app-staffsuspend #staffsuspend></app-staffsuspend>
+                        </span>
+        
+                        <span *ngIf="StaffTaskList[0].task_Status == 'Suspended' ">
+                            <button type="button" title="Resume Task" data-toggle="modal" data-target="#staffresume"
+                                (click)="staffresumedataRow(myTask)" class="btn btn-danger actions"> <i class="pi pi-play"></i>
+                            </button>
+                            <app-staffresumetask #staffresume (getResponse)="getMessageResume($event)"></app-staffresumetask>
+                        </span>
+
+                    </span>
+
+                    <span *ngIf="col.field == 'task_Status' ">
+                        <h6 title="task_Status">{{myTask.task_Status}}</h6>
+
+                    </span>
+
+                    <span *ngIf="col.field == 'due_DATE' ">
+                        <h6>{{myTask.due_DATE}}</h6>
+                    </span>
+
+                    <span *ngIf="col.field == 'process_NAME' ">
+                        <h6 title="process_NAME">{{myTask.process_NAME}}</h6>
+                        <h6 title="version_NO">{{myTask.version_NO}}</h6>
+                    </span>
+
+                </td>
+
+
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="7">
+                    <h6 class="emptymessage">No Data Found</h6>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
 </div>

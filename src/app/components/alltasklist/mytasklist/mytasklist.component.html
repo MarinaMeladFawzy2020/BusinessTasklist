@@ -24,7 +24,6 @@
 
     <div class="table-header" style="height: 18px;">
         <!-- My User Tasks -->
-      
         <span class="p-input-icon-left searchtable" style="float: right; margin-top: -8px;">
             <i class="pi pi-search"></i>
             <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h" (input)="dtmytasklist.filterGlobal(inVal.value, 'contains')"  placeholder="Search keyword" /> 

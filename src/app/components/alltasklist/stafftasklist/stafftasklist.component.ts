@@ -37,10 +37,31 @@ export class StafftasklistComponent implements OnInit {
       }); 
       
       
+
+      this.cols = [
+        { field: 'work_ITEM_NAME', header: 'work ITEM' },
+        { field: 'assign_DATE', header: 'assign DATE' },
+        { field: 'Assignee', header: 'Assignee' },
+        { field: 'Assign/Reassign', header: 'Assign/Reassign' },
+        { field: 'Suspend/Resume', header: 'Suspend/Resume' },
+        { field: 'task_Status', header: 'task_Status' },
+        { field: 'due_DATE', header: 'due_DATE' },
+        { field: 'process_NAME', header: 'process_NAME' },
+      ];
+      this._selectedColumns =  this.cols ;
+
    }
 
 
-  
+   @Input() get selectedColumns(): any[] {
+    return this._selectedColumns;
+  }
+
+  set selectedColumns(val: any[]) {
+    //restore original order
+    this._selectedColumns = this.cols.filter((col: any) => val.includes(col));
+  }
+
     
   
   
@@ -74,9 +95,7 @@ export class StafftasklistComponent implements OnInit {
       this.searchtasklist = $event;
       // alert("searchtasklist");
    //   this.messageService.add({severity:'success', summary: 'Success', detail: 'Done successfully'});
-
       console.log(this.searchtasklist);
-  
     }
         
   exportExcel() {
