@@ -356,3 +356,8 @@ h6 {
 .p-dropdown .p-dropdown-panel{
   left: 0 !important;
 }
+
+.p-column-filter-overlay{
+  /* top: 187px !important;
+  left: 45% !important;  */
+}

@@ -22,6 +22,11 @@ export class VersionlistComponent implements OnInit {
    this.AllProcessescreate = this.checkpremission.checkAuth("AllProcesses.create");
 
   }
+  // applyFilterGlobal( h:any , stringVal: any) {
+  //   alert(h);
+  //   this.dt.filterGlobal(h, 'contains');
+  // }
+ 
 
   sendProcessId(ProcessId:any){
     this.loading = true;

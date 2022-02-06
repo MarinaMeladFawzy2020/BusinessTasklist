@@ -35,12 +35,12 @@ export class MytasklistComponent implements OnInit {
 
 
     this.cols = [
-      { field: 'work_ITEM_NAME', header: 'work_ITEM_NAME' },
-      { field: 'task_Status', header: 'task_Status' },
-      { field: 'history', header: 'history' },
-      { field: 'due_DATE', header: 'due_DATE' },
-      { field: 'end_DATE', header: 'end_DATE' },
-      { field: 'process_NAME', header: 'process_NAME' },
+      { field: 'work_ITEM_NAME', header: 'work Item Name' },
+      { field: 'task_Status', header: 'Status' },
+      { field: 'history', header: 'History' },
+      { field: 'due_DATE', header: 'Due Date' },
+      { field: 'end_DATE', header: 'End Date' },
+      { field: 'process_NAME', header: 'Process Name' },
       
     ];
     this._selectedColumns =  this.cols ;

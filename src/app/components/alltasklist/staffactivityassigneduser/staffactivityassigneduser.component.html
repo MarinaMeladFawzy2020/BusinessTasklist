@@ -25,7 +25,7 @@
 
          <ng-template pTemplate="caption">
              <div class="table-header">
-                 <span class="p-input-icon-left searchtable" style="margin-left: -75%;" >
+                 <span class="p-input-icon-left searchtable" >
                      <i class="pi pi-search"></i>
                      <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h" (input)="dt1.filterGlobal(inVal.value, 'contains')"  placeholder="Search keyword" /> 
                  </span>

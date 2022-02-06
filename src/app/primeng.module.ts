@@ -46,6 +46,7 @@ import {ConfirmPopupModule} from 'primeng/confirmpopup';
 import {ChartModule} from 'primeng/chart';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
+import {ScrollTopModule} from 'primeng/scrolltop';
 
 const primengModules = [
 
@@ -93,7 +94,8 @@ const primengModules = [
     TooltipModule,
     ChartModule,
     MessageModule,
-    MessagesModule
+    MessagesModule,
+    ScrollTopModule
     
    
 ];

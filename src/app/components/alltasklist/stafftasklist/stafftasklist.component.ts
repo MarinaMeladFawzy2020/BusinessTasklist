@@ -39,14 +39,14 @@ export class StafftasklistComponent implements OnInit {
       
 
       this.cols = [
-        { field: 'work_ITEM_NAME', header: 'work ITEM' },
-        { field: 'assign_DATE', header: 'assign DATE' },
+        { field: 'work_ITEM_NAME', header: 'work Item' },
+        { field: 'assign_DATE', header: 'Assign Date' },
         { field: 'Assignee', header: 'Assignee' },
         { field: 'Assign/Reassign', header: 'Assign/Reassign' },
         { field: 'Suspend/Resume', header: 'Suspend/Resume' },
-        { field: 'task_Status', header: 'task_Status' },
-        { field: 'due_DATE', header: 'due_DATE' },
-        { field: 'process_NAME', header: 'process_NAME' },
+        { field: 'task_Status', header: 'Status' },
+        { field: 'due_DATE', header: 'Due DATE' },
+        { field: 'process_NAME', header: 'Process Name' },
       ];
       this._selectedColumns =  this.cols ;
 

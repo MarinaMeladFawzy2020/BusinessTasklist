@@ -55,15 +55,14 @@
 
 
             <div class="row col-12">
-                <div class="col-10">
+                <div class="col-10" style="padding: 0;">
 
                     <h6  title="version NO">{{testobject.version_NO}}</h6>
                     <h6><a (click)="viewDetails(testobject.process_INSTANCE_ID )" title="process_INSTANCE_ID">
                             {{testobject.process_INSTANCE_ID }} </a></h6>
-                    <h6><a (click)="viewDetails(testobject.process_INSTANCE_NAME )" title="process_INSTANCE_NAME">
+                    <h6 style="width: 110%;"><a (click)="viewDetails(testobject.process_INSTANCE_NAME )" title="process_INSTANCE_NAME">
                             {{testobject.process_INSTANCE_NAME }} </a></h6>
                     <h6 title="Creation Date">{{testobject.creation_DATE | date:'dd-MM-yyyy' }}</h6>
-
 
                 </div>
                 <div class="col-2">
