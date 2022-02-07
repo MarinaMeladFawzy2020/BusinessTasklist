@@ -12,9 +12,7 @@
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [globalFilterFields]="['work_ITEM_ID' , 'work_ITEM_NAME' , 'assigned_USER' , 'assign_DATE' , 'task_Status' , 'process_NAME' , 'version_NO' , 'due_DATE']">
 
-
         <ng-template pTemplate="caption">
-
             <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header" class="multicol"
                 selectedItemsLabel="{0} columns selected" placeholder="Choose Columns"></p-multiSelect>
 
