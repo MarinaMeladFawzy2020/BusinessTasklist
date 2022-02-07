@@ -26,10 +26,14 @@
 }
 
 .contentArrow i{
-    margin-top: 135px;
+    margin-top: 95px;
     display: inline-flex;
     color: black;
-    font-size: 30px;
-    padding: 0 3px;
+    font-size: 20px;
+    padding: 0 0px;
+}
+
+.titlelist{
+    font-size: 12px;
 }
 

@@ -101,7 +101,9 @@ export class StafftasklistComponent implements OnInit {
   exportExcel() {
     //npm install xlsx
     import('xlsx').then((xlsx): void => {
-        const worksheet = xlsx.utils.json_to_sheet(this.StaffTaskList);
+      this.dataProcesses = document.getElementById('dtStaffTaskList');
+      const worksheet = xlsx.utils.table_to_sheet(this.dataProcesses);
+       // const worksheet = xlsx.utils.json_to_sheet(this.StaffTaskList);
         const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
         const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
         this.saveAsExcelFile(excelBuffer, "StaffTaskList");

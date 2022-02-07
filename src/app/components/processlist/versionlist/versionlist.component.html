@@ -3,7 +3,7 @@
 
 
 <!--Table Process Versions-->
-<p-table #dt2 [value]="AllProcessVersions" dataKey="id" [rows]="10" [showCurrentPageReport]="true" sortMode="multiple"
+<p-table #dt2 id="dt2" [value]="AllProcessVersions" dataKey="id" [rows]="10" [showCurrentPageReport]="true" sortMode="multiple"
     [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading" [scrollable]="false"  
     
     styleClass="p-datatable-sm p-datatable-AllProcessVersions  noscroll" [paginator]="true"
@@ -11,7 +11,7 @@
     [globalFilterFields]="['ProcessId','VersionNo' , 'ProcessName' , 'ProcessStatus' , 'Description' , 'ParentProcessId' , 'ParentVersionNo']">
 
     <ng-template pTemplate="caption">
-        <div class="flex" style="float: right; margin-top: -14px;">
+        <div class="flex" style="float: right; margin-top: -11px;">
             <p-button label="Export" type="button" icon="pi pi-file-excel" styleClass="p-button-success mr-2" (click)="exportExcel()" title="Export Excel"  ></p-button>
         </div>
 

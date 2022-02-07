@@ -1,7 +1,7 @@
 
 .contentInstance{
-   width: 95%;
-   height: 350px;
+   width: 99%;
+   height: 320px;
    border: 1px solid #d9dce0;
    padding: 14px;
    box-shadow: 0 2px 1px -1px #0003, 0 1px 1px #00000024, 0 1px 3px #0000001f;
@@ -32,21 +32,33 @@
 
 .treeinstance{
    position: absolute;
-   margin-top: 15px;
-   margin-left: -15px;
+   margin-top: 5px;
+   margin-left: -10px;
+}
+
+.treeinstance img{
+   zoom: 85%;
 }
 
 .treeinstance .count{
    position: absolute;
-   width: 40px;
-   height: 40px;
+   width: 35px;
+   height: 35px;
    border-radius: 50% !important;
-   top: -27px;
-   right: -18px;
-   padding-left: 14px !important;
+   top: -20px;
+   right: -20px;
+   padding-left: 12px !important;
 }
 
 .formsearch{
    /* width: -webkit-fill-available; */
    margin-bottom: -8px;
+}
+
+.progress-bar{
+   font-size: 12px;
+}
+
+.titlelist{
+   font-size: 12px;
 }

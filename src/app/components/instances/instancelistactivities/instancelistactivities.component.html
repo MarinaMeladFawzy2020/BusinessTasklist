@@ -1,7 +1,7 @@
 <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
 
-
-<p-table #dtlistactivities [value]="listactivities" [rows]="10" [showCurrentPageReport]="true" sortMode="multiple"
+<div>
+<p-table #dtlistactivities id="dtlistactivities" [value]="listactivities" [rows]="10" [showCurrentPageReport]="true" sortMode="multiple"
     [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading" [columns]="selectedColumns" selectionMode="single"
     styleClass="p-datatable-sm listactivities" [scrollable]="false"  [paginator]="true"  [scrollable]="false"    
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
@@ -14,7 +14,7 @@
             <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header" class="multicol"
                 selectedItemsLabel="{0} columns selected" placeholder="Choose Columns"></p-multiSelect>
 
-            <div class="flex" style="float: right; margin-top: -14px;">
+            <div class="flex" style="float: right; margin-top: -11px;">
                 <p-button label="Export" type="button" icon="pi pi-file-excel" styleClass="p-button-success mr-2" (click)="exportExcel()" title="Export Excel"  ></p-button>
             </div>
 
@@ -95,3 +95,6 @@
         </tr>
     </ng-template>
 </p-table>
+
+</div>
+

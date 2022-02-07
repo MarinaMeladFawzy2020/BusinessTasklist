@@ -80,7 +80,11 @@ export class ProcesslistViewComponent implements OnInit {
   exportExcel() {
     //npm install xlsx
     import('xlsx').then((xlsx): void => {
-      const worksheet = xlsx.utils.json_to_sheet(this.AllProcesses);
+      //this.AllProcesses
+      this.dataProcesses = document.getElementById('dt1');
+      //console.log( document.getElementById('dt1'));
+      // const worksheet = xlsx.utils.json_to_sheet(this.AllProcesses);
+       const worksheet = xlsx.utils.table_to_sheet(this.dataProcesses);
       const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
       const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
       this.saveAsExcelFile(excelBuffer, "ProcessesList");

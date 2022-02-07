@@ -71,7 +71,9 @@ set selectedColumns(val: any[]) {
   exportExcel() {
     //npm install xlsx
     import('xlsx').then((xlsx): void => {
-      const worksheet = xlsx.utils.json_to_sheet(this.listactivities);
+      this.dataProcesses = document.getElementById('dtlistactivities');
+      const worksheet = xlsx.utils.table_to_sheet(this.dataProcesses);
+      //const worksheet = xlsx.utils.json_to_sheet(this.listactivities);
       const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
       const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
       this.saveAsExcelFile(excelBuffer, "InstanceListActivities");

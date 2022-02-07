@@ -11,7 +11,7 @@
        
         <!--Table Process-->
         <!-- [scrollable]="true"  scrollHeight="410px" -->
-        <p-table #dt1 [value]="AllProcesses" [rows]="10" [showCurrentPageReport]="true" sortMode="multiple"
+        <p-table #dt1  id="dt1" [value]="AllProcesses" [rows]="10" [showCurrentPageReport]="true" sortMode="multiple"
             [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading" selectionMode="single" [scrollable]="false"  
             [(selection)]="selectedProcess" [paginator]="false"    responsiveLayout="scroll"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" styleClass="p-datatable-sm noscroll" 
@@ -19,7 +19,7 @@
 
             <ng-template pTemplate="caption">
 
-                <div class="flex" style="float: right; margin-top: -14px;">
+                <div class="flex" style="float: right; margin-top: -11px;">
                     <p-button label="Export" type="button" icon="pi pi-file-excel" styleClass="p-button-success mr-5" (click)="exportExcel()" title="Export Excel" ></p-button>
                 </div>
 
@@ -138,7 +138,7 @@
                     <!-- <a style="text-decoration: underline;" (click)="readmore(PageNo + 1  , Size)"> Load More Items </a>  1-10 of 75 items. -->
                     <button pButton pRipple type="button" class=" p-button-warning" *ngIf="hidenReadmore == false"
                         (click)="readmore(PageNo + 1  , Size)">Read More</button>
-                    <p *ngIf="hidenReadmore == true"> Total Item : {{TotalProcess}} </p>
+                    <h5 *ngIf="hidenReadmore == true"> Total Item : {{TotalProcess}} </h5>
                 </div>
             </ng-template>
 

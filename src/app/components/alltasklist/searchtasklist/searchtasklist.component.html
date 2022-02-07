@@ -1,5 +1,5 @@
 
-<div  id="searchtasklist" class="card" style="padding: 12px 10px; background: f0f8ff; width: 100%;" >
+<div  id="searchtasklist" class="card" style="padding: 12px 10px; background: f0f8ff; width: 100%; " >
 
     <div class="row" >
        
@@ -12,7 +12,7 @@
     
     <form #f="ngForm" (ngSubmit)="searchtask(f.value)">
       
-        <div class="actions" style="margin-top: -95px">
+        <div class="actions" style="margin-top: -85px">
             <p-button label="Search" type="submit" icon="pi pi-search" styleClass="p-button-success p-search" [disabled]=f.form.invalid ></p-button>
             <p-button label="Reset"  type="button" (click)="reset(f)" icon="pi pi-refresh" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
           </div>

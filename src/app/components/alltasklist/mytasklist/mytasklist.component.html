@@ -5,9 +5,9 @@
 
 <div style=" margin-top: -18px;">
 
-<p-table #dtmytasklist [value]="TaskList"  [rows]="10" [showCurrentPageReport]="true"  sortMode="multiple"  
+<p-table #dtmytasklist id="dtmytasklist" [value]="TaskList"  [rows]="10" [showCurrentPageReport]="true"  sortMode="multiple"  
  [columns]="selectedColumns"
-[scrollable]="false"  scrollHeight="400px"   
+[scrollable]="false"  scrollHeight="330px"   
 [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading"  selectionMode="single" styleClass="p-datatable-sm"
 [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
 [globalFilterFields]="['work_ITEM_ID' , 'work_ITEM_NAME' , 'assigned_USER' , 'assign_DATE' , 'task_Status' , 'process_NAME' , 'version_NO']">
@@ -18,7 +18,7 @@
     <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header"   class="multicol"
     selectedItemsLabel="{0} columns selected"  placeholder="Choose Columns"></p-multiSelect>
 
-    <div class="flex" style="float: right; margin-top: -14px;"> 
+    <div class="flex" style="float: right; margin-top: -11px;"> 
         <p-button label="Export" type="button" icon="pi pi-file-excel" styleClass=" t p-button-success mr-2" (click)="exportExcel()" title="Export Excel"  ></p-button>
     </div>
 

@@ -1,11 +1,11 @@
 <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
 
-<div class="row" style="margin-left: 2px; width: 100%;">
+<div class="row" style="margin-left: 2px; width: 100%; ">
     <div class="col-3 partone" > 
         <p-card header="Instance List"  styleClass="p-card-shadow"> <!--[style]="{'width': '360px'}" [style.background]="colorHover" -->
-            <p-table #dt1 [value]="instancelist"  [rows]="5" [showCurrentPageReport]="true"  sortMode="multiple"
+            <p-table #dt1 id="instancelisttable" [value]="instancelist"  [rows]="10" [showCurrentPageReport]="true"  sortMode="multiple"
             [rowsPerPageOptions]="[5,10,25,50]" [rowHover]="true" responsiveLayout="scroll" 
-            styleClass="p-datatable-sm"  [scrollable]="true" scrollHeight="500px"
+            styleClass="p-datatable-sm"  [scrollable]="true" scrollHeight="400px" 
              [loading]="loading"  selectionMode="single" [(selection)]="selectedProcess"  styleClass="p-datatable-sm"
             [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
             [globalFilterFields]="['process_ID' ,'process_NAME']">
@@ -32,26 +32,34 @@
                                  <br>
                                  <div class="row text-center" style="margin-top: -20px;">
                                      <div class="col-sm-4" >
-                                         <button pButton pRipple type="button" class=" p-button-info p-button-rounded p-button-outlined"  style="color: #5a6268;">{{testobject.count_ALL_INSTS}}</button> <br> All
+                                         <button pButton pRipple type="button" class=" p-button-info p-button-rounded p-button-outlined"  style="color: #5a6268;">{{testobject.count_ALL_INSTS}}</button> <br> 
+                                         <span class="titlelist">All</span>
                                      </div>
                                      <div class="col-sm-4">
-                                         <button pButton pRipple type="button" class=" p-button-warning p-button-rounded p-button-outlined" >{{testobject.count_RUNNING_INSTS}}</button> <br> Running
-                                     </div>
+                                         <button pButton pRipple type="button" class=" p-button-warning p-button-rounded p-button-outlined" >{{testobject.count_RUNNING_INSTS}}</button> <br> 
+                                         <span class="titlelist">Running</span>
+                                    </div>
                                      <div class="col-sm-4" style="padding: 0;">
-                                         <button pButton pRipple type="button" class=" p-button-success p-button-rounded p-button-outlined">{{testobject.count_COMPLETED_INSTS}}</button> <br> Completed
+                                         <button pButton pRipple type="button" class=" p-button-success p-button-rounded p-button-outlined">{{testobject.count_COMPLETED_INSTS}}</button> <br>
+                                         <span class="titlelist">Completed</span>
+                                         
                                      </div>
                                  </div>
                  
                                  <br>
                                  <div class="row text-center" style="margin-top: -20px;">
                                     <div class="col-sm-4">
-                                         <button pButton pRipple type="button" class=" p-button-primary p-button-rounded p-button-outlined">{{testobject.count_TERMINATED_INSTS}}</button> <br> Terminated
+                                         <button pButton pRipple type="button" class=" p-button-primary p-button-rounded p-button-outlined">{{testobject.count_TERMINATED_INSTS}}</button> <br> 
+                                         <span class="titlelist">Terminated</span>
+
                                      </div>
                                      <div class="col-sm-4">
-                                         <button pButton pRipple type="button" class=" p-button-danger p-button-rounded p-button-outlined">{{testobject.count_DELAYED_INSTS}}</button> <br> Delayed
+                                         <button pButton pRipple type="button" class=" p-button-danger p-button-rounded p-button-outlined">{{testobject.count_DELAYED_INSTS}}</button> <br> 
+                                         <span class="titlelist">Delayed</span>
                                      </div>
                                      <div class="col-sm-4" style="padding: 0;">
-                                         <button pButton pRipple type="button" class=" p-button-warning p-button-rounded p-button-outlined" style="color: #8a5340;">{{testobject.count_SUSPENDED_INSTS}}</button> <br> Suspended
+                                         <button pButton pRipple type="button" class=" p-button-warning p-button-rounded p-button-outlined" style="color: #8a5340;">{{testobject.count_SUSPENDED_INSTS}}</button> <br>
+                                          <span class="titlelist">Suspended</span>
                                      </div>
                                  </div>
              

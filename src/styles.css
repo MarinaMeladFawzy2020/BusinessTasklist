@@ -9,23 +9,31 @@ button {
   line-height: initial !important;
   font-size: 14px !important;
 }
-
+.pi {
+  font-size: 14px  !important;
+}
 h6 {
+  font-size: 12px !important;
+}
+
+h5{
   font-size: 14px !important;
 }
 
-.p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
-    /* padding: 9px 10px 0px 10px; */
+.p-datatable.p-datatable-sm .p-datatable-thead > tr > th,
+.p-datatable.p-datatable-sm .p-datatable-tbody > tr > td
+{
+  font-size: 12px;
+ padding: 6px 8px; 
 }
 
 .p-inputtext{
-  font-size: 14px !important;
+  font-size: 12px !important;
 }
 .p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th {
   border-width: 1px 1px 1px 1px;
   /* width: 8rem !important; */
-  font-size: 14px !important;
-  padding: 10px !important;
+  font-size: 12px !important;
 }
 
 .p-datatable-responsive-scroll > .p-datatable-wrapper {
@@ -33,21 +41,16 @@ h6 {
 }
 
 .p-datatable.p-datatable-sm .p-datatable-header {
-  padding: 1rem 1rem !important;
-  font-size: 14px !important;
+  padding: 15px !important;
+  font-size: 12px !important;
   border-bottom: 1px solid #ddd;
 }
 
-.p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
-  font-size: 14px !important;
-}
 
-.p-tabview .p-tabview-nav li .p-tabview-nav-link{
-  font-size: 12px !important;
 
-}
+
 .p-chip .p-chip-text{
-  font-size: 12px !important;
+  font-size: 11px !important;
   margin-top: 3px;
   margin-bottom: 2px;
 
@@ -66,11 +69,11 @@ h6 {
      width: 100% ; 
 } */
 .p-button {
-  padding: 9px 10px !important;
+  padding: 6px 10px !important;
   margin: 3px !important;
-  font-size: 14px !important;
+  font-size: 12px !important;
   font-weight: 400 !important;
-  border-radius: 0px !important;
+  border-radius: .25rem !important;
 }
 
 .p-button-label {
@@ -89,6 +92,7 @@ h6 {
   margin-bottom: 5px;
   border-radius: 0;
   padding: 8px 10px;
+  zoom: 85%;
 }
 
 .p-breadcrumb ul li .p-menuitem-text {
@@ -133,7 +137,7 @@ h6 {
 }
 
 .p-inputtext {
-  height: 35px !important;
+  height: 30px !important;
 }
 
 .p-inputtext:enabled:hover {
@@ -162,11 +166,11 @@ h6 {
 
 .p-tabview .p-tabview-panels {
   padding: 3px 0px !important;
-  font-size: 14px  !important;
+  font-size: 12px  !important;
 }
 
 .carouseltask .p-carousel {
-  width: 300px !important;
+  width: 240px !important;
 }
 
 .p-button.p-button-rounded {
@@ -178,22 +182,22 @@ h6 {
 }
 
 .p-card .p-card-title {
-  font-size: 16px !important;
+  font-size: 14px !important;
     font-weight: 600 !important;
     margin-bottom: -14px !important;
     margin-top: -15px !important;
 }
 
 .p-datatable .p-paginator-bottom{
-  font-size:14px ;
-  padding: 1px;
+  font-size:12px ;
+  padding: 0px;
 }
 .p-card-shadow2 {
   width: 105%;
 }
 
 .p-tabview .p-tabview-nav{
-  margin-top: 10px;
+  margin-top: 3px;
     /* height: 40px; */
     background: none !important;
     border-width: 0px 0 1px 0 !important;
@@ -205,6 +209,7 @@ h6 {
   margin-top: 20px;
 }
 
+
 .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
   padding: 4px !important;
   height: 40px !important;
@@ -214,7 +219,7 @@ h6 {
 
 .p-multiselect {
   display: flex !important;
-  height: 35px;
+  height: 30px;
   width: -webkit-fill-available !important;
 }
 
@@ -246,8 +251,9 @@ h6 {
 .p-calendar-w-btn .p-datepicker-trigger {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+  border-radius: 0px !important;
   margin: 0 !important;
-  height: 35px;
+  height: 30px;
   background: #f8f9fa !important;
   color: black !important;
   border: 1px solid #d9dce0 !important;
@@ -282,11 +288,11 @@ h6 {
 
 .p-multiselect .p-multiselect-label {
   color: #64748b;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .p-multiselect-panel .p-multiselect-items .p-multiselect-item{
-  font-size: 14px;
+  font-size: 12px;
 }
 .p-datepicker .p-datepicker-buttonbar .p-button {
   width: auto;
@@ -322,17 +328,17 @@ h6 {
 
 .p-datatable.p-datatable-sm .p-datatable-header {
   padding:13px ​10px 10px 10px !important;
-  font-size: 14px !important;
+  font-size: 12px !important;
 }
 
 .filterLabel , .p-datatable .p-datatable-tbody > tr {
-  font-size: 14px !important;
+  font-size: 12px !important;
 }
 
 .p-datatable-wrapper{
   overflow-y: scroll;
   border-bottom: 1px solid #dee2e6;
-  max-height: 520px;
+  max-height: 440px;
 }
 
 /* .noscroll .p-datatable-wrapper  {
@@ -349,7 +355,7 @@ h6 {
 
 
 .p-datepicker table {
-  font-size: 14px !important;
+  font-size: 12px !important;
   margin: 0.5rem 0;
 }
 
@@ -360,4 +366,46 @@ h6 {
 .p-column-filter-overlay{
   /* top: 187px !important;
   left: 45% !important;  */
+}
+
+.p-paginator .p-dropdown {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  height: 40px !important;
+}
+
+
+
+.col-form-label-sm {
+  font-size: 12px  !important;
+}
+
+#instancelisttable .p-paginator .p-paginator-current{
+  width: 100%;
+  
+}
+#instancelisttable  .p-datatable .p-paginator-bottom{
+  zoom: 73%;
+  padding-bottom: 8px;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item{
+  font-size: 12px  !important;
+
+}
+
+.p-fluid .p-dropdown .p-dropdown-label {
+  padding-top: 7px;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page ,
+.p-paginator .p-paginator-first, .p-paginator .p-paginator-prev, 
+.p-paginator .p-paginator-next, .p-paginator .p-paginator-last{
+  min-width: 2rem;
+  height: 2rem;
+  margin: 0.143rem;
+  border-radius: 50%;
+}
+
+.partone .p-card .p-card-body {
+  padding: 25px 10px;
 }

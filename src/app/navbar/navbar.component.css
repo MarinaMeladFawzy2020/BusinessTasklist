@@ -11,6 +11,10 @@
   display: none;
 }
 
+#sidebar-toggle:checked ~ .sidebar a {
+  display: none;
+}
+
 #sidebar-toggle:checked ~ .sidebar .sidbar-header,
 #sidebar-toggle:checked ~ .sidebar li {
   display: flex;
@@ -33,7 +37,7 @@
 
 .sidebar {
   height: 100%;
-  width: 100px;
+  width: 80px;
   position: fixed;
   left: 0;
   top: 0;
@@ -49,7 +53,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
+  height: 50px;
   padding: 5px 20px;
   border-bottom: 0.5px solid #ddd;
 }
@@ -67,7 +71,7 @@
 
 .sidebar a {
   color: #fff;
-  font-size: 13px;
+  font-size: 11px;
   text-decoration: none;
   display: block;
   padding: 20px 0px;
@@ -94,18 +98,18 @@
 
 .main-content {
   position: relative;
-  margin-left: 100px;
+  margin-left: 80px;
   transition: margin-left 500ms;
 }
 
 header {
   position: fixed;
   top: 0;
-  left: 100px;
-  width: calc(100% - 100px);
+  left: 80px;
+  width: calc(100% - 80px);
   z-index: 100;
   background: #fff;
-  height: 60px;
+  height: 50px;
   padding: 0px 10px;
   display: flex;
   align-items: center;
@@ -134,16 +138,16 @@ header {
   text-align: center;
 }
 main {
-  margin-top: 60px;
+  margin-top: 53px;
   /* background: #e2e2e2;*/
 }
 
 .memu-icon {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .brand {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: normal;
   font-weight: 500;
@@ -155,6 +159,9 @@ main {
 
   #sidebar-toggle:checked ~ .sidebar .sidbar-header h3 span:last-child,
   #sidebar-toggle:checked ~ .sidebar li span:last-child {
+    display: none;
+  }
+  #sidebar-toggle:checked ~ .sidebar a {
     display: none;
   }
 
@@ -187,10 +194,10 @@ main {
   background: #f8f9fa;
   color: #343a40;
   border: 1px solid #f8f9fa;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .dropdown-menu{
-  font-size: 14px;
+  font-size: 12px;
   transform: translate3d(-76px, 33px, 0px) !important;
 }

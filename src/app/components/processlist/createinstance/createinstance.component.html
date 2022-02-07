@@ -18,7 +18,7 @@
            {{proVersion.replace(' ', '%20') }}  -->
              <!-- {{dataP | json}}  -->
             <div *ngIf="checkURLiFrame == true" >
-            <iframe height="500px" width="100%" class="IframeInstance"
+            <iframe height="400px" width="100%" class="IframeInstance"
             [src]="trustedUrl">
             </iframe>
           </div>
@@ -27,7 +27,7 @@
 
         <div class="modal-footer">
           <!-- <button type="button" class="btn btn-success">Save</button> -->
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="pi pi-times"></i> Cancel</button>
 
         </div>
       </div>

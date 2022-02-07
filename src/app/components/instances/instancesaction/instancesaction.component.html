@@ -44,7 +44,7 @@
 </div>
 
 
-<div class="row" *ngIf="checkDetails == true" style="overflow-y: scroll;height:500px;">
+<div class="row" *ngIf="checkDetails == true" style="overflow-y: scroll;height:420px;">
 
 
     <span *ngIf="message !== null" style="color:#a33 ; margin-left: 41%;font-weight: 700;">{{message}}</span>
@@ -55,12 +55,12 @@
 
 
             <div class="row col-12">
-                <div class="col-10" style="padding: 0;">
+                <div class="col-10" style="padding: 0;max-width: 82%;">
 
                     <h6  title="version NO">{{testobject.version_NO}}</h6>
                     <h6><a (click)="viewDetails(testobject.process_INSTANCE_ID )" title="process_INSTANCE_ID">
                             {{testobject.process_INSTANCE_ID }} </a></h6>
-                    <h6 style="width: 110%;"><a (click)="viewDetails(testobject.process_INSTANCE_NAME )" title="process_INSTANCE_NAME">
+                    <h6 style="width: 110%; font-size: 12px;"><a (click)="viewDetails(testobject.process_INSTANCE_NAME )" title="process_INSTANCE_NAME">
                             {{testobject.process_INSTANCE_NAME }} </a></h6>
                     <h6 title="Creation Date">{{testobject.creation_DATE | date:'dd-MM-yyyy' }}</h6>
 
@@ -69,7 +69,7 @@
                     <a class="treeinstance" (click)="viewDetails(testobject.process_INSTANCE_ID )" >
                         <button pButton pRipple type="button"
                             class="p-button-primary p-button-rounded count">{{testobject.count_SUB_INST}}</button>
-                        <img src="assets/images/process.png" width="51px;" />
+                        <img src="assets/images/process.png" width="51px;zoom: 90%;" />
                     </a>
 
                 </div>
@@ -82,7 +82,7 @@
 
                 </div>
                 <div class="col-6" style="padding-right: 0px;">
-                    <h6 style=" margin-top: -30px;float: right;"> {{(testobject.finishedactivities /
+                    <h6 style=" margin-top: -22px;float: right;"> {{(testobject.finishedactivities /
                         testobject.countactitivity)*100 | number:'1.2-2' }} % </h6>
 
                     <div class="progress prog">
@@ -106,12 +106,12 @@
                 <div class="col-sm-6">
                     <button pButton pRipple type="button" class="p-button-info p-button-rounded p-button-outlined"
                         style="color: #5a6268;">{{testobject.countactitivity}}</button>
-                    <br> All
+                    <br> <span class="titlelist"> All </span>
                 </div>
                 <div class="col-sm-6">
                     <button pButton pRipple type="button"
                         class=" p-button-primary p-button-rounded p-button-outlined">{{testobject.user_ACTIV_COUNT}}</button>
-                    <br> User
+                    <br><span class="titlelist"> User </span> 
                 </div>
 
             </div>
@@ -121,12 +121,15 @@
                 <div class="col-sm-6">
                     <button pButton pRipple type="button"
                         class=" p-button-warning p-button-rounded p-button-outlined">{{testobject.count_RUN_ACT}}</button>
-                    <br> Running
+                    <br><span class="titlelist"> Running </span>
+                    
                 </div>
                 <div class="col-sm-6">
                     <button pButton pRipple type="button"
                         class=" p-button-success p-button-rounded p-button-outlined">{{testobject.count_COMP_ACT}}</button>
-                    <br> Completed
+                    <br> 
+                     <span class="titlelist"> Completed </span>
+
                 </div>
             </div>
 

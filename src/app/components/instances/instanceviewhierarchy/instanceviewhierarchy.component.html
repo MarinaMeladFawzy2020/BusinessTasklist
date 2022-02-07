@@ -18,7 +18,7 @@
                     <p-table #dt1 [value]="ActivityAttributes"  [rows]="10" [showCurrentPageReport]="true"  sortMode="multiple"
                     [rowsPerPageOptions]="[5,10,25,50]"  styleClass="p-datatable-sm p-datatable-gridlines" [loading]="loading"  selectionMode="single"
                     [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                    [globalFilterFields]="['att_NAME','att_VALUE' ]" scrollHeight="500px"
+                    [globalFilterFields]="['att_NAME','att_VALUE' ]" scrollHeight="400px"
                     [metaKeySelection]="true"  responsiveLayout="scroll"  dataKey="att_NAME">
             
                     <ng-template pTemplate="header">
