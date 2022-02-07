@@ -10,7 +10,7 @@
 [scrollable]="false"  scrollHeight="330px"   
 [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading"  selectionMode="single" styleClass="p-datatable-sm"
 [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-[globalFilterFields]="['work_ITEM_ID' , 'work_ITEM_NAME' , 'assigned_USER' , 'assign_DATE' , 'task_Status' , 'process_NAME' , 'version_NO']">
+[globalFilterFields]="[ 'work_ITEM_NAME' , 'assigned_USER' , 'assign_DATE' , 'task_Status' , 'process_NAME' , 'version_NO' ,'due_DATE' , 'end_DATE']">
 
 <ng-template pTemplate="caption">
    
@@ -26,7 +26,12 @@
         <!-- My User Tasks -->
         <span class="p-input-icon-left searchtable" style="float: right; margin-top: -8px;">
             <i class="pi pi-search"></i>
-            <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h" (input)="dtmytasklist.filterGlobal(inVal.value, 'contains')"  placeholder="Search keyword" /> 
+            <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h" placeholder="Search keyword"
+            (input)="dtmytasklist.filterGlobal(inVal.value, 'contains')" (ngModelChange)="onChangesearch(h)"    /> 
+
+            <!-- <input list="cash_req_number" type="text" name="cash_no"  #pto ="ngModel" [(ngModel)]="cash_no" class="form-control" required 
+                (ngModelChange)="onChangeList(cash_no)"  autocomplete="off">  -->
+
         </span>
     </div>
 </ng-template>
@@ -45,7 +50,7 @@
      
           
 
-<ng-template pTemplate="body" let-myTask let-columns="columns">
+<ng-template pTemplate="body" let-myTask let-columns="columns" >
     <tr >
         <td><span class="btn btn-warning actions" >  <i class="fa fa-th-list"></i> </span> </td>
 
@@ -65,7 +70,7 @@
             <span  *ngIf="col.field == 'history' " class="btn btn-primary actions"  title="history" >  <i class="fa fa-history"></i> </span>
 
             <span  *ngIf="col.field == 'due_DATE' "> 
-                <h6 title="due_DATE">{{myTask.due_DATE}}</h6>
+                <h6 title="due_DATE">{{myTask.due_DATE}}</h6> 
              </span>
 
              <span  *ngIf="col.field == 'end_DATE' "> 

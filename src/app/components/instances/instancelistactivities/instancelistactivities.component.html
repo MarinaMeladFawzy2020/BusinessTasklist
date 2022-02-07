@@ -20,7 +20,7 @@
 
             <span class="p-input-icon-left searchtable" style="float: right; margin-top: -8px;">
                 <i class="pi pi-search"></i>
-                <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h"
+                <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h"  (ngModelChange)="onChangesearchActi(h)" 
                     (input)="dtlistactivities.filterGlobal(inVal.value, 'contains')" placeholder="Search keyword" />
             </span>
         </div>

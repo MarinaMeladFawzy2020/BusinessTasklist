@@ -67,12 +67,34 @@ set selectedColumns(val: any[]) {
   }
 
 
+  onChangesearchActi= (_f:any) => {
+    console.log(_f);
+        let newArr= this.listactivities.filter((e: { activity_INSTANCE_ID: any;  activity_NAME:any
+          instance_STATUS: any; due_DATE: any; finish_DATE:any ; finished_BY:any}) =>
+
+          e.activity_INSTANCE_ID.toString().includes( _f )|| 
+          e.activity_NAME.toLocaleLowerCase().includes( _f.toLocaleLowerCase() )||
+          e.instance_STATUS.toLocaleLowerCase().includes( _f.toLocaleLowerCase() ) || 
+          ( e.due_DATE !== null  && e.due_DATE.includes( _f) )|| 
+         
+          e.finish_DATE.toLocaleLowerCase().includes( _f.toLocaleLowerCase() )|| 
+          e.finished_BY.toLocaleLowerCase().includes( _f.toLocaleLowerCase() )
+          );
+          console.log(newArr);
+          this.listactivitiesExport = newArr;
+      if(_f == ''){
+        this.listactivitiesExport = this.listactivities;
+      }
+   
+     }
+
   
   exportExcel() {
     //npm install xlsx
     import('xlsx').then((xlsx): void => {
       this.dataProcesses = document.getElementById('dtlistactivities');
-      const worksheet = xlsx.utils.table_to_sheet(this.dataProcesses);
+     // const worksheet = xlsx.utils.table_to_sheet(this.dataProcesses);
+      const worksheet = xlsx.utils.json_to_sheet(this.listactivitiesExport);
       //const worksheet = xlsx.utils.json_to_sheet(this.listactivities);
       const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
       const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });

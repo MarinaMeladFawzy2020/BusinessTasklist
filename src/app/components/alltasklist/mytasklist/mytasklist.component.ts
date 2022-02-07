@@ -26,6 +26,7 @@ export class MytasklistComponent implements OnInit {
       this.getResponse.emit(this.TotalTaskList);
       this.loading = false;
       console.log(this.TaskList);
+      this.TaskListExport = this.TaskList;
     });
 
     //  this.exportColumns = this.cols.map((col: { header: any; field: any; }) => ({
@@ -57,12 +58,40 @@ export class MytasklistComponent implements OnInit {
   }
 
 
+  onChangesearch= (_f:any) => {
+    // alert(_f);
+    //data.filter(x => x.title.toLowerCase().includes(term.toLowerCase()))
+    //e.work_ITEM_NAME.toLocaleLowerCase()== _f.toLocaleLowerCase() 
+    console.log(_f);
+        let newArr= this.TaskList.filter((e: {  work_ITEM_NAME: any;  assign_DATE:any
+          task_Status: any; version_NO: any; assigned_USER:any ; process_NAME:any , due_DATE:any , end_DATE:any }) =>
+          e.work_ITEM_NAME.toLocaleLowerCase().includes( _f.toLocaleLowerCase() )||
+          e.task_Status.toLocaleLowerCase().includes( _f.toLocaleLowerCase() ) || 
+          e.assign_DATE.toLocaleLowerCase().includes( _f.toLocaleLowerCase() ) || 
+          e.version_NO.toLocaleLowerCase().includes( _f.toLocaleLowerCase() )|| 
+          e.assigned_USER.toLocaleLowerCase().includes( _f.toLocaleLowerCase() )|| 
+          ( e.due_DATE !== null  && e.due_DATE.includes( _f) )|| 
+          ( e.end_DATE !== null  && e.end_DATE.includes( _f) )|| 
+          e.process_NAME.toLocaleLowerCase().includes( _f.toLocaleLowerCase()) 
+          );
+          console.log(newArr);
+          this.TaskListExport = newArr;
+
+      if(_f == ''){
+        this.TaskListExport = this.TaskList;
+      }
+      
+     }
+
+
   getsearchtasklist($event: any) {
     this.searchtasklist = $event;
     this.TaskList = this.searchtasklist;
     console.log("searchtasklist");
     console.log(this.searchtasklist);
-
+    this.TotalTaskList = this.TaskList.length;
+    this.TaskListExport = this.searchtasklist;
+    this.getResponse.emit(this.TotalTaskList);
   }
 
 
@@ -70,8 +99,9 @@ export class MytasklistComponent implements OnInit {
     //npm install xlsx
     import('xlsx').then((xlsx): void => {
       this.dataProcesses = document.getElementById('dtmytasklist');
-      const worksheet = xlsx.utils.table_to_sheet(this.dataProcesses);
-     // const worksheet = xlsx.utils.json_to_sheet(this.TaskList);
+      //console.log(document.getElementById('dtmytasklist'));
+    //  const worksheet = xlsx.utils.table_to_sheet(this.dataProcesses);
+     const worksheet = xlsx.utils.json_to_sheet(this.TaskListExport);
       const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
       const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
       this.saveAsExcelFile(excelBuffer, "UserTaskList");

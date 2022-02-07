@@ -10,7 +10,7 @@
         [scrollable]="false" scrollHeight="400px" [columns]="selectedColumns" [rowsPerPageOptions]="[5,10,25,50]"
         [loading]="loading" selectionMode="single" [paginator]="true" styleClass="p-datatable-sm"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-        [globalFilterFields]="['work_ITEM_ID' , 'work_ITEM_NAME' , 'assigned_USER' , 'assign_DATE' , 'task_Status' , 'process_NAME' , 'version_NO']">
+        [globalFilterFields]="['work_ITEM_ID' , 'work_ITEM_NAME' , 'assigned_USER' , 'assign_DATE' , 'task_Status' , 'process_NAME' , 'version_NO' , 'due_DATE']">
 
 
         <ng-template pTemplate="caption">
@@ -28,7 +28,7 @@
                 <span class="p-input-icon-left searchtable" style="float: right; margin-top: -8px;">
                     <i class="pi pi-search"></i>
                     <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h"
-                        (input)="dtStaffTaskList.filterGlobal(inVal.value, 'contains')" placeholder="Search keyword" />
+                        (input)="dtStaffTaskList.filterGlobal(inVal.value, 'contains')"  (ngModelChange)="onChangesearchStaff(h)"  placeholder="Search keyword" />
                 </span>
             </div>
         </ng-template>
@@ -122,7 +122,7 @@
         </ng-template>
         <ng-template pTemplate="emptymessage">
             <tr>
-                <td colspan="7">
+                <td colspan="9">
                     <h6 class="emptymessage">No Data Found</h6>
                 </td>
             </tr>
