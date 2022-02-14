@@ -13,7 +13,8 @@
                 <div class="modal-body">
                     <!-- {{ActivityAttributes | json}} -->
                     <!-- {{checktype}} -->
-                 <div *ngIf="checktype == 'UserTask'">
+
+                 <div *ngIf="checktype == 'ServiceTask' || checktype == 'TaskApplication'">
 
                     <p-table #dt1 [value]="ActivityAttributes"  [rows]="10" [showCurrentPageReport]="true"  sortMode="multiple"
                     [rowsPerPageOptions]="[5,10,25,50]"  styleClass="p-datatable-sm p-datatable-gridlines" [loading]="loading"  selectionMode="single"
@@ -69,10 +70,16 @@
                     </ng-template>
                     </p-table>
                  </div>
+                 <div *ngIf="checktype == 'UserTask'">
+                     <!-- {{checktype}} -->
+
+                     <div *ngIf="checkURLiFrame == true">
+                         <iframe height="400px" width="100%" class="IframeInstance"
+                          [src]="trustedUrl">
+                          </iframe>
+                     </div>
 
 
-                 <div *ngIf="checktype == 'Start_Event'">
-                     {{checktype}}
                  </div>
 
 

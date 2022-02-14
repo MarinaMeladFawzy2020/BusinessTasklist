@@ -36,6 +36,9 @@ import { InstancesviewdetailsComponent } from './components/instances/instancesv
 import { InstancelistactivitiesComponent } from './components/instances/instancelistactivities/instancelistactivities.component';
 import { InstanceviewhierarchyComponent } from './components/instances/instanceviewhierarchy/instanceviewhierarchy.component';
 import { MessageService } from 'primeng/api';
+import { UsertaskdetailsComponent } from './components/alltasklist/usertaskdetails/usertaskdetails.component';
+import { StafftaskdetailsComponent } from './components/alltasklist/stafftaskdetails/stafftaskdetails.component';
+import { HistorytaskComponent } from './components/alltasklist/historytask/historytask.component';
 
 
 
@@ -57,15 +60,23 @@ import { MessageService } from 'primeng/api';
     AlltasklisttabsComponent,
     SearchtasklistComponent,
     MytasklistComponent,
+    UsertaskdetailsComponent,
+
+
     StafftasklistComponent,
     StaffsuspendComponent,
     StaffactivityassigneduserComponent,
     StaffassignandreassignComponent,
     StaffresumetaskComponent,
 
+    StafftaskdetailsComponent,
+     HistorytaskComponent,
+
+
 
     InstanceslistComponent,
     InstancesactionComponent,
+    
     InstancesviewdetailsComponent,
     InstancelistactivitiesComponent,
     InstanceviewhierarchyComponent,

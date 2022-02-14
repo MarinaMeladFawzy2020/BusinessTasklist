@@ -1,0 +1,131 @@
+
+<div class="modal fade" id="historyTask" tabindex="-1" role="dialog" aria-labelledby="historyTaskLabel"
+aria-hidden="true" data-backdrop="static" data-keyboard="false"  role="dialog" >
+
+<div class="modal-dialog modal-xl" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h6 class="modal-title" id="historyTaskLabel">History</h6>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <!-- {{dataRow | json}} -->
+        <!-- {{activity_INSTANCE_ID}} -->
+        
+        <p-table #dt1 [value]="userhistory"  [rows]="10" [showCurrentPageReport]="true"  sortMode="multiple"
+        [scrollable]="false"  scrollHeight="350px"
+        [rowsPerPageOptions]="[5,10,25,50]"  styleClass="p-datatable-sm p-datatable-gridlines" [loading]="loading"  selectionMode="single" [(selection)]="selectedProcess"
+        [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [globalFilterFields]="['action_DATE','activity_INST_ID' , 'action_TAKEN'  ,'action_ID' , 'action_USER']"
+        [metaKeySelection]="true"  responsiveLayout="scroll" selectionMode="multiple"   dataKey="activity_INST_ID">
+
+
+        <ng-template pTemplate="caption">
+            <div class="table-header">
+                <span class="p-input-icon-left searchtable" >
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h" (input)="dt1.filterGlobal(inVal.value, 'contains')"  placeholder="Search keyword" /> 
+                </span>
+            </div>
+        </ng-template>
+       
+        <ng-template pTemplate="header">
+            <tr>
+                <!-- <th pSortableColumn="activity_INST_ID" >
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        activity_INST_ID                
+                        <p-sortIcon field="activity_INST_ID"></p-sortIcon>
+                    </div>
+                </th>
+
+                <th pSortableColumn="action_ID" >
+                 <div class="p-d-flex p-jc-between p-ai-center">
+                    action_ID                
+                     <p-sortIcon field="action_ID"></p-sortIcon>
+                 </div>
+             </th> -->
+
+             <th pSortableColumn="action_USER" >
+               <div class="p-d-flex p-jc-between p-ai-center">
+                action_USER                
+                   <p-sortIcon field="action_USER"></p-sortIcon>
+                   
+               </div>
+           </th>
+
+           <th pSortableColumn="action_DATE" >
+            <div class="p-d-flex p-jc-between p-ai-center">
+                action_DATE                
+                <p-sortIcon field="action_DATE"></p-sortIcon>
+                
+            </div>
+        </th>
+
+        <th pSortableColumn="action_TAKEN" >
+            <div class="p-d-flex p-jc-between p-ai-center">
+                action_TAKEN                
+                <p-sortIcon field="action_TAKEN"></p-sortIcon>
+                
+            </div>
+        </th>
+
+           
+
+            </tr>
+
+            <tr >
+               
+             <!-- <th>
+               <p-columnFilter type="text" field="activity_INST_ID" ></p-columnFilter>
+             </th>
+           
+             <th>
+               <p-columnFilter type="text" field="action_ID" ></p-columnFilter>
+             </th> -->
+
+             <th>
+               <p-columnFilter type="text" field="action_USER"></p-columnFilter>
+             </th>
+
+             <th>
+                <p-columnFilter type="text" field="action_DATE"></p-columnFilter>
+              </th>
+
+              <th>
+                <p-columnFilter type="text" field="action_TAKEN"></p-columnFilter>
+              </th>
+            
+           </tr>
+        </ng-template>
+
+
+        <ng-template pTemplate="body" let-mytask>
+            <tr>
+                      
+             <!-- <td>{{mytask.activity_INST_ID}} </td>
+             <td>{{mytask.action_ID}} </td> -->
+             <td>{{mytask.action_USER}} </td>
+             <td>{{mytask.action_DATE}} </td>
+             <td>{{mytask.action_TAKEN}} </td>
+             
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+             <td colspan="7"><h6 class="emptymessage">No Data Found</h6>  </td>
+           </tr>
+        </ng-template>
+        </p-table>
+
+
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="pi pi-times"></i> Cancel</button>
+
+    </div>
+  </div>
+</div>
+</div>

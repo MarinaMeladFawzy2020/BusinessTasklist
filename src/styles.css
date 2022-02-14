@@ -10,7 +10,7 @@ button {
   font-size: 14px !important;
 }
 .pi {
-  font-size: 14px  !important;
+  font-size: 13px  !important;
 }
 h6 {
   font-size: 12px !important;
@@ -409,3 +409,7 @@ h5{
 .partone .p-card .p-card-body {
   padding: 25px 10px;
 }
+
+/* .p-datatable-scrollable>.p-datatable-wrapper>.p-datatable-table>.p-datatable-thead {
+  border: 1px solid #dee2e6;
+} */

@@ -10,8 +10,8 @@
 
 .actions .pi{
     font-size: 14px;
-    margin-left: 2px;
-    margin-top: 2px;
+    margin-left: 1px;
+    margin-top: 0px;
 }
 
 .p-paginator-current .ng-star-inserted{

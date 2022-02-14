@@ -1,7 +1,9 @@
 import { formatDate } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import * as FileSaver from 'file-saver';
 import { TasklistService } from 'src/app/services/tasklist.service';
+import { HistorytaskComponent } from '../historytask/historytask.component';
+import { UsertaskdetailsComponent } from '../usertaskdetails/usertaskdetails.component';
 
 
 
@@ -15,11 +17,15 @@ export class MytasklistComponent implements OnInit {
   [x: string]: any;
   loading: boolean = true;
   @Output() getResponse = new EventEmitter;
-
-
+ 
+  @ViewChild('usertaskdetails') usertaskdetails!: UsertaskdetailsComponent;
+  @ViewChild('historytask') historytask!: HistorytaskComponent;
+  
   constructor(private myTaskList: TasklistService) { }
 
   ngOnInit(): void {
+    this.loading = true;
+    this.TaskList = [];
     this.myTaskList.getMyTaskList().subscribe((Response: any) => {
       this.TaskList = Response.body;
       this.TotalTaskList = this.TaskList.length;
@@ -85,13 +91,26 @@ export class MytasklistComponent implements OnInit {
 
 
   getsearchtasklist($event: any) {
+    // this.loading = true;
+    console.log($event);
+    if($event == "loagingTable"){
+      // alert("jj");
+      this.loading = true;
+    }else{
+
+  
     this.searchtasklist = $event;
     this.TaskList = this.searchtasklist;
     console.log("searchtasklist");
     console.log(this.searchtasklist);
     this.TotalTaskList = this.TaskList.length;
+    console.log(this.TotalTaskList);
+ 
     this.TaskListExport = this.searchtasklist;
     this.getResponse.emit(this.TotalTaskList);
+    this.loading = false;
+  }
+
   }
 
 
@@ -120,5 +139,14 @@ export class MytasklistComponent implements OnInit {
 
 
 
+  onClickSend(myTask:any){
+     this.usertaskdetails.viewVersionDetails(myTask);
+   }
+
+   onClickSendhistory(myTask:any){
+    this.historytask.viewVersionDetails(myTask);
+  }
+   
+   
 
 }

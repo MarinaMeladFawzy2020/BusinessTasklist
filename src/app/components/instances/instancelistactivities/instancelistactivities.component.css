@@ -29,7 +29,7 @@
 }
 
  
- .progress-Skipped , .progress-Terminated , .progress-Time-Out{
+ .progress-Skipped , .progress-Terminated , .progress-Time-Out , .progress-Failed{
     color: #a33;
     font-weight: 600;
  }
@@ -47,4 +47,14 @@
 
  .listactivities{
      max-height: 600px !important;
+ }
+
+ .actionsicon{
+    background: white;
+     border: 1px solid #ffc107;
+     border-radius: 50%;
+ }
+
+ .actionsicon i{
+    color: #ffc107;
  }

@@ -1,0 +1,13 @@
+.actions{
+    padding: 6px !important;
+    border-radius: 50% !important;
+}
+
+.actions .pi{
+    margin-left: 2px;
+}
+
+.IframeInstance{
+    padding: 6px;
+    border: 1px solid #eee;
+}

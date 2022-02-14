@@ -21,6 +21,8 @@ export class InstanceslistComponent implements OnInit {
   constructor(private myinstancelist : InstaceslistService) { }
 
   ngOnInit(): void {
+    this.loading = true;
+    this.instancelist = [];
     this.myinstancelist.getProcessTracking().subscribe((Response: any) => {
       this.instancelist = Response.body;
       this.selectedProcess = this.instancelist[0];

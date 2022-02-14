@@ -7,6 +7,7 @@ import { StaffactivityassigneduserComponent } from '../staffactivityassigneduser
 import { StaffassignandreassignComponent } from '../staffassignandreassign/staffassignandreassign.component';
 import { StaffresumetaskComponent } from '../staffresumetask/staffresumetask.component';
 import { StaffsuspendComponent } from '../staffsuspend/staffsuspend.component';
+import { StafftaskdetailsComponent } from '../stafftaskdetails/stafftaskdetails.component';
 
 @Component({
   selector: 'app-stafftasklist',
@@ -23,11 +24,15 @@ export class StafftasklistComponent implements OnInit {
   @ViewChild('staffsuspend') staffsuspend!: StaffsuspendComponent;
   @ViewChild('staffresume') staffresume!: StaffresumetaskComponent;
 
+  @ViewChild('stafftaskdetails') stafftaskdetails!: StafftaskdetailsComponent;
+
   
   
     constructor(private myTaskList: TasklistService , private messageService: MessageService  ) { }
   
     ngOnInit(): void {
+      this.loading = true;
+      this.StaffTaskList = [];
       this.myTaskList.getStaffTaskList().subscribe((Response: any) => {
         this.StaffTaskList = Response.body;
         this.loading = false;
@@ -88,6 +93,13 @@ export class StafftasklistComponent implements OnInit {
   
     
     getsearchstafflist($event: any) {  
+
+      console.log($event);
+      if($event == "loagingTable"){
+        // alert("jj");
+        this.loading = true;
+      }else{
+
       this.searchtasklist = $event;  
       this.StaffTaskList = this.searchtasklist;
       console.log("searchStaffTaskList");
@@ -96,7 +108,9 @@ export class StafftasklistComponent implements OnInit {
       this.TotalTaskList = this.StaffTaskList.length;
       this.StaffTaskListExport = this.searchtasklist;
       this.getResponse.emit(this.TotalTaskList);
-     
+      this.loading = false;
+
+      }
     
     
     } 
@@ -147,6 +161,11 @@ saveAsExcelFile(buffer: any, fileName: string): void {
       type: EXCEL_TYPE
   });
  FileSaver.saveAs(data, fileName + '_' + formatDate(new Date() ,"dd-MMM-YYYY hh:mm" ,'en-US') + EXCEL_EXTENSION);
+}
+
+
+onClickSend(myTask:any){
+  this.stafftaskdetails.viewVersionDetails(myTask);
 }
 
 }

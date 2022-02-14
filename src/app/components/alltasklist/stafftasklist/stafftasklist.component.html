@@ -47,7 +47,16 @@
 
         <ng-template pTemplate="body" let-myTask let-columns="columns">
             <tr>
-                <td><span class="btn btn-warning actions"> <i class="fa fa-th-list"></i> </span> </td>
+                <!-- <td><span class="btn btn-warning actions"> <i class="fa fa-th-list"></i> </span> </td> -->
+
+                <td>
+                    <button type="button" data-toggle="modal" data-target="#stafftaskpopup" title="StaffTask Details"
+                    (click)="onClickSend(myTask)"   class="btn btn-primary actions">
+                    <i class="fa fa-th-list"></i>
+                </button>
+                <app-stafftaskdetails #stafftaskdetails> </app-stafftaskdetails>
+                </td>
+
 
                 <td *ngFor="let col of columns ; let i = index">
                     <span *ngIf="col.field == 'work_ITEM_NAME' ">

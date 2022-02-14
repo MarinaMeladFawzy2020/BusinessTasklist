@@ -21,7 +21,7 @@
                 <p-chip  [label]="TotalStafList"  class="custom-chip"></p-chip>
             </ng-template>
 
-            <ng-template pTemplate="content">
+            <ng-template pTemplate="content" >
                 <div >
                     <!-- <app-searchtasklist  [userTask]="1"></app-searchtasklist> -->
                     <app-stafftasklist (getResponse)="gettotalStaflist($event)"></app-stafftasklist>

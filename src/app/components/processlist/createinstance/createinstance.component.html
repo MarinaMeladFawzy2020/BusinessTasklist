@@ -1,38 +1,62 @@
-
 <!-- <button pButton pRipple type="button" data-toggle="modal" data-target="#createinstance"
     class="p-button-rounded p-button-success actions"  > <i class="pi pi-plus"></i>
 </button> -->
 
+
+<div class="modal fade" id="createinstance" tabindex="-1" role="dialog" aria-labelledby="createinstanceLabel"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false"  role="dialog" >
   
-  <div class="modal fade" id="createinstance" tabindex="-1" role="dialog" aria-labelledby="createinstanceLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h6 class="modal-title" id="createinstanceLabel">Create Instance</h6>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-           <!-- {{proVersion}}
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="createinstanceLabel">Create Instance</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- {{proVersion}}
            {{proVersion.replace(' ', '%20') }}  -->
-             <!-- {{dataP | json}}  -->
-            <div *ngIf="checkURLiFrame == true" >
-            <iframe height="400px" width="100%" class="IframeInstance"
+        <!-- {{dataP | json}}  -->
+        <div *ngIf="checkURLiFrame == true">
+          <!-- {{trustedUrl}} <br>
+              {{urLNoSpace}} <br>
+              {{URLInstance}} -->
+
+              <!-- <div id="myDiv"></div> -->
+
+          <iframe height="400px" width="100%" class="IframeInstance"
             [src]="trustedUrl">
             </iframe>
-          </div>
-    
+
+               <!-- <a  href="http://192.168.0.89:8080/EUBusiness/processworkflow?INST_ProcessId=1811&INST_VersionNo=Version%201&USER=INTI_ALL"
+                    target="_self"
+                    onclick="window.open('http://192.168.0.89:8080/EUBusiness/processworkflow?INST_ProcessId=1811&INST_VersionNo=Version%201&USER=INTI_ALL','popup','width=1200,height=1200'); return false;">
+                   url
+                </a> -->
+
+          <!-- <a href="http://192.168.0.89:8080/EUBusiness/processworkflow?INST_ProcessId=1811&INST_VersionNo=Version%201&USER=INTI_ALL"
+            target="iframe1"  onload="window.open('http://192.168.0.89:8080/EUBusiness/processworkflow?INST_ProcessId=1811&INST_VersionNo=Version%201&USER=INTI_ALL','popup','width=1200,height=1200')" ; 
+            
+            >link</a> -->
+
+  
+            
+            <!-- <iframe id="myFrame"  height="400px" width="100%" class="IframeInstance" name="iframe1" src="target"></iframe>
+            <a [href]="trustedUrl"  target="iframe1" > url </a> -->
+
+
+
+
         </div>
 
-        <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-success">Save</button> -->
-          <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="pi pi-times"></i> Cancel</button>
+      </div>
 
-        </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-success">Save</button> -->
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="close()"><i class="pi pi-times"></i> Cancel</button>
+
       </div>
     </div>
   </div>
-
-
-
+</div>

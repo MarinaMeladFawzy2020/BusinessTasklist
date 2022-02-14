@@ -18,7 +18,7 @@ selectedmoreComponents:any;
 
 selectedTaskStatus: any = 'Started';
     
-TaskStatus: any[] =  ['Started' ,'Under Processing' , 'Finished' ,'Closed' , 'Terminated' , 'Time Out' , 'Suspended' ]
+TaskStatus: any[] =  ['All', 'Started' ,'Under Processing' , 'Finished' ,'Closed' , 'Terminated' , 'Time Out' , 'Suspended' ]
 
   constructor(private myTaskList: TasklistService ) {}
 
@@ -66,18 +66,24 @@ TaskStatus: any[] =  ['Started' ,'Under Processing' , 'Finished' ,'Closed' , 'Te
 
 
   searchtask(_f:any){
+    this.getResponse.emit("loagingTable");
+
     console.log("search");
     console.log(this.userTask);
     console.log(_f);
 
+    if(_f.work_ITEM_STATUS == "All"){
+      _f.work_ITEM_STATUS = "";
+    }
+
      if(_f.due_DATE == null){
-      _f.due_DATE == "";
+      _f.due_DATE = "";
     }else{
       _f.due_DATE = formatDate(_f.due_DATE , 'dd/MM/yyyy' , 'en');
     }
 
     if(_f.assign_DATE == null){
-      _f.assign_DATE == "";
+      _f.assign_DATE = "";
     }else{
       _f.assign_DATE = formatDate(_f.assign_DATE , 'dd/MM/yyyy' , 'en');
     }

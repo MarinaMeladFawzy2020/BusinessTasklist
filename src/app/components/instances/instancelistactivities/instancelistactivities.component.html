@@ -39,7 +39,14 @@
 
     <ng-template pTemplate="body" let-myTask let-columns="columns">
         <tr>
-            <td><span class="btn btn-warning actions"> <i class="fa fa-user"></i> </span> </td>
+              
+            <td *ngIf="(myTask.activity_TYPE == 'UserTask')" > <span class="btn btn-warning actionsicon" ><i class="fa fa-user"></i></span> </td>
+            <td *ngIf="(myTask.activity_TYPE == 'ServiceTask')" > <span class="btn btn-warning actionsicon" ><i class="fa fa-cogs"></i></span></td>
+            <td *ngIf="(myTask.activity_TYPE == 'TaskApplication')" > <span class="btn btn-warning actionsicon" ><i class="fa fa-list"></i></span> </td>
+           
+            <td *ngIf="(myTask.activity_TYPE !== 'TaskApplication' && myTask.activity_TYPE !== 'ServiceTask' && myTask.activity_TYPE !== 'UserTask' )" > 
+                
+             </td>
 
             <td *ngFor="let col of columns ">
                 <span *ngIf="col.field == 'activity_NAME' ">
@@ -56,17 +63,21 @@
                         'progress-Skipped' : (myTask.instance_STATUS) == 'Skipped',
                         'progress-Terminated' : (myTask.instance_STATUS) == 'Terminated',
                         'progress-Time-Out' : (myTask.instance_STATUS) == 'Time Out',
+                        'progress-Failed' : (myTask.instance_STATUS) == 'Failed',
                         'progress-Completed' : (myTask.instance_STATUS) == 'Completed'
                      }">{{myTask.instance_STATUS}}</h6>
 
                 </span>
 
                 <span *ngIf="col.field == 'view' ">
+                    <!-- {{myTask.activity_TYPE }} -->
+                    <div *ngIf="(myTask.activity_TYPE == 'ServiceTask' || myTask.activity_TYPE == 'TaskApplication' || myTask.activity_TYPE == 'UserTask') && (myTask.instance_STATUS == 'Completed' || myTask.instance_STATUS == 'Failed' ) ">
 
                     <button type="button" title="View PrepareFiles's Work Items" data-toggle="modal"
                     data-target="#ActivityWorkItems" (click)="viewhierarchydataRow(myTask)"
                     class="btn btn-primary actions"> <i class="fa fa-sitemap"></i>
                 </button>
+                </div>
                 <app-instanceviewhierarchy #viewhierarchy></app-instanceviewhierarchy>
                     
                 </span>

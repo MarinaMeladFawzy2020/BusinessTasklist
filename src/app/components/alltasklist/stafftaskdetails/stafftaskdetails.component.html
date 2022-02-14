@@ -1,0 +1,31 @@
+
+<div class="modal fade" id="stafftaskpopup" tabindex="-1" role="dialog" aria-labelledby="stafftaskpopupLabel"
+aria-hidden="true" data-backdrop="static" data-keyboard="false"  role="dialog" >
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="stafftaskpopupLabel">StaffTask Details</h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <!-- {{dataP | json}} -->
+            <div *ngIf="checkURLiFrame == true" >
+            <iframe height="400px" width="100%" class="IframeInstance"
+            [src]="trustedUrl">
+            </iframe>
+          </div>
+    
+        </div>
+
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-success">Save</button> -->
+          <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close" (click)="close()"><i class="pi pi-times"></i> Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+

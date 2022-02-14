@@ -26,6 +26,7 @@ export class ProcesslistViewComponent implements OnInit {
   PageNo:any = 1;
   Size:any = 50;
   hidenReadmore = false;
+  loading = true;
   constructor(private processList : ProcesslistService , private messageService: MessageService ,
      @Inject(DOCUMENT) private document: Document ,private productService: TestService) { }
   // showSuccess() {
@@ -38,6 +39,7 @@ export class ProcesslistViewComponent implements OnInit {
     this.processList.getAllProcesses(this.PageNo , this.Size).subscribe((Response: any) => {
       this.AllProcesses = Response.body;
        console.log(this.AllProcesses);
+       this.loading = false;
        this.TotalProcess = this.AllProcesses.length
 
    }); 

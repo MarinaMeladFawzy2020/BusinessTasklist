@@ -135,6 +135,8 @@ FilterUserList: any[] = [
   
 
   getUsersToAsignee(f:any){
+    this.loading = true;
+    this.UsersToAsignee = [];
   this.myTaskList.UsersToAsignee(f).subscribe((Response: any) => {
     this.UsersToAsignee = Response.body;
     this.loading = false;

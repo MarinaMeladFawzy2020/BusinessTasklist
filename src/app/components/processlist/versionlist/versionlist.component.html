@@ -1,18 +1,17 @@
-
 <!-- {{AllProcessVersions | json}} -->
 
 
 <!--Table Process Versions-->
-<p-table #dt2 id="dt2" [value]="AllProcessVersions" dataKey="id" [rows]="10" [showCurrentPageReport]="true" sortMode="multiple"
-    [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading" [scrollable]="false"  
-    
+<p-table #dt2 id="dt2" [value]="AllProcessVersions" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
+    sortMode="multiple" [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading" [scrollable]="false"
     styleClass="p-datatable-sm p-datatable-AllProcessVersions  noscroll" [paginator]="true"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
     [globalFilterFields]="['ProcessId','VersionNo' , 'ProcessName' , 'ProcessStatus' , 'Description' , 'ParentProcessId' , 'ParentVersionNo']">
 
     <ng-template pTemplate="caption">
         <div class="flex" style="float: right; margin-top: -11px;">
-            <p-button label="Export" type="button" icon="pi pi-file-excel" styleClass="p-button-success mr-2" (click)="exportExcel()" title="Export Excel"  ></p-button>
+            <p-button label="Export" type="button" icon="pi pi-file-excel" styleClass="p-button-success mr-2"
+                (click)="exportExcel()" title="Export Excel"></p-button>
         </div>
 
         <div class="table-header" style="height: 18px;">
@@ -38,11 +37,11 @@
                 <div class="p-d-flex p-jc-between p-ai-center">
                     VersionNo
                     <p-sortIcon field="VersionNo"></p-sortIcon>
-                    <p-columnFilter type="text" field="VersionNo" display="menu" ></p-columnFilter>
+                    <p-columnFilter type="text" field="VersionNo" display="menu"></p-columnFilter>
                 </div>
             </th>
 
-            <th pSortableColumn="ProcessStatus"  style="width: 20% !important;">
+            <th pSortableColumn="ProcessStatus" style="width: 20% !important;">
                 <div class="p-d-flex p-jc-between p-ai-center">
                     Status
                     <p-sortIcon field="ProcessStatus"></p-sortIcon>
@@ -73,6 +72,17 @@
                         class="pi pi-plus"></i>
                 </button>
                 <app-createinstance #myDetailsVersion [proVersion]="Process.VersionNo"> </app-createinstance>
+
+                <h6>
+
+
+            <!-- <a  href="http://192.168.0.89:8080/EUBusiness/processworkflow?INST_ProcessId=1811&INST_VersionNo=Version%201&USER=INTI_ALL"
+                target="popup"
+                onclick="window.open('http://192.168.0.89:8080/EUBusiness/processworkflow?INST_ProcessId=1811&INST_VersionNo=Version%201&USER=INTI_ALL','popup','width=1200,height=1200'); return false;">
+                url
+            </a> -->
+                </h6>
+
             </td>
             <td>{{Process.VersionNo}} </td>
             <td>{{Process.ProcessStatus}} </td>
@@ -81,8 +91,9 @@
     </ng-template>
     <ng-template pTemplate="emptymessage">
         <tr>
-            <td colspan="7"><h6 class="emptymessage">No Data Found</h6> </td>
+            <td colspan="7">
+                <h6 class="emptymessage">No Data Found</h6>
+            </td>
         </tr>
     </ng-template>
 </p-table>
-

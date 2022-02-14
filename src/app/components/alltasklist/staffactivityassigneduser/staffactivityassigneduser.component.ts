@@ -19,6 +19,8 @@ constructor(private myTaskList: TasklistService ) { }
   getDataRow(_dataRow :any){
     this.datastaff = _dataRow;
     console.log(this.datastaff);
+    this.loading = true;
+    this.staffActivity = [];
     this.myTaskList.WorkItemUsersAsignee(this.datastaff.activity_INSTANCE_ID).subscribe((Response: any) => {
       this.staffActivity = Response.body;
       this.loading = false;

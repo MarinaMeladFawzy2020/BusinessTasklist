@@ -61,3 +61,8 @@
     border-radius: 11px;
  }
  
+ 
+.IframeInstance{
+    padding: 6px;
+    border: 1px solid #eee;
+}

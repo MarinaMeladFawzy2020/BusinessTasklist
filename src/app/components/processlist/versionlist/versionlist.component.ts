@@ -30,6 +30,7 @@ export class VersionlistComponent implements OnInit {
 
   sendProcessId(ProcessId:any){
     this.loading = true;
+    this.AllProcessVersions = [];
     this.processList.getAllProcessVersions(ProcessId).subscribe((Response: any) => {
       this.AllProcessVersions = Response.body;
       this.loading = false;

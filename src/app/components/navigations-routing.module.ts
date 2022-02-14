@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { InstancelistactivitiesComponent } from './instances/instancelistactivities/instancelistactivities.component';
 import { InstanceslistComponent } from './instances/instanceslist/instanceslist.component';
 import { InstancesviewdetailsComponent } from './instances/instancesviewdetails/instancesviewdetails.component';
+import { CreateinstanceComponent } from './processlist/createinstance/createinstance.component';
 import { ProcesslistViewComponent } from './processlist/processlist-view/processlist-view.component';
 
 const routes: Routes = [
@@ -19,6 +20,8 @@ const routes: Routes = [
       { path:'instancelist', component: InstanceslistComponent ,  canActivate:[AuthGuard]  } ,
       { path:'instancelistDetails', component: InstancesviewdetailsComponent ,  canActivate:[AuthGuard]  } ,
       { path:'instancelistactivities', component: InstancelistactivitiesComponent ,  canActivate:[AuthGuard]  } ,
+     
+      // { path:'createinstancelist', component: CreateinstanceComponent  } ,
 
       
 

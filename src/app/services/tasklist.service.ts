@@ -54,6 +54,11 @@ export class TasklistService {
     return this.http.get<any>(this.URL+'BusinessApp/api/Process/WorkItemUsersAsignee?ACT_INST_ID='+activity_INSTANCE_ID);
    }
 
+   ActivityHistory(activity_INSTANCE_ID:any):Observable<any> {
+    return this.http.get<any>(this.URL+'BusinessApp/api/Process/ActivityHistory?ACT_INST_ID='+activity_INSTANCE_ID);  //1725477
+   }
+   
+
    UsersToAsignee(f:any):Observable<any> {
      console.log(f);
     return this.http.post<any>(this.URL+'BusinessApp/api/Process/UsersToAsignee' , f);
