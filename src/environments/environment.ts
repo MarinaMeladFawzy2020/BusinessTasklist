@@ -8,7 +8,8 @@
 
 export const environment = {
   production: false ,
-  urlAddress: 'http://192.168.0.89:8080/EUBusiness/'  
+  // urlAddress: 'http://192.168.0.89:8080/EUBusiness/'  
+  urlAddress: 'https://173.249.22.91:8083/'  
 
 };
 
