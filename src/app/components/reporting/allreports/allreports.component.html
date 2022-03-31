@@ -1,0 +1,36 @@
+<!-- <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb> -->
+
+
+<div class="card row col-12 " style="display:inline-flex; margin-left: -1px;">
+    <p-tabView class="tabview"  (onChange)="handleChange($event)"  >  
+
+            <p-tabPanel  *ngFor="let Rep of Reports; let i = index" [header]="Rep.report_NAME"  [selected]="activetabs == i">
+                <ng-template pTemplate="content">
+                    <app-report [ReportIDInput]="Rep.report_ID" [ReportURLInput]="Rep.uri" ></app-report>
+                </ng-template>
+            </p-tabPanel>
+     
+
+        <!-- <p-tabPanel   header="Report 1"  [selected]="activetabs == 0">
+            <ng-template pTemplate="content">
+                <app-report [ReportIDInput]="1" ></app-report>
+            </ng-template>
+        </p-tabPanel>
+
+
+        <p-tabPanel header="Report 2"  [selected]="activetabs == 1">
+            <ng-template pTemplate="content">
+               <app-report [ReportIDInput]="2" ></app-report>
+            </ng-template>
+        </p-tabPanel>
+
+        <p-tabPanel header="Report 3"  [selected]="activetabs == 2">
+            <ng-template pTemplate="content">
+               <app-report [ReportIDInput]="3" ></app-report>
+            </ng-template>
+        </p-tabPanel> -->
+
+
+    </p-tabView>
+        
+</div>

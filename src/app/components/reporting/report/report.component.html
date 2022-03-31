@@ -1,0 +1,296 @@
+
+<!-- <p-button  styleClass="p-button-success p-search" (click)="loader.show()" >Show Loader </p-button>
+<p-button  styleClass="p-button-success p-search" (click)="loader.hide()" >hide Loader </p-button> -->
+<!-- {{loading$ | async}} {{checkLoader}} -->
+<div id="coverspinner" *ngIf="checkLoader" >
+         <!-- <p-progressSpinner ></p-progressSpinner>  -->
+        <div class="loader"></div> 
+</div>
+
+<div  id="searchtasklist" class="card"  style="padding: 12px 10px; background: f0f8ff; width: 100%; "   >
+      <!-- {{objectSearch | json}} -->
+      <!-- testData : 1084 -->
+      <form #f="ngForm" (ngSubmit)="searchReport(f.value)" >
+
+        <div class="row actions" style="float: right;  margin-top: -55px;">
+            <p-button label="Search" type="submit" icon="pi pi-search" styleClass="p-button-success p-search"
+                [disabled]=f.form.invalid></p-button>
+            <p-button label="Reset" type="button" (click)="reset(f)" icon="pi pi-refresh"
+                styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
+        </div>
+
+          <div class="row col-12 search" *ngIf="showSearch" > <!---->
+              <div class="col-2" *ngFor="let item of objectSearch">
+
+                  <!-- TEXT TYPE -->
+                  <div *ngIf="item.param_TYPE == 'string' && item.is_LOOKUP == 0">
+                      <label>{{item.label_EN}}</label>
+                      <div *ngIf="item.is_REQUIRED == 0">
+                          <input type="text" pInputText name="{{item.param_NAME}}" ngModel>
+                      </div>
+
+                      <div *ngIf="item.is_REQUIRED == 1">
+                          <input type="text" pInputText name="{{item.param_NAME}}" #itemText="ngModel" ngModel
+                              required>
+                          <small class="text-danger mt-1" *ngIf="itemText.errors?.required && itemText.touched ">Field
+                              is Required.</small>
+                      </div>
+                  </div>
+
+                  <!-- NUMBER TYPE -->
+                  <div *ngIf="item.param_TYPE == 'number'">
+                      <label>{{item.label_EN}}</label>
+                      <div *ngIf="item.is_REQUIRED == 0">
+                          <input type="number" pInputNumber name="{{item.param_NAME}}" class="form-control" ngModel>
+                          <!-- <p-inputNumber inputId="inputnumber" name="{{item.label_EN}}"  [min]="0"  ngModel   placeholder="Enter the number"> </p-inputNumber> -->
+                      </div>
+
+                      <div *ngIf="item.is_REQUIRED == 1">
+                          <input type="number" pInputNumber name="{{item.param_NAME}}" class="form-control"
+                              #itemNumb="ngModel" ngModel [required]="true">
+                          <!-- <p-inputNumber inputId="inputnumber" name="{{item.label_EN}}" [min]="0"   #itemNumb="ngModel" ngModel [required]="true" > </p-inputNumber> -->
+                          <small class="text-danger mt-1" *ngIf="itemNumb.errors?.required && itemNumb.touched ">Field
+                              is Required.</small>
+                      </div>
+                  </div>
+
+                  <!-- DATE TYPE -->
+                  <div *ngIf="item.param_TYPE == 'date'">
+                      <label>{{item.label_EN}}</label>
+
+                      <div *ngIf="item.is_REQUIRED == 0">
+                          <p-calendar dateFormat="dd/mm/yy" [minDate]="minDate" id="{{item.param_NAME}}"
+                              inputId="{{item.param_NAME}}" [showButtonBar]="true" [showIcon]="true"
+                              name="{{item.param_NAME}}" ngModel [required]="false">
+                          </p-calendar>
+                      </div>
+
+                      <div *ngIf="item.is_REQUIRED == 1">
+                          <p-calendar dateFormat="dd/mm/yy" [minDate]="minDate" id="{{item.param_NAME}}"
+                              inputId="{{item.param_NAME}}" [showButtonBar]="true" [showIcon]="true"
+                              name="{{item.param_NAME}}" #DATE1="ngModel" ngModel [required]="true">
+                          </p-calendar>
+                          <small class="text-danger mt-1" *ngIf="DATE1.errors?.required && DATE1.touched"> Field is
+                              Required </small>
+                      </div>
+
+                  </div>
+
+
+                  <!-- DATETIME TYPE -->
+                  <div *ngIf="item.param_TYPE == 'datetime'">
+                      <label>{{item.label_EN}}</label>
+
+                      <div *ngIf="item.is_REQUIRED == 0">
+                          <div *ngIf="item.is_REQUIRED == 1">
+                              <p-calendar dateFormat="dd/mm/yy" [minDate]="minDate" id="{{item.label_EN}}"
+                                  inputId="{{item.label_EN}}" [showButtonBar]="true" [showIcon]="true"
+                                  [showTime]="true" [showSeconds]="true" name="{{item.param_NAME}}" ngModel
+                                  [required]="false">
+                              </p-calendar>
+                          </div>
+                      </div>
+
+                      <div *ngIf="item.is_REQUIRED == 1">
+                          <p-calendar dateFormat="dd/mm/yy" [minDate]="minDate" id="{{item.label_EN}}"
+                              inputId="{{item.param_NAME}}" [showButtonBar]="true" [showIcon]="true" [showTime]="true"
+                              [showSeconds]="true" name="{{item.param_NAME}}" #DATETime="ngModel" ngModel
+                              [required]="true">
+                          </p-calendar>
+                          <small class="text-danger mt-1" *ngIf="DATETime.errors?.required && DATETime.touched"> Field
+                              is Required </small>
+                      </div>
+
+                  </div>
+
+                  <div *ngIf="item.param_TYPE == 'boolean'">
+                      <label>{{item.label_EN}}</label>
+                      <p-checkbox name="{{item.param_NAME}}" [binary]="true" ngModel></p-checkbox>
+                  </div>
+
+                  
+                  <div *ngIf="item.is_LOOKUP == 1 && item.is_MULTI_SELECTION == 0">
+                      <label>{{item.label_EN}}</label>
+                      <div *ngFor="let Lookup of AllLookup">
+                          <div *ngIf="Lookup.param_ID == item.param_ID">
+                              <!-- {{Lookup.param_ID}} 
+                              {{Lookup.dep_PARAM_ID}}
+                              {{item.param_ID}} -->
+                             <!-- {{Lookup.Alloptions | json}}  -->
+                             <!-- {{Lookup.AlloptionsFakes | json}} -->
+                             <!-- <div *ngIf="Lookup.AlloptionsFakes !== undefined"> ! undefined</div> -->
+                             <!-- <div *ngIf="Lookup.dep_PARAM_ID !== null"> ! null</div> -->
+                             <!-- <div *ngIf="Lookup.dep_PARAM_ID == item.param_ID "> {{param_ID}}</div> -->
+                           
+                             <div *ngIf="item.is_REQUIRED == 0">
+                                  <select id="{{item.param_NAME}}" class="form-control" name="{{item.param_NAME}}" (ngModelChange)="onChange(reqlookup.value , item.param_ID, item.dep_PARAM_ID )"
+                                      placeholder="Select"  #reqlookup="ngModel" ngModel>
+                                      <option></option>
+                                      <option *ngFor="let i of Lookup.Alloptions" [value]="i.ID">
+                                          {{i.VALUEAR}} </option>
+                                  </select>
+                              </div>
+
+                           
+                            
+                              <div *ngIf="item.is_REQUIRED == 1">
+                                  <select id="{{item.param_NAME}}" class="form-control" name="{{item.param_NAME}}"  (ngModelChange)="onChange(reqlookup.value , item.param_ID , item.dep_PARAM_ID )"
+                                      placeholder="Select" #reqlookup="ngModel" ngModel required>
+                                      <option></option>
+                                      <option *ngFor="let i of Lookup.Alloptions" [value]="i.ID">
+                                          {{i.VALUEAR}} </option>
+                                  </select>
+                                  <small class="text-danger mt-1"
+                                      *ngIf="reqlookup.errors?.required && reqlookup.touched"> Field is Required
+                                  </small>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+
+
+                  <div *ngIf="item.is_LOOKUP == 1 && item.is_MULTI_SELECTION == 1">
+                      <label>{{item.label_EN}}</label>
+                      <div *ngFor="let op of AllLookup">  <!--AllLookupMulti-->
+                          <div *ngIf="op.param_ID == item.param_ID">
+                              
+                            
+                            
+                              <div *ngIf="item.is_REQUIRED == 0">
+                                <!-- {{Alloptionstest | json}}
+                                  <p-multiSelect [options]="Alloptionstest" ngModel name="testMulti"></p-multiSelect> -->
+                                   
+                                   <!-- {{op.Alloptions| json}} -->
+                                <p-multiSelect [options]="op.Alloptions" ngModel name="{{item.param_NAME}}"
+                                optionLabel="VALUEAR"></p-multiSelect>
+                              </div>
+
+                              <div *ngIf="item.is_REQUIRED == 1">
+                                  <p-multiSelect [options]="op.Alloptions" ngModel name="{{item.param_NAME}}"
+                                      optionLabel="VALUEAR" #reqlookupmul="ngModel" ngModel required>
+                                  </p-multiSelect>
+                                  <small class="text-danger mt-1"
+                                      *ngIf="reqlookupmul.errors?.required && reqlookupmul.touched"> Field is Required
+                                  </small>
+                              </div>
+
+
+                          </div>
+                      </div>
+
+
+                      <!-- <div *ngFor="let op of AllLookupmultiselect" >
+                          <div *ngIf="op.lookup_ID == item.lookup_ID">
+                              {{op.Alloptions | json}}
+                              {{op.lookup_ID}}
+                              <p-multiSelect [options]="op.Alloptions" ngModel name="{{item.param_NAME}}"  optionLabel="display_NAME"></p-multiSelect>
+                          </div>
+                      </div> -->
+                      <!-- <p-multiSelect [options]="optionsmulti" [(ngModel)]="selectedmoreComponents" name="{{item.label_EN}}" defaultLabel="Select" optionLabel="name"></p-multiSelect> -->
+                      <!-- <p-multiSelect [options]="moreComponents"  optionLabel="namerr"></p-multiSelect> -->
+
+                  </div>
+
+              </div>
+          </div>
+
+
+          <!-- <select class="form-control"  (ngModelChange)="onChange(reqlookup1.value , 10 ,10 )"
+          placeholder="Select" name="l1" #reqlookup1="ngModel" ngModel>
+          <option></option>
+          <option *ngFor="let i of testobj[0].Alloptions" [value]="i.object_CODE">
+              {{i.display_NAME}} </option>
+      </select>
+
+      <select class="form-control"  name="l2" (ngModelChange)="onChange(reqlookup2.value ,10 ,10 )"
+      placeholder="Select"  #reqlookup2="ngModel" ngModel>
+      <option></option>
+      <option *ngFor="let i of testobj[1].Alloptions" [value]="i.object_CODE">
+          {{i.display_NAME}} </option>
+  </select> -->
+
+
+ 
+      </form>
+
+</div>
+
+
+<div *ngIf="Showtable">
+<div >
+    <div class="p-col p-d-flex col-12" style="padding:0px;">
+            <!-- {{MydataReport | json}} -->
+            <p-table #dtReport id="dtReport" [value]="MydataReport" [rows]="10" [showCurrentPageReport]="true"
+                sortMode="multiple" [columns]="selectedColumns" [scrollable]="false" scrollHeight="330px"
+                [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading" selectionMode="single"
+                styleClass="p-datatable-sm" [paginator]="true"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                [globalFilterFields]="['work_ITEM_NAME' , 'assigned_USER' , 'assign_DATE' , 'task_Status' , 'process_NAME' , 'version_NO' ,'due_DATE' , 'end_DATE']">
+
+                <ng-template pTemplate="caption">
+                    <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="alias" class="multicol"
+                    selectedItemsLabel="{0} columns selected" placeholder="Choose Columns"></p-multiSelect>
+    
+                <div class="flex" style="float: right; margin-top: -11px;">
+                    <p-button label="Export" type="button" icon="pi pi-file-excel" styleClass=" t p-button-success mr-2"
+                        (click)="exportExcel()" title="Export Excel"></p-button>
+                </div>
+                
+                    <div class="table-header" style="height: 18px;">
+                        <!-- <span class="p-input-icon-left searchtable" style="float: right; margin-top: -8px;">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" ngModel #inVal="ngModel" [(ngModel)]="h"
+                                placeholder="Search keyword" (input)="dtReport.filterGlobal(inVal.value, 'contains')"
+                                (ngModelChange)="onChangesearch(h)" />
+                        </span> -->
+                    </div>
+                </ng-template>
+
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th *ngFor="let col of columns" pSortableColumn="{{col.alias}}">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                {{col.alias}} <p-sortIcon field="{{col.alias}}"></p-sortIcon>
+                                <p-columnFilter type="text" field="{{col.alias}}" display="menu"></p-columnFilter>
+
+                            </div>
+                        </th>
+                    </tr>
+
+                
+
+                    <!-- <tr>
+                        <th *ngFor="let col of columns">
+                            <p-columnFilter type="text" field="{{col.field}}"></p-columnFilter>
+                        </th>
+                    </tr> -->
+                </ng-template>
+
+
+
+
+                <ng-template pTemplate="body" let-myTask let-columns="columns">
+                    <tr>
+                        <!-- {{myTask | json}} -->
+                        <td *ngFor="let col of columns ; let i = index">
+                            <!-- {{col.field}} -->
+                            <h6> {{myTask[col.alias]}}</h6>
+                        </td>
+
+
+
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="7">
+                            <h6 class="emptymessage">No Data Found</h6>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+
+    </div>
+</div>
+</div>

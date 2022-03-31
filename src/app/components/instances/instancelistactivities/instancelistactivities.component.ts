@@ -28,7 +28,7 @@ loading: boolean = true;
       {label: 'Instance List Details' ,  url:['/#/instancelistDetails?process_INSTANCE_ID='+this.process_INSTANCE_ID]},
       {label: 'Instance List Activities' , url:['/#/instancelistactivities?process_INSTANCE_ID='+this.process_INSTANCE_ID] }
     ];
-      this.home = {icon: 'pi pi-home', routerLink: '/instancelist'};
+      this.home = {icon: 'pi pi-home', routerLink: '/dashboard'};
 
     this.myinstancelist.getActivityInstForTracking(this.process_INSTANCE_ID).subscribe((Response: any) => {
       this.listactivities = Response.body;

@@ -54,7 +54,6 @@ export class ProcesslistService {
      }
     
 
-     
     checkPermission(){
       const s = this.authService.checkAuth("ExcProcessDefinition.createAll");
       // debugger;

@@ -1,0 +1,117 @@
+
+.search .col-3 , .search .col-2{
+    margin-bottom: 5px;
+}
+.search .col-3 label , .search .col-2 label{
+    font-weight: 600;
+    color: #64748b; 
+    margin-left: 2px;
+    font-size: 12px;
+    display: block;
+}
+.search  input , .search .p-inputtext ,
+.search .p-dropdown .p-dropdown-label.p-placeholder , .search .p-inputnumber {
+    width: -webkit-fill-available !important;
+}
+.actions{
+    /* float: right; */
+    margin-left: 14px;
+}
+
+.search  select{    
+    height: 30px;
+    font-size: 12px;
+    padding: 0 8px;
+}
+
+.form-control{
+    height: 30px !important;
+    font-size: 12px !important;
+}
+
+.text-danger{
+    display: block !important;
+    margin-bottom: -5px !important;
+}
+
+.multicol{
+    float: left;
+     margin-top: -7px;
+ }
+ 
+
+ 
+.tabview{
+    width: -webkit-fill-available;
+    margin-top: -22px;
+}
+
+#searchtasklist{
+    padding: 12px 10px;
+    background: f0f8ff;
+    width: 100%; 
+    margin-bottom: 10px
+}
+
+
+ /* spinner loading */
+ #coverspinner{
+    background: #75777826;
+    width: 100%;
+     height: 100vh;
+    position: absolute;
+    z-index: 1;
+    margin: -52px -14px 0;
+    }
+
+
+    p-progressSpinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+
+.loader {
+    margin:auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border: 16px solid #bdc3c7;
+    width: 120px;
+    height: 120px;
+    border-top-color: #1abc9c;
+    border-bottom-color: #3498db;
+    border-radius: 50%;
+    animation: coloredspin 4s linear infinite;
+  }
+  
+ 
+  
+  @keyframes coloredspin {
+    0%{
+      transform: rotate(0deg) scale(1);
+      border-top-color: #1abc9c;
+      border-bottom-color: #1abc9c;
+    }
+    25% {
+      border-top-color: #2ecc71;
+      border-bottom-color: #2ecc71;
+    }
+    50% {
+      transform: rotate(360deg) scale(1.05);
+      border-top-color: #3498db;
+      border-bottom-color: #3498db;
+    }
+    75% {
+      border-top-color: #9b59b6;
+      border-bottom-color: #9b59b6;
+    }
+    100%{
+      transform: rotate(720deg) scale(1);
+      border-top-color: #1abc9c;
+      border-bottom-color: #1abc9c;
+    }
+  }
+  

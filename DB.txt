@@ -16,4 +16,8 @@ spring.datasource.url=jdbc:oracle:thin:@173.249.22.91:1521:hivewfm.mts-mea.com
 spring.datasource.username=bpm_execution
 spring.datasource.password=mtsbpm2016
 
+ip: 161.97.81.241
+port: 1521
+sid: wfmdb
+
 

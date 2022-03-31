@@ -11,7 +11,7 @@ export class AlltasklisttabsComponent implements OnInit {
   items = [
   {label: 'Task List' , routerLink: '/tasklist'}
   ];
-  home = {icon: 'pi pi-home', routerLink: '/tasklist'};
+  home = {icon: 'pi pi-home', routerLink: '/dashboard'};
   indextabs = 0;
 
   gettotaltasklist($event: any) {  

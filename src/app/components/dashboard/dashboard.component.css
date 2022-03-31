@@ -3,6 +3,7 @@
    
 }
 .card-box {
+    height: 120px;
     position: relative;
     color: #fff;
     padding: 20px 10px 40px;
@@ -14,7 +15,7 @@
     color: #f1f1f1;
 }
 .card-box:hover .icon i {
-    font-size: 100px;
+    font-size: 90px;
     transition: 1s;
     -webkit-transition: 1s;
 }

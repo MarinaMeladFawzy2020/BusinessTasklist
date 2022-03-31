@@ -39,7 +39,9 @@ import { MessageService } from 'primeng/api';
 import { UsertaskdetailsComponent } from './components/alltasklist/usertaskdetails/usertaskdetails.component';
 import { StafftaskdetailsComponent } from './components/alltasklist/stafftaskdetails/stafftaskdetails.component';
 import { HistorytaskComponent } from './components/alltasklist/historytask/historytask.component';
-
+import { AllreportsComponent } from './components/reporting/allreports/allreports.component';
+import { ReportComponent } from './components/reporting/report/report.component';
+import { ViewcalenderComponent } from './components/calender/viewcalender/viewcalender.component';
 
 
 @NgModule({
@@ -81,9 +83,10 @@ import { HistorytaskComponent } from './components/alltasklist/historytask/histo
     InstancelistactivitiesComponent,
     InstanceviewhierarchyComponent,
     
+    AllreportsComponent,
+     ReportComponent,
 
-
-
+     ViewcalenderComponent
 
 
   ],
@@ -95,7 +98,7 @@ import { HistorytaskComponent } from './components/alltasklist/historytask/histo
     ReactiveFormsModule,
     HttpClientModule, 
 
-    PrimengModule   
+    PrimengModule   ,
 
     
   ],
@@ -106,6 +109,7 @@ import { HistorytaskComponent } from './components/alltasklist/historytask/histo
     {provide: MessageService}
 
   ],
+	
   bootstrap: [AppComponent]
 })
 export class AppModule { }

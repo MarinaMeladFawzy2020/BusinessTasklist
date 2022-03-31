@@ -16,7 +16,7 @@ export class InstanceslistComponent implements OnInit {
   items = [
   {label: 'Instance List' , routerLink: '/instancelist'}
   ];
-  home = {icon: 'pi pi-home', routerLink: '/instancelist'};
+  home = {icon: 'pi pi-home', routerLink: '/dashboard'};
 
   constructor(private myinstancelist : InstaceslistService) { }
 

@@ -31,7 +31,9 @@ selectedCity!: City ;
     this.premissionAllProcessesview = this.authservice.checkAuth('AllProcesses.view');
     this.premissionTaskListview = this.authservice.checkAuth('TaskList.view');
     this.premissionInstanceListview = this.authservice.checkAuth('InstanceList.view');
- 
+   
+    // sessionStorage.setItem("indextabsReports" , "0");
+
   // alert(this.AllProcessesview)
 
     this.LoginMode  = sessionStorage.getItem("LoginMode");
@@ -107,6 +109,7 @@ selectedCity!: City ;
      // );
 
   }
+
 
 }
 

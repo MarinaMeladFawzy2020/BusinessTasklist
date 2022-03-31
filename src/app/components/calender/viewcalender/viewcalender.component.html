@@ -1,0 +1,9 @@
+<div class="card " style="padding: 10px;" >
+    <!-- <button (click)="toggleWeekends()">toggle weekends</button> [events]="events" -->
+    <!--dateClick="dateClick($event)" (click)="eventClick(calendarOptions.events)"-->
+    <div *ngIf="showCal">
+     <full-calendar  #calendar  [options]="calendarOptions"   ></full-calendar>
+   </div>
+
+</div>
+

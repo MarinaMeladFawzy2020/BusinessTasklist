@@ -21,7 +21,7 @@ export class ProcesslistViewComponent implements OnInit {
    items = [
     {label: 'Processes List' , routerLink: '/processlist'}
    ];
-  home = {icon: 'pi pi-home', routerLink: '/processlist'};
+  home = {icon: 'pi pi-home', routerLink: '/dashboard'};
 
   PageNo:any = 1;
   Size:any = 50;

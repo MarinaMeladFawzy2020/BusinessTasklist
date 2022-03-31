@@ -30,7 +30,7 @@ pageNo = new Map();
     {label: 'Instance List' , routerLink: '/instancelist'},
     {label: 'Instance List Details' , routerLink: '/instancelistDetails'}
   ];
-    home = {icon: 'pi pi-home', routerLink: '/instancelist'};
+    home = {icon: 'pi pi-home', routerLink: '/dashboard'};
 
     datasliders = [
       {"name":'page1'} ,

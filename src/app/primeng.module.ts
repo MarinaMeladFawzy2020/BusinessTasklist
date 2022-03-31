@@ -47,6 +47,21 @@ import {ChartModule} from 'primeng/chart';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {ScrollTopModule} from 'primeng/scrolltop';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+
+
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
+import interactionPlugin from '@fullcalendar/interaction';
+
+FullCalendarModule.registerPlugins([
+  dayGridPlugin,
+  timeGridPlugin,
+  listPlugin,
+  interactionPlugin
+])
 
 const primengModules = [
 
@@ -95,9 +110,10 @@ const primengModules = [
     ChartModule,
     MessageModule,
     MessagesModule,
-    ScrollTopModule
-    
-   
+    ScrollTopModule,
+    ProgressSpinnerModule,
+    FullCalendarModule,
+
 ];
 
 @NgModule({

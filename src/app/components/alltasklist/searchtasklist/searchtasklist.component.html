@@ -19,8 +19,6 @@
 
     <div class="row  search">
 
-       
-
         <div class="col-2"  *ngFor="let oneComponent of selectedmoreComponents">
             <!-- {{oneComponent.name}} -   {{oneComponent.code}} -->
     
@@ -53,7 +51,7 @@
         
             <div   *ngIf="oneComponent.code == '6'"  >
                 <label >Task Status</label> 
-                <p-dropdown inputId="TaskStatus" [options]="TaskStatus" [(ngModel)]="selectedTaskStatus"   name="work_ITEM_STATUS" placeholder="Select Task Status" ></p-dropdown>
+                <p-dropdown inputId="TaskStatus" [options]="TaskStatus" [(ngModel)]="selectedTaskStatus"   name="work_ITEM_STATUS" placeholder="Select Task Status"  [showClear]="true" ></p-dropdown>
             </div>
         
             <div  *ngIf="oneComponent.code == '7'"  >
