@@ -155,7 +155,7 @@ getstaffActivity(){
 
 submitassign(){
   console.log(this.selectedcustomers);
-  this.myTaskList.AssignWorkItem(this.selectedcustomers , this.datastaff ).subscribe((Response: any) => {
+  this.myTaskList.AssignWorkItem(this.selectedcustomers , this.datastaff).subscribe((Response: any) => {
    console.log( Response.body);
    if(Response.code == 1 ){
     bootbox.alert({

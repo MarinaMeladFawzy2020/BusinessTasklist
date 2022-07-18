@@ -91,7 +91,7 @@ export class ReportComponent implements OnInit , AfterViewInit {
                 "Alloptions" : this.Alloptions.get(this.objectSearch[i].param_ID)
                }
                this.AllLookup.push(this.objectoptions);
-              // console.log("AllLookup");
+              console.log("AllLookup");
             }
 
       

@@ -83,7 +83,6 @@ calendarVisible = true;
 
     };
 
-
     drawCalender(_TaskList :any){
     this.showCal = true;
     this.calendarOptions = {
@@ -96,8 +95,6 @@ calendarVisible = true;
       initialView: 'dayGridMonth',
       events: this.TaskListEvent,
       dateClick: this.handleDateClick.bind(this), // bind is important!   
-      
-
       eventClick: function(info) {
         var eventObj = info.event;
             if (eventObj.start) {

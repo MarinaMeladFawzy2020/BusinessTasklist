@@ -6,11 +6,13 @@
 // 'https://192.168.0.9:8083/'; //local
 // 'http://192.168.0.89:8080/EUBusiness/' ; //89
 
+//'http://161.97.81.241:8083/'
+
+
 export const environment = {
   production: false ,
-  // urlAddress: 'http://192.168.0.89:8080/EUBusiness/'  
-  urlAddress: 'https://173.249.22.91:8083/'  
-
+  urlAddress: 'http://192.168.0.89:8080/EUBusiness/'  
+ // urlAddress: 'https://192.168.0.110:8083/'  
 };
 
 /*

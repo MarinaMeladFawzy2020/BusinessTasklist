@@ -63,7 +63,6 @@ return sessionStorage.getItem('token') || '';
 getTokenExpirationDate(token: string): any {
   token = this.getToken()
   const decoded: any = jwt_decode(token);
-
   if (decoded.exp === undefined) return null;
 
   const date = new Date(0);
