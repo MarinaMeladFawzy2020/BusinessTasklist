@@ -20,6 +20,8 @@ export class CreateinstanceComponent implements OnInit {
 
   ngOnInit(): void {
   //  this.checkURLiFrame = false;
+  this.nameusercreateinstance = sessionStorage.getItem("username");
+
     if(sessionStorage.getItem("username") == "root"){
       this.nameuser = "INTI_ALL";
     }else{
@@ -54,8 +56,8 @@ export class CreateinstanceComponent implements OnInit {
 
    // http://192.168.0.89:8080/EUBusiness/processworkflow?INST_ProcessId=1125&INST_VersionNo=Version%201&USER=
     //http://192.168.0.32:8003/BPM_INTEGRATION_API/processworkflow
-
-    this.URLInstance = "/EUBusiness/processworkflow?INST_ProcessId="+this.dataP.ProcessId+"&INST_VersionNo="+this.dataP.VersionNo+"&USER="+this.nameuser;
+    // http://192.168.0.89:8080/EUBusiness/processworkflow?INST_ProcessId=1125&INST_VersionNo=Version%201&USER=INTI_ALL
+    this.URLInstance = "/EUBusiness/processworkflow?INST_ProcessId="+this.dataP.ProcessId+"&INST_VersionNo="+this.dataP.VersionNo+"&USER="+this.nameusercreateinstance;
     this.urLNoSpace = this.URLInstance.replace(' ', '%20') ;
     console.log(this.urLNoSpace);
     this.trustedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.urLNoSpace);
